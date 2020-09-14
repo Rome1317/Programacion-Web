@@ -7,16 +7,16 @@ create table if not exists Tbl_Usuario(
     pass		varchar(50)	not null,
     facebook	varchar(50) null,
     twitter		varchar(50)	null,
-    imagen		varchar(50) null
-    /*rol	varchar(50) not null*/
+    imagen		varchar(50) null,
+    rol			varchar(50) not null
 );
 create table if not exists Tbl_Noticia(
-	id_noticia	int auto_increment	primary key not null,
-	titulo		varchar(50) not null,
-    descripcion	varchar(100) not null,
-    noticia		varchar(1000) not null,
-    aprovado	bool default 0,
-    fk_usuario	varchar(50) not null,
+	id_noticia		int 			auto_increment	primary key not null,
+	titulo			varchar(50) 	not null,
+    descripcion		varchar(100) 	not null,
+    noticia			varchar(1000) 	not null,
+    aprovado		bool 			default 0,
+    fk_usuario		varchar(50)		not null,
 	foreign key (fk_usuario) references Tbl_Usuario(email)
 );
 
@@ -27,17 +27,17 @@ create table if not exists Tbl_Categoria(
 );
 
 create table if not exists Tbl_Not_Cat(
-	id_not_cat		int auto_increment	primary key not null,
-	fk_noticia		int not null,
-    fk_categoria	int not null,
+	id_not_cat		int 	auto_increment	primary key not null,
+	fk_noticia		int 	not null,
+    fk_categoria	int 	not null,
     foreign key (fk_noticia) references Tbl_Noticia(id_noticia),
     foreign key (fk_categoria) references Tbl_Categoria(id_categoria)
 );
 
 create table if not exists Tbl_Imagen(
-	id_imagen	int auto_increment	primary key not null,
+	id_imagen	int 		auto_increment	primary key not null,
     extencion	varchar(50) not null,
-    fk_noticia	int not null,
+    fk_noticia	int 		not null,
 	foreign key (fk_noticia) references Tbl_Noticia(id_noticia)
 );
 
