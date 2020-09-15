@@ -1,6 +1,8 @@
-use CT_DB;
+DROP procedure IF EXISTS `prc_not_cat`;
 
-create procedure prc_not_cat(
+DELIMITER $$
+USE `ct_db`$$
+create procedure `prc_not_cat`(
 in _id_not_cat		int,
 in _fk_noticia		int,
 in _fk_categoria	int,
@@ -22,4 +24,6 @@ begin
 		select * from Tbl_Not_Cat 
        where id_not_cat = _id_not_cat;
 	end case;
-end
+END$$
+
+DELIMITER ;

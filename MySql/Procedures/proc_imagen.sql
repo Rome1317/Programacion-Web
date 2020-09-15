@@ -1,6 +1,8 @@
-use CT_DB;
+DROP procedure IF EXISTS `prc_imagen`;
 
-create procedure prc_imagen(
+DELIMITER $$
+USE `ct_db`$$
+create procedure `prc_imagen`(
 in _id_imagen	int, 		
 in _extencion	varchar(50),
 in _fk_noticia	int,
@@ -13,14 +15,16 @@ begin
 	when 'editar' then
 		update Tbl_Imagen 
         set extencion = _extencion, fk_noticia = _fk_noticia
-		where id_imagen = _id_imagen
+		where id_imagen = _id_imagen;
 	when 'eliminar' then
 		delete from Tbl_Imagen 
-        where id_imagen = _id_imagen
+        where id_imagen = _id_imagen;
 	when 'consultar' then
 		select * from Tbl_Imagen 
-        where id_imagen = _id_imagen
-	end case
-end
+        where id_imagen = _id_imagen;
+	end case;
+END$$
+
+DELIMITER ;
 
 

@@ -1,6 +1,8 @@
-use CT_DB;
+DROP procedure IF EXISTS `prc_guardadas`;
 
-create procedure prc_guardadas(
+DELIMITER $$
+USE `ct_db`$$
+create procedure `prc_guardadas`(
 in _id_guardadas	int, 		
 in _etiqueta		varchar(50),
 in _fk_usuario		varchar(50),
@@ -14,12 +16,14 @@ begin
 	when 'editar' then
 		update Tbl_Guardadas 
         set etiqueta = _etiqueta, fk_usuario = _fk_usuario, fk_noticia = _fk_noticia
-		where id_guardadas = _id_guardadas
+		where id_guardadas = _id_guardadas;
 	when 'eliminar' then
 		delete from Tbl_Guardadas 
-        where id_guardadas = _id_guardadas
+        where id_guardadas = _id_guardadas;
 	when 'consultar' then
 		select * from Tbl_Guardadas 
-        where id_guardadas = _id_guardadas
-	end case
-end
+        where id_guardadas = _id_guardadas;
+	end case;
+END$$
+
+DELIMITER ;

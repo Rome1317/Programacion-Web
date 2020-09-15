@@ -1,6 +1,8 @@
-use CT_DB;
+DROP procedure IF EXISTS `prc_noticia`;
 
-create procedure prc_noticia(
+DELIMITER $$
+USE `ct_db`$$
+create procedure `prc_noticia`(
 in _id_noticia		int,
 in _titulo			varchar(50),
 in _descripcion		varchar(100),
@@ -26,4 +28,6 @@ begin
 		select * from Tbl_Noticia 
         where id_noticia = _id_noticia;
 	end case;
-end
+END$$
+
+DELIMITER ;
