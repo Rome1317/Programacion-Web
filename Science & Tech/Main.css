@@ -12,11 +12,14 @@ body{
     box-shadow: 5px 0px 5px 0px rgba(143,143,143,1);
 }
 
-#menu{ 
-    width: 1.5%;
+.menu{ 
+    width: 2%;
     position: absolute;
     left: 45px;
-    top: 30px;
+    top: 32px;
+    background: black;
+    border: none;
+    color: white;
     
 }
 
@@ -29,18 +32,21 @@ body{
     font-family: 'Jura', sans-serif;
 }
 
-#Logo{
+.Logo{
     margin-top: 0%;
     margin-left: 10%;
     width: 250px;
     
 } 
 
-#search{
-    width: 1.5%;
+.search{
+    width: 5%;
     position: absolute;
-    left: 1050px;
+    left: 1020px;
     top: 30px;
+    background: black;
+    border: none;
+    color: white;
 }
 
 .cabecera h2{
