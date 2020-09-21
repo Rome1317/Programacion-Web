@@ -1,6 +1,7 @@
 body{
     background: url(Images/Log_in.png)  center top; 
     background-size: cover;
+    background-color: rgb(231, 231, 231);
     font-family: 'Jura', sans-serif;
 }
 
