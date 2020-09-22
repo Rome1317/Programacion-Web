@@ -1,3 +1,4 @@
+
 body{
     background: url(Images/Log_in.png)  center top; 
     background-size: cover;
@@ -7,7 +8,7 @@ body{
 
 .container{
     width: 320px;
-    height: 420px;
+    height: 460px;
     background: rgb(2, 2, 2);
     color: white;
 
@@ -21,7 +22,6 @@ body{
     border-radius: 10px;
 
     padding: 70px 30px;
-
 }
 
 img{
@@ -47,21 +47,11 @@ h2{
     text-transform: uppercase;
 }
 
-
-.container input{
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.container form .invalid{
-    border: none;
-    border-bottom: 1px solid rgb(129, 0, 0);
-    background: transparent;
-}
-
-
 .container input[type="password"],
 .container input[type="text"]{
+    width: 100%;
+    margin-bottom: 20px;
+
     border: none;
     border-bottom: 1px solid white;
     background: transparent;
@@ -74,7 +64,6 @@ h2{
     margin-top: 10px;
 
     box-sizing: border-box;
-
     color: white;
 }
 
@@ -88,6 +77,9 @@ h2{
 
 
 .container input[type="submit"]{
+    width: 100%;
+    margin-bottom: 20px;
+
     border: none;
     outline: none;
     height: 40px;
@@ -105,6 +97,7 @@ h2{
 
 }
 
+
 .container a{
     text-decoration: none;
     font-size: 12px;
@@ -114,10 +107,14 @@ h2{
      /*! Los enlaces no son texto */
     display: block;
     text-align: center;
-
 }
 
 .container a:hover{
     color: white;
     
 }
+
+.container input[type="checkbox"]{
+      margin-bottom: 20px;
+}
+
