@@ -48,6 +48,10 @@ h2{
 }
 
 
+.container input{
+    width: 100%;
+    margin-bottom: 20px;
+}
 
 .container form .invalid{
     border: none;
@@ -72,9 +76,6 @@ h2{
     box-sizing: border-box;
 
     color: white;
-
-    width: 100%;
-    margin-bottom: 20px;
 }
 
 .container input[type="password"]:focus,
