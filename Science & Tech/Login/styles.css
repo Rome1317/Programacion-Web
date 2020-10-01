@@ -1,0 +1,127 @@
+:root{
+    --dark: #16191c;
+    --dark-x: #1e2126;
+    --light: #ffffff;
+    --blue: rgb(29, 165, 175);
+    --lightblue: rgb(32, 210, 223);
+}
+
+body{
+
+    font-family: 'Jura', sans-serif;
+    font-weight: 300;
+    color: white;
+}
+
+.bg-dark{
+    /* !important para que se sobreescriba */
+    background-color: var(--dark) !important; 
+}
+
+/* User & Password */
+.bg-dark-x{
+    background-color: var(--dark-x) ; 
+    border: none;
+    color: var(--light);
+
+    /* Lines */
+    /* border-bottom: 1px solid white;
+    background: transparent;
+
+    outline: none; */
+}
+
+.bg-dark-x:focus{
+    background: transparent;
+    box-shadow: 0px 0px 5px 1px var(--light); 
+    border: 1.5px solid white;
+    border-radius: 5px;
+    color: var(--light);
+}
+
+/* Log-In Button */
+.btn-primary {
+    /* background-color: var(--blue);
+    border: none;
+    border-radius: 3px;
+    color: var(--light); */
+    font-size: 18px;
+}
+
+.btn-primary:active{
+    transform: scale(0.95);
+}
+
+  /* .btn-primary:hover {
+    background-color: var(--lightblue);
+    border: none;
+  } */
+
+
+/* .butts{
+    font-family: 'Spartan', sans-serif;
+} */
+
+
+.logo{
+    width: 300px;
+}
+
+.img-1{
+
+    background-image: url(../Images/2.jpg);
+    background-size: cover;
+    background-position: center;
+
+}
+
+.img-2{
+
+    background-image: url(../Images/Ej2.jpg);
+    background-size: cover;
+    background-position: center;
+
+}
+
+.img-3{
+
+    background-image: url(../Images/11.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+h5{
+    text-shadow: 2px 2px 1px #000000;
+}
+
+a{
+    color: darkgray;
+}
+
+a:hover{
+
+    color: var(--light);
+    font-weight: bold;
+
+}
+
+.shadow:hover{
+
+    color: rgb(165, 165, 165);
+    text-shadow: 2px 2px 1px #000000;
+
+}
+
+
+.white{
+    background-color: var(--dark);
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+
+    transition-duration: 1s;
+}
+
+.dark{
+
+    transition-duration: 1s;
+}
