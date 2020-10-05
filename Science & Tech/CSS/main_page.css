@@ -1,0 +1,171 @@
+/*Resetea para todos los navegadores el estilo*/
+/* Enlaces del nav */
+/* GRID DEL MENU */
+/* ------------------------------------------------------------------------------------ */
+/*Navegacion*/
+/*Show Case*/
+hr {
+  margin: 0 0 20px 0;
+}
+
+.showcase {
+  width: 100%;
+  height: 550px;
+  background: url(/Recursos/Images/Ej1.jpg) no-repeat center/cover;
+  padding: 100px 0 0 30px;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.btn-pw {
+  cursor: pointer;
+  display: inline-block;
+  border: 0;
+  font-weight: bold;
+  padding: 10px 20px;
+  background: #262626;
+  color: white;
+  border: 1px solid white;
+  margin: 10px 0;
+}
+
+.btn-pw:hover {
+  opacity: .8;
+}
+
+.showcase h2, .showcase p {
+  margin-bottom: 10px;
+}
+
+/*News cards*/
+.news-cards {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 25px;
+  margin: 10px 0;
+}
+
+.news-cards img {
+  width: 100%;
+  height: 220px;
+}
+
+.news-cards h3 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.news-cards a {
+  padding: 10px 0;
+  color: #f2f2f2;
+  text-transform: uppercase;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.news-cards a:hover {
+  text-decoration: underline;
+}
+
+/*Cards banner one*/
+.cards-banner-one {
+  width: 100%;
+  height: 350px;
+  background: url(/Recursos/Images/Ej9.jpg);
+  margin: 20px 0;
+}
+
+.cards-banner-one .content {
+  width: 40%;
+  padding: 90px 0 0 30px;
+  color: #ffffff;
+}
+
+.cards-banner-one p, .cards-banner-one h2 {
+  margin: 10px 0;
+}
+
+/*Cards banner two*/
+.cards-banner-two {
+  width: 100%;
+  height: 350px;
+  background: url(/Recursos/Images/Ej9.jpg) no-repeat center/cover;
+}
+
+.cards-banner-two .content {
+  width: 50%;
+  padding: 100px 0 0 30px;
+  color: #ffffff;
+}
+
+/*MEDIA QUERYS*/
+@media (max-width: 1000px) {
+  .menu-btn-pw {
+    right: 10%;
+  }
+  .nav-main ul.nav-menu li {
+    padding: 20px;
+    font-size: 14px;
+  }
+  .news-cards {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  .cards-banner-one .content, .cards-banner-two .content {
+    width: 80%;
+  }
+}
+
+@media (max-width: 700px) {
+  .news-cards {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  .news-cards img {
+    width: 100%;
+    height: 150px;
+  }
+}
+
+@media (max-width: 500px) {
+  .contenedor-pw {
+    width: 100%;
+  }
+  .news-cards {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .news-cards img {
+    height: 180px;
+  }
+  .cards-banner-one .content, .cards-banner-two .content {
+    width: 100%;
+    padding: 60px 20px;
+  }
+  .footer-links .footer-contenedor-pw {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
+  .menu-btn-pw {
+    right: 10%;
+  }
+  .nav-main ul.nav-menu-right {
+    margin-right: 13%;
+  }
+}
+/*# sourceMappingURL=main_page.css.map */

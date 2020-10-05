@@ -1,0 +1,255 @@
+.menu {
+    background: black;
+    padding: 5px 0;
+    margin-bottom: 20px;
+  
+    .contenedor-pw {
+      width: 100%;
+    }
+  
+    .contenedor-botones-menu {
+      display: flex;
+      justify-content: space-between;
+  
+      img {
+        width: 250px;
+      }
+  
+      button {
+        font-size: 20px;
+        color: white;
+        padding: 10px 20px;
+        border: 1px solid transparent;
+        display: inline-block;
+        cursor: pointer;
+        background: none;
+  
+        &:hover {
+          border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+      }
+  
+      .btn-pw-menu-cerrar {
+        display: none;
+  
+        &.activo {
+          display: inline-block;
+        }
+      }
+    }
+  
+    .contenedor-enlaces-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+  
+      a {
+        color: #ccc;
+        border: 1px solid transparent;
+        padding: 7px;
+        border-radius: 3px;
+        font-size: 14px;
+  
+        &:hover {
+          border-bottom: 2px solid;
+        }
+      }
+    }
+  }
+
+  
+  .contenedor-grid {
+    position: relative;
+  }
+  
+  .grid {
+    color: black;
+    width: 100%;
+    position: absolute;
+    top: 5px;
+    z-index: 1000;
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas: "categorias subcategorias subcategorias";
+  
+    &.activo {
+      display: grid;
+    }
+  
+    &::before {
+      content: "";
+      display: block;
+      background: transparent;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid #fff;
+      position: absolute;
+      top: -5px;
+      left: 25px;
+    }
+  
+    > div {
+      background: #fff;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    }
+  
+    .btn-pw-regresar {
+      background: #232F3E;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 3px;
+      margin: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      display: none;
+  
+      i {
+        margin-right: 10px;
+      }
+    }
+  
+    .categorias {
+      grid: categorias;
+      padding-top: 10px;
+      min-height: 100%;
+  
+      .subtitulo {
+        display: none;
+      }
+  
+      a {
+        color: #000;
+        font-size: 14px;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 20px;
+  
+        i {
+          display: none;
+        }
+  
+        &:hover {
+          color: #E47911;
+  
+          /* font-weight: bold; */
+          font-size: 16px;
+  
+          i {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  
+    .contenedor-subcategorias {
+      grid-area: subcategorias;
+    }
+  
+    .subcategoria {
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      height: 100%;
+  
+      &.activo {
+        display: grid;
+      }
+  
+      img {
+        width: 100%;
+        vertical-align: top;
+        height: 100%;
+  
+        /* object-fit: center; */
+      }
+    }
+  
+    .subtitulo {
+      font-size: 18px;
+      font-weight: normal;
+      color: #E47911;
+      padding: 10px 20px;
+    }
+  
+    .banner-subcategoria a {
+      display: block;
+      height: 100%;
+    }
+  
+    .galeria-subcategoria {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: start;
+  
+      a {
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+  
+  /* CATEGORIAS */
+  
+  /* Subcategoria */
+  
+  /* Media querys */
+  @media screen and (max-width: 1000px) {
+    .menu {
+      .enlaces {
+        padding: 0 10px;
+      }
+  
+      .contenedor-pw {
+        width: 100%;
+      }
+    }
+  }
+  
+  @media screen and (max-width: 800px) {
+    .menu {
+      .contenedor-pw {
+        width: 90%;
+      }
+  
+      .contenedor-botones-menu {
+        display: block;
+      }
+  
+      .contenedor-enlaces-nav {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        left: 0;
+        background: black;
+        height: 100vh;
+        width: 80%;
+        z-index: 2000;
+        transition: .3s ease all;
+        transform: translate(-100%);
+  
+        &.activo {
+          transform: translate(0%);
+        }
+      }
+  
+      .enlaces {
+        width: 100%;
+      }
+  
+      .contenedor-enlaces-nav a:hover {
+        border: 1px solid rgba(255, 255, 255, 0.4);
+      }
+  
+      .enlaces a {
+        display: block;
+        margin: 10px 0;
+        padding: 10px;
+      }
+    }
+  }
+  
