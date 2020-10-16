@@ -122,7 +122,7 @@ hr {
     font-size: 14px;
   }
   .news-cards {
-    -ms-grid-columns: (1fr)[2];
+    -ms-grid-columns: (1fr);
         grid-template-columns: repeat(2, 1fr);
   }
   .cards-banner-one .content, .cards-banner-two .content {
