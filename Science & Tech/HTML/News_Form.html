@@ -1,38 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
+    <title>News Form | Science & Tech</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <!--Font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
-     crossorigin="anonymous" />
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
 
-    <!--Font oswald-->
+    <!-- Logo Icon -->
+    <link
+    rel="shortcut icon"
+    type="image/x-icon"
+    href="../Logo/favicon2.ico"
+    sizes="50x50"
+    />
+
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/ab5a1a4d66.js" crossorigin="anonymous"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;600;800&display=swap" 
+    rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
 
     <!--Custom css-->
     <link rel="stylesheet" href="/CSS/styles.css">
-
-    <link rel="stylesheet" href="/CSS/profile_page.css">
-    
+    <link rel="stylesheet" href="/CSS/form.css">
 
 </head>
 <body>
-    <!-- Header/Menu  -->
-    <nav class="menu" id= "menu">
+     <!--Boton menu-->
+
+     <nav class="menu" id= "menu">
         <div class="contenedor-pw contenedor-botones-menu">
             <button id="btn-pw-menu-barras" class = "btn-pw-menu-barras"><i class="fas fa-bars"></i></button>
-            <a href="pagina_principal.html"><img src="/Recursos/Logo/logo (1).gif" alt=""></a>
+            <a href="Home.html"><img src="/Recursos/Logo/logo.gif" alt=""></a>
             <div class="contenedor-pw contenedor-enlaces-nav">
                 <div class="enlaces">
-                    <a href="#">Mi Cuenta</a>
+                    <a href="/HTML/profile.html">Mi Cuenta</a>
                     <a href="#">Populares</a>
                     <a href="#">Ayuda</a>
                 </div>
@@ -260,124 +274,110 @@
         </div>
     </nav>
 
-    <!-- Container -->
-    <div class="contenedor-pw" id="contenedor-pw">
-        <!-- CSS GRID -->
-        <div class="profile" id="profile">
 
-            <header class="header-pw">
-                <!-- <img src="/Recursos/Images/rv1.jpg" alt="" class="portada-pw"> -->
-                <img src="/Recursos/Images/Messi.jpg" alt="" class = "avatar-pw">
-                <h2 class="user-name">@DonatoCalvillo</h2>
-                <!-- <h2>EDGAR DONATO CALVILLO LUMBRERAS</h2> -->
-            </header>
-
-            <aside class="sidebar-pw">
-                <button data-opciones="informacion"> <i class="fas fa-id-card"></i></i>   Informacion</a>
-                <button data-opciones="mis-noticias"> <i class="fas fa-book-open"></i>   Mis Noticias</button>
-                <button data-opciones="gestion"> <i class="fas fa-tasks"></i>   Gestionar Noticias</button> 
-                <button data-opciones="mas-tarde"> <i class="fas fa-clock"></i>   Ver mas tarde</button>
-                <button data-opciones="favoritos"> <i class="fas fa-crown"></i>   Favoritos</button>    
-            </aside>
-
-            <div class="panel-pw">
-                <div class="contenedor-opciones">
-                    <div class="opcion" id="opcion" data-opciones="informacion">
-                        <h2>INFORMACION DEL PERFIL</h2>
-                        <hr>
-                        <form>
-                        <div class="row">
-                          <div class="col">
-                                <label for="validationCustom01">Nombre(s)</label>
-                                <input type="text" class="form-control" placeholder="Nombre(s)">
-                            </div>
-                            <div class="col">
-                                <label for="validationCustom02">Apellidos</label>
-                                <input type="text" class="form-control" placeholder="Apellidos">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    
-                    <div class="opcion" id="opcion" data-opciones="mis-noticias">
-                        <h2>MIS NOTICIAS</h2>
-                        <hr>
-                        <div class="card" style="width: 18rem;">
-                            <img src="/Recursos/Images/Ej1.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                          </div>
-                    </div>
-
-                    <div class="opcion" id="opcion" data-opciones="gestion">
-                        <h2>GESTIONAR NOTICIAS</h2>
-                        <hr>
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <a href="#" class="card-link">Aprobar</a>
-                              <a href="#" class="card-link">Descartar</a>
-                            </div>
-                          </div>
-                    </div>
-
-                    <div class="opcion" id="opcion" data-opciones="mas-tarde">
-                        <h2>VER MAS TARDE</h2>
-                        <hr>
-                        <div class="card" style="width: 18rem;">
-                            <img src="/Recursos/Images/Ej4.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                          </div>
-                    </div>  
-
-                    <div class="opcion" id="opcion" data-opciones="favoritos">
-                        <h2>FAVORITOS</h2>
-                        <hr>
-                        <div class="card" style="width: 18rem;">
-                            <img src="/Recursos/Images/Ej4.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                          </div>
-                    </div>  
-
+    <div class="container">
+        <div class=" col-xl-10 d-flex flex-column m-auto">
+            
+            <form>
+                <div class="form-group">
+                  <label for="title">Title</label>
+                  <input type="text" class="form-control" id="title" placeholder="Enter your news title">
                 </div>
-               
-            </div>
 
+                <div class="butts">
+                    <label>Categories</label>
+                    <br>
+
+                    <div class="btn-group-toggle text-center " data-toggle="buttons">
+                        <label class="btn btn-outline-dark mr-2 mb-2">
+                          <input type="checkbox"> Clima & Ambiente
+                        </label>
+                        <label class="btn btn-outline-dark mr-2 mb-2">
+                            <input type="checkbox"> Ciencia
+                        </label>
+                        <label class="btn btn-outline-dark mr-2 mb-2">
+                            <input type="checkbox"> Multimedia
+                        </label>
+                        <label class="btn btn-outline-dark mr-2 mb-2">
+                            <input type="checkbox"> Tips Tecnologicos
+                        </label>
+                        <label class="btn btn-outline-dark mr-2 mb-2">
+                            <input type="checkbox"> Videojuegos
+                        </label>
+                        <label class="btn btn-outline-dark mr-2 mb-2">
+                            <input type="checkbox"> Autos
+                        </label>
+                        <label class="btn btn-outline-dark mr-2 mb-2">
+                            <input type="checkbox"> Ciberseguridad
+                        </label>
+                        <label class="btn btn-outline-dark mr-2 mb-2">
+                            <input type="checkbox"> Realidad Virtual
+                        </label>
+                        <label class="btn btn-outline-dark mr-2 mb-2">
+                            <input type="checkbox"> Inteligencia Artificial
+                        </label>
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                  <label for="summary">Summary</label>
+                  <textarea class="form-control" id="summary" rows="3" placeholder="Enter a summary of your story"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Image</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+
+                <div class="form-group">
+                    <label for="caption">Image caption</label>
+                    <input type="text" class="form-control" id="caption" placeholder="Enter image caption">
+                </div>
+
+                <div class="form-group">
+                    <label for="sub1">Subtitle</label>
+                    <input type="text" class="form-control" id="sub1" placeholder="Enter subtitle">
+                </div>
+
+                <div class="form-group">
+                    <label for="text1">Content</label>
+                    <textarea class="form-control" id="text1" rows="3" placeholder="Enter description"></textarea>
+                </div>
+
+                <div class="second d-none">
+
+                    <div class="form-group">
+                        <label for="sub2">Subtitle 2</label>
+                        <input type="text" class="form-control" id="sub2" placeholder="Enter subtitle">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="text2">Content</label>
+                        <textarea class="form-control" id="text2" rows="3" placeholder="Enter description"></textarea>
+                    </div>
+                </div>
+
+                <div class="third d-none">
+                    <div class="form-group">
+                        <label for="sub3">Subtitle 3</label>
+                        <input type="text" class="form-control" id="sub3" placeholder="Enter subtitle">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="text3">Content</label>
+                        <textarea class="form-control" id="text3" rows="3" placeholder="Enter description"></textarea>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-outline-link font-weight-bold float-right mb-4" > <i class="fas fa-plus"></i> Add Subtitle</button>
+                <button type="submit" class="btn btn-primary font-weight-bold px-4" >Publish</button>
+                
+              </form>
         </div>
-   
-        <!--Social-->
-        <section class="social">
-            <p>Siguenos Science & Tech</p>
-            <div class="links">
-                <a href="https://www.facebook.com/Romeesponja">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </div>
-
-        </section>
-
     </div>
 
-    <!-- Footer -->
+
+     <!--footer-->
      <div class="footer-links">
         <div class="footer-contenedor-pw">
             <ul>
@@ -495,23 +495,24 @@
         <h3>&#169 Science & Tech </h3>
     </footer>
 
-    <!-- SCRIPS -->
+    <!--SCRIPTS-->
+
+    <!--scroll reveal-->
+    <script src="https://unpkg.com/scrollreveal"></script>
 
     <!--custom js-->
-    <script src="/JS/profile.js"></script>
-    <script src="/JS/haeder.js"></script>
-
+    <script src="/JS/header.js"></script>
 
     <!-- Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"></script>
-
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"></script>
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-      crossorigin="anonymous"></script>
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
 </body>
 </html>
