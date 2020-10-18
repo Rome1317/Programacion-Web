@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+     <!-- Bootstrap -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!--Font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+    crossorigin="anonymous" />
+
+    <!--Font oswald-->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!--Custom css-->
+    <link rel="stylesheet" href="/CSS/styles.css">
+    <link rel="stylesheet" href="/CSS/search.css">
+</head>
+<body>
+    <!--Boton menu-->
+
+    <nav class="menu" id= "menu">
+        <div class="contenedor-pw contenedor-botones-menu">
+            <button id="btn-pw-menu-barras" class = "btn-pw-menu-barras"><i class="fas fa-bars"></i></button>
+            <a href="pagina_principal.html"><img src="/Recursos/Logo/logo.gif" alt=""></a>
+            <div class="contenedor-pw contenedor-enlaces-nav">
+                <div class="enlaces">
+                    <a href="/HTML/profile.html">Mi Cuenta</a>
+                    <a href="#">Populares</a>
+                    <a href="#">Ayuda</a>
+                </div>
+            </div>
+            
+            <button id="btn-pw-menu-cerrar" class = "btn-pw-menu-cerrar"><i class ="fas fa-times"></i></button>
+        </div>
+
+        <div class="contenedor-pw contenedor-grid">
+            <div class="grid" id="grid">
+                <div class="categorias">
+                   <button class ="btn-pw-regresar"><i class="fas fa-arrow-left"></i> Regresar</button>
+                   <h3 class="subtitulo">Categorias</h3>
+                   <a href="#" data-categoria="climate-enviroment">Clima & ambiente <i class="fas fa-arrow-right"></i></a>
+                   <a href="#" data-categoria="science">Ciencia <i class="fas fa-arrow-right"></i></a>
+                   <a href="#" data-categoria="media">Multimedia <i class="fas fa-arrow-right"></i></a>
+                   <a href="#" data-categoria="tech-tips">Tips Tecnologicos <i class="fas fa-arrow-right"></i></a>
+                   <a href="#" data-categoria="videogames">Videojuegos <i class="fas fa-arrow-right"></i></a>
+                   <a href="#" data-categoria="cars">Autos <i class="fas fa-arrow-right"></i></a>
+                   <a href="#" data-categoria="Cybersecurity">Civerseguiridad <i class="fas fa-arrow-right"></i></a>
+                   <a href="#" data-categoria="virtual-reality">Realida Virtual <i class="fas fa-arrow-right"></i></a>
+                   <a href="#" data-categoria="artificial-intelligence">Inteligencia Artificial <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="contenedor-subcategorias">
+                    <div class="subcategoria activo" data-categoria="climate-enviroment">
+                        <div class="banner-subcategoria">
+                            <a href="#">
+                                <img src="/Recursos/Images/clima5.jpg" alt="">
+                            </a>
+                        </div>  
+                        <div class="galeria-subcategoria">
+                            <a href="#">
+                                <img src="/Recursos/Images/clima2.jpg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/clima3.jpg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/clima4.jpg" alt="">
+                             </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/clima1.jpg" alt="">
+                            </a>
+                        </div>   
+                    </div>  
+
+                    <div class="subcategoria" data-categoria="science">
+                        <div class="banner-subcategoria">
+                            <a href="#">
+                                <img src="/Recursos/Images/ciencia4.jpg" alt="">
+                            </a>
+                        </div>  
+                        <div class="galeria-subcategoria">
+                            <a href="#">
+                                <img src="/Recursos/Images/ciencia2.jpg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/ciencia3.jpg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/ciencia1.jpg" alt="">
+                             </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/ciencia5.jpg" alt="">
+                            </a>
+                        </div>   
+                    </div>  
+
+                    <div class="subcategoria" data-categoria="media">
+                        <div class="banner-subcategoria">
+                            <a href="#">
+                                <img src="/Recursos/Images/media1.jpg" alt="">
+                            </a>
+                        </div>  
+                        <div class="galeria-subcategoria">
+                            <a href="#">
+                                <img src="/Recursos/Images/media2.jpg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/media3.jpg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/media4.jpg" alt="">
+                             </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/media5.jpg" alt="">
+                            </a>
+                        </div>   
+                    </div>
+                    
+                    <div class="subcategoria" data-categoria="tech-tips">
+                        <div class="banner-subcategoria">
+                            <a href="#">
+                                <img src="/Recursos/Images/tech1.jpg" alt="">
+                            </a>
+                        </div>  
+                        <div class="galeria-subcategoria">
+                            <a href="#">
+                                <img src="/Recursos/Images/tech2.jpeg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/tech3.png" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/tech4.jpg" alt="">
+                             </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/tech5.jpg" alt="">
+                            </a>
+                        </div>   
+                    </div>
+
+                    <div class="subcategoria" data-categoria="videogames">
+                        <div class="banner-subcategoria">
+                            <a href="#">
+                                <img src="/Recursos/Images/vg1.jpg" alt="">
+                            </a>
+                        </div>  
+                        <div class="galeria-subcategoria">
+                            <a href="#">
+                                <img src="/Recursos/Images/vg2.jpg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/vg3.jpg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/vg4.jpg" alt="">
+                             </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/vg1.jpg" alt="">
+                            </a>
+                        </div>   
+                    </div>
+
+                    <div class="subcategoria" data-categoria="cars">
+                        <div class="banner-subcategoria">
+                            <a href="#">
+                                <img src="/Recursos/Images/car3.jpg" alt="">
+                            </a>
+                        </div>  
+                        <div class="galeria-subcategoria">
+                            <a href="#">
+                                <img src="/Recursos/Images/car2.jpg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/car1.jpg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/car4.jpg" alt="">
+                             </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/car5.jpg" alt="">
+                            </a>
+                        </div>   
+                    </div>
+
+                    <div class="subcategoria" data-categoria="Cybersecurity">
+                        <div class="banner-subcategoria">
+                            <a href="#">
+                                <img src="/Recursos/Images/cs5.jpg" alt="">
+                            </a>
+                        </div>  
+                        <div class="galeria-subcategoria">
+                            <a href="#">
+                                <img src="/Recursos/Images/cs1.jpg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/cs2.jpg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/cs3.jpg" alt="">
+                             </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/cs4.jpg" alt="">
+                            </a>
+                        </div>   
+                    </div>
+
+                    <div class="subcategoria" data-categoria="virtual-reality">
+                        <div class="banner-subcategoria">
+                            <a href="#">
+                                <img src="/Recursos/Images/rv1.jpg" alt="">
+                            </a>
+                        </div>  
+                        <div class="galeria-subcategoria">
+                            <a href="#">
+                                <img src="/Recursos/Images/rv3.jpg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/rv2.jpg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/rv4.png" alt="">
+                             </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/rv5.jpg" alt="">
+                            </a>
+                        </div>   
+                    </div>
+
+                    <div class="subcategoria" data-categoria="artificial-intelligence">
+                        <div class="banner-subcategoria">
+                            <a href="#">
+                                <img src="/Recursos/Images/ia1.jpeg" alt="">
+                            </a>
+                        </div>  
+                        <div class="galeria-subcategoria">
+                            <a href="#">
+                                <img src="/Recursos/Images/ia2.jpg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/ia3.jpg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/ia4.jfif" alt="">
+                             </a>
+                            <a href="#">
+                                <img src="/Recursos/Images/ia5.jpg" alt="">
+                            </a>
+                        </div>   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="contenedor-pw">
+        
+        <div class="contenedor-noticia">
+            <div class = "search-noticia">
+                <a href="#">Lorem, ipsum dolor.</a>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis possimus optio accusantium ipsum repellendus
+                    impedit illum dignissimos quos, cumque minus!</p>
+                <img src="/Recursos/Images/1.jpg" alt="Noticia 1">
+            </div>
+            <hr>
+            <div class = "search-noticia">
+                <a href="#">Lorem, ipsum dolor.</a>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis possimus optio accusantium ipsum repellendus
+                    impedit illum dignissimos quos, cumque minus!</p>
+                    <img src="/Recursos/Images/1.jpg" alt="Noticia 1">
+            </div>
+            <hr>
+            <div class = "search-noticia">
+                <a href="#">Lorem, ipsum dolor.</a>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis possimus optio accusantium ipsum repellendus
+                    impedit illum dignissimos quos, cumque minus!</p>
+                    <img src="/Recursos/Images/1.jpg" alt="Noticia 1">
+            </div>
+            <hr>
+            <div class = "search-noticia">
+                <a href="#">Lorem, ipsum dolor.</a>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis possimus optio accusantium ipsum repellendus
+                    impedit illum dignissimos quos, cumque minus!</p>
+                    <img src="/Recursos/Images/1.jpg" alt="Noticia 1">
+            </div>
+            <hr>
+            <div class = "search-noticia">
+                <a href="#">Lorem, ipsum dolor.</a>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis possimus optio accusantium ipsum repellendus
+                    impedit illum dignissimos quos, cumque minus!</p>
+                    <img src="/Recursos/Images/1.jpg" alt="Noticia 1">
+            </div>
+            <hr>
+            <div class = "search-noticia">
+                <a href="#">Lorem, ipsum dolor.</a>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis possimus optio accusantium ipsum repellendus
+                    impedit illum dignissimos quos, cumque minus!</p>
+                    <img src="/Recursos/Images/1.jpg" alt="Noticia 1">
+            </div>
+            <hr>
+            <div class = "search-noticia">
+                <a href="#">Lorem, ipsum dolor.</a>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis possimus optio accusantium ipsum repellendus
+                    impedit illum dignissimos quos, cumque minus!</p>
+                    <img src="/Recursos/Images/1.jpg" alt="Noticia 1">
+            </div>
+            <hr>
+            <div class = "search-noticia">
+                <a href="#">Lorem, ipsum dolor.</a>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis possimus optio accusantium ipsum repellendus
+                    impedit illum dignissimos quos, cumque minus!</p>
+                    <img src="/Recursos/Images/1.jpg" alt="Noticia 1">
+            </div>
+            <hr>
+            <div class = "search-noticia">
+                <a href="#">Lorem, ipsum dolor.</a>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis possimus optio accusantium ipsum repellendus
+                    impedit illum dignissimos quos, cumque minus!</p>
+                    <img src="/Recursos/Images/1.jpg" alt="Noticia 1">
+            </div>
+            <hr>
+            <div class = "search-noticia">
+                <a href="#">Lorem, ipsum dolor.</a>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis possimus optio accusantium ipsum repellendus
+                    impedit illum dignissimos quos, cumque minus!</p>
+                    <img src="/Recursos/Images/1.jpg" alt="Noticia 1">
+            </div>
+        </div>
+        
+        <!--Social-->
+        <section class="social">
+            <p>Siguenos Science & Tech</p>
+            <div class="links">
+                <a href="https://www.facebook.com/Romeesponja">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <div class="footer-links">
+        <div class="footer-contenedor-pw">
+            <ul>
+                <li>
+                    <a href="#">
+                        <h2>Titulo uno</h2>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>Blockchain</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>Blockchain</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>Blockchain</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>Blockchain</h3>
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="#">
+                        <h2>Titulo dos</h2>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>Blockchain</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>Blockchain</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>Blockchain</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>Blockchain</h3>
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="#">
+                        <h2>Titulo tres</h2>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>Blockchain</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>Blockchain</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>Blockchain</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>Blockchain</h3>
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="#">
+                        <h2>Titulo tres</h2>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>Blockchain</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>Blockchain</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>Blockchain</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>Blockchain</h3>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <h3>&#169 Science & Tech </h3>
+    </footer>
+
+     <!-- Bootstrap -->
+     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+     crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+     integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+     crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+     crossorigin="anonymous"></script>
+
+    <!--custom js-->
+    <script src="/JS/header.js"></script>
+</body>
+</html>
