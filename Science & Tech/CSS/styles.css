@@ -366,10 +366,25 @@ ul {
   line-height: 2;
 }
 
+.footer-links h3 {
+  color: white;
+  font-size: 17px;
+  font-weight: lighter;
+}
+
+.footer-links h6 {
+  color: #b4b4b4;
+  font-weight: lighter;
+}
+
+.footer-links h6:hover {
+  color: white;
+}
+
 /*Footer*/
 .footer {
   background: #2f3640;
-  color: #616161;
+  color: #979797;
   font-size: 18px;
   text-align: center;
   padding: 20px 0;

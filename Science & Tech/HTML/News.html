@@ -67,7 +67,7 @@
                    <a href="#" data-categoria="tech-tips">Tips Tecnologicos <i class="fas fa-arrow-right"></i></a>
                    <a href="#" data-categoria="videogames">Videojuegos <i class="fas fa-arrow-right"></i></a>
                    <a href="#" data-categoria="cars">Autos <i class="fas fa-arrow-right"></i></a>
-                   <a href="#" data-categoria="Cybersecurity">Civerseguiridad <i class="fas fa-arrow-right"></i></a>
+                   <a href="#" data-categoria="Cybersecurity">Ciberseguridad <i class="fas fa-arrow-right"></i></a>
                    <a href="#" data-categoria="virtual-reality">Realida Virtual <i class="fas fa-arrow-right"></i></a>
                    <a href="#" data-categoria="artificial-intelligence">Inteligencia Artificial <i class="fas fa-arrow-right"></i></a>
                 </div>
@@ -275,8 +275,108 @@
         </div>
     </nav>
 
-    <div class="sidebar"> <!--Sidebar Comments-->
+    <div class="sidebar pt-1" id="panel"> <!--Sidebar Comments-->
+        
+        <div class="close_btn" id="close">
+            <button type="button"  class="btn btn-light"> <i class="fas fa-times"></i></button>
+            <br>
+        </div>
 
+        <div class="side mt-5">
+
+            <div>
+                <h2>Comments</h2>
+                <h2 class="total">327</h2>
+            </div>
+
+            <form>
+                <div class="form-group mt-2">
+                    <textarea rows="1" class="form-control mb-3 texta " id="text1" placeholder="Share your thoughts."></textarea>
+
+                    <div class="options d-none" id="opt"> 
+                        <button type="submit" class="btn btn-outline-dark" id="btnc"> Cancel </button>
+                        <button type="submit" class="btn btn-primary btnpost" id="btnp"> Post </button>
+                    </div>
+
+                    <h6 class="text2 mb-3">Science & Tech needs your voice. We welcome your on-topic commentary, criticism and expertise.</h6>
+                </div>
+            </form>
+
+            <div class="bar mb-4">
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a href="#">All</a>
+                     </li>
+                    <li class="list-inline-item">
+                        <a href="#">Popular</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="post ml-1">
+                <div class="mb-3">
+                    <h6 class="font-weight-bold mb-0">Rome Glz</h6>
+                    <h6 class="text-muted">Victoria </h6>
+                    <h6 class="text-muted">|</h6>
+                    <h6 class="text-muted">2min ago </h6>
+                </div>
+
+                <div class="opinion">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et minima exercitationem quasi, at nemo ab numquam voluptas qui enim, deleniti laboriosam ratione similique voluptatibus dolores, neque impedit ipsa ducimus consectetur.</p>
+                </div>
+
+                <div class="mb-4 reply">
+                    <a href="#" class="mr-2">Reply</a>
+                    <a href="#" class="mr-2">Share</a>
+
+                    <a href="#" class="report">Flag</a>
+                </div>
+
+            </div>
+
+            <div class="post ml-1">
+                <div class="mb-3">
+                    <h6 class="font-weight-bold mb-0">Rome Glz</h6>
+                    <h6 class="text-muted">Victoria </h6>
+                    <h6 class="text-muted">|</h6>
+                    <h6 class="text-muted">2min ago </h6>
+                </div>
+
+                <div class="opinion">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et minima exercitationem quasi, at nemo ab numquam voluptas qui enim, deleniti laboriosam ratione similique voluptatibus dolores, neque impedit ipsa ducimus consectetur.</p>
+                </div>
+
+                <div class="mb-4 reply">
+                    <a href="#" class="mr-2">Reply</a>
+                    <a href="#" class="mr-2">Share</a>
+
+                    <a href="#" class="report">Flag</a>
+                </div>
+
+            </div>
+
+            <div class="post ml-1">
+                <div class="mb-3">
+                    <h6 class="font-weight-bold mb-0">Rome Glz</h6>
+                    <h6 class="text-muted">Victoria </h6>
+                    <h6 class="text-muted">|</h6>
+                    <h6 class="text-muted">2min ago </h6>
+                </div>
+
+                <div class="opinion">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et minima exercitationem quasi, at nemo ab numquam voluptas qui enim, deleniti laboriosam ratione similique voluptatibus dolores, neque impedit ipsa ducimus consectetur.</p>
+                </div>
+
+                <div class="mb-4 reply">
+                    <a href="#" class="mr-2">Reply</a>
+                    <a href="#" class="mr-2">Share</a>
+
+                    <a href="#" class="report">Flag</a>
+                </div>
+
+            </div>
+
+        </div>
     </div>
 
     <div class="container">
@@ -300,7 +400,7 @@
                 <button type="submit"  class="btn btn-light"><i class="fas fa-crown"></i></i></button>
                 <button type="submit"  class="btn btn-light"><i class="fas fa-share"></i></button>
                 <button type="submit"  class="btn btn-link"><i class="fas fa-bookmark"></i></i></button>
-                <button type="submit"  class="btn btn-link"><i class="fas fa-comments"></i></button>
+                <button type="submit"  class="btn btn-link" id="btnop"><i class="fas fa-comments"></i></button>
             </div>
 
         </div>
@@ -318,135 +418,139 @@
 
         <div class="comment">
             <div class="butts">
-                <button type="submit" class="btn btn-primary"> Read Comments </button>
+                <button type="submit" class="btn btn-primary btncom" id="btnop2"> Read Comments </button>
+
+
                 <button type="submit"  class="btn btn-light"> <i class="fab fa-facebook-f"></i></button>
                 <button type="submit"  class="btn btn-light"> <i class="fab fa-twitter"></i></i></button>
                 <button type="submit"  class="btn btn-light"><i class="fas fa-crown"></i></button>
                 <button type="submit"  class="btn btn-light"><i class="fas fa-share"></i></button>
                 <button type="submit"  class="btn btn-link"><i class="fas fa-bookmark"></i></i></button>
+        
+
             </div>
         </div>
     </div>
    
 
 
-     <!--footer-->
-     <div class="footer-links">
-        <div class="footer-contenedor-pw">
-            <ul>
-                <li>
-                    <a href="#">
-                        <h2>Titulo uno</h2>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h3>Blockchain</h3>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h3>Blockchain</h3>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h3>Blockchain</h3>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h3>Blockchain</h3>
-                    </a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a href="#">
-                        <h2>Titulo dos</h2>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h3>Blockchain</h3>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h3>Blockchain</h3>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h3>Blockchain</h3>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h3>Blockchain</h3>
-                    </a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a href="#">
-                        <h2>Titulo tres</h2>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h3>Blockchain</h3>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h3>Blockchain</h3>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h3>Blockchain</h3>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h3>Blockchain</h3>
-                    </a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a href="#">
-                        <h2>Titulo tres</h2>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h3>Blockchain</h3>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h3>Blockchain</h3>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h3>Blockchain</h3>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h3>Blockchain</h3>
-                    </a>
-                </li>
-            </ul>
+          <!--footer-->
+          <div class="footer-links">
+            <div class="footer-contenedor-pw">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <h3>S&TCo</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>About Us</h6>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>People</h6>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>History</h6>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>Social Responsability</h6>
+                        </a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <h3>WORK WITH US</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>Newsroom</h6>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>Technology</h6>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>Product & Design</h6>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>Data & Insights Group</h6>
+                        </a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <h3>CONTACT US</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>Press</h6>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>Newsroom</h6>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>Media</h6>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>International Contacts</h6>
+                        </a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <h3>HELP</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>Give Feedback</h6>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>Report</h6>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>Use Website</h6>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>Customer Service</h6>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-
-    <footer class="footer">
-        <h3>&#169 Science & Tech </h3>
-    </footer>
+    
+        <footer class="footer">
+            <h6>&#169 2020 Science & Tech. Todos los derechos reservados. </h6>
+        </footer>
 
     <!--SCRIPTS-->
 
@@ -455,6 +559,8 @@
 
     <!--custom js-->
     <script src="/JS/header.js"></script>
+
+    <script src="/JS/comments.js"></script>
 
     <!-- Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

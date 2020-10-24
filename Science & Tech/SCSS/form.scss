@@ -7,3 +7,26 @@ body{
 
     color: black;
 }
+
+#plus:focus{
+    box-shadow: none;
+}
+
+
+/*MEDIA QUERYS*/
+
+@media (max-width: 500px) {
+
+    .check{
+        font-size:13px;
+        padding:4px 6px;
+    }
+
+    .footer-links .footer-contenedor-pw {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+ 

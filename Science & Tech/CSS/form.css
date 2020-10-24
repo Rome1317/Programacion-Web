@@ -4,4 +4,21 @@ body {
   font-weight: 300;
   color: black;
 }
-/*# sourceMappingURL=Form.css.map */
+
+#plus:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+/*MEDIA QUERYS*/
+@media (max-width: 500px) {
+  .check {
+    font-size: 13px;
+    padding: 4px 6px;
+  }
+  .footer-links .footer-contenedor-pw {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
+}
+/*# sourceMappingURL=form.css.map */

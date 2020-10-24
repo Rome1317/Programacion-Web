@@ -4,6 +4,8 @@ body{
     
     font-family: 'Jura', sans-serif;
     font-weight: 300;
+
+   
 }
 
 .title{
@@ -12,26 +14,14 @@ body{
     background: url(/Recursos/Images/15.jpg) no-repeat center/cover;
     padding: 100px 0 0 30px;
     margin-bottom: 5px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: left;
-        -ms-flex-align: left;
-            align-items: left;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-
-    filter: grayscale(100%);
-
+    
     border-radius: 5px;
+ 
+
 }
 
 .title h2{
+    margin-top: 33%;
     padding-bottom: 20px;
     text-transform: uppercase;
     font-style: italic;
@@ -103,7 +93,346 @@ body{
     margin-bottom: 50px;
 }
 
-.btn-primary{
+.btncom{
     width: 40%;
     margin-right: 19%;
+}
+
+.options{
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.btnpost{
+    margin-left: 10px;
+}
+
+.sidebar{ 
+    position: fixed;
+    width: 40%;
+    color: black;
+    background-color: white;
+
+    top:0;
+    right: -40%;
+    transition: all 500ms linear;
+
+    overflow-y: scroll;
+       height: 100%;
+}
+
+.sidebar.active{
+    right: 0;
+}
+
+.close_btn{
+    text-align: right;
+    margin-right:10px;
+    position: fixed;
+    margin-left: 35%;
+    
+}
+
+.side{
+    margin:10px 30px 30px 30px;
+}
+
+.side h2{
+    margin-right: 10px;
+    width: 50%;
+    display: inline;
+    font-weight: bold;
+}
+
+.texta{
+    font-size: 16px;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 40px;
+    margin-top: 15px;
+}
+
+.text2{
+    text-justify: auto;
+    font-size: 15px;
+
+}
+
+.bar{
+    height: 35px;
+    border-bottom: 1px solid rgb(231, 231, 231);
+    //box-shadow: 0px 10px 5px -10px rgba(122,122,122,1);
+    background-color: transparent;
+    //line-height: 20px;
+}
+
+
+.post .text-muted{
+    font-size: 13px;
+    margin-right: 7px;
+    width: 50%;
+    display: inline;
+
+    
+}
+
+.opinion{
+    font-size: 15px;
+    
+}
+
+.reply{
+    height: 40px;
+    border-bottom: 1px solid rgb(231, 231, 231);
+}
+
+.report{
+    margin-left: 75%;
+}
+
+.btn-link{
+    color: rgb(53, 53, 53);
+}
+
+.btn-link:focus{
+    color: rgb(34, 98, 236);
+    box-shadow: none;
+}
+
+/*MEDIA QUERYS*/
+
+@media (max-width: 1100px) {
+
+    .title{
+        height: 400px;  
+    }
+
+    .title h2{
+        margin-top: 25%;
+    }
+    
+    .foot h2{
+        font-size: 13px;
+        padding-left: 0px;
+        text-align: justify;
+        margin-bottom: 30px;
+
+    }
+
+    .writer{
+        width: 100%;
+        margin: auto;
+    }
+
+    .perfil{
+        width: 10%;
+    }
+
+    .writer h2{
+        margin-right: 60%;
+        margin-bottom: 50px;
+    }
+
+    .writer h6{
+        display: inline-block;
+        width:50%;
+        margin-bottom:40px;
+        margin-right: 20%;
+       
+    }
+
+    .butts{
+    
+        text-align: right;
+        width: 50%;
+
+    }
+    
+    
+    .text{
+
+        width:100%;
+  
+    }
+
+    .text h2{
+        margin-bottom: 20px;
+    }
+
+    .comment{ 
+        width:100%;
+    }
+
+    .btncom{
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .sidebar{ 
+        width: 60%;
+        right: -60%;
+    }
+
+    .close_btn{
+        margin-left: 42%;
+        
+    }
+    
+    .side{
+        margin:35px;
+        width: 70%;
+    }
+
+    .report{
+        margin-left: 65%;
+    }
+
+
+}
+
+@media (max-width: 1000px) {
+
+    .title{
+        height: 350px;  
+    }
+
+
+    .writer h6{
+        display: inline-block;
+        width:50%;
+        margin-bottom:40px;
+        margin-right: 10%;
+       
+    }
+
+
+}
+  
+@media (max-width: 700px) {
+
+    .title{
+        height: 250px;  
+    }
+
+    .title h2{
+        margin-top: 20%;
+    }
+
+
+    .perfil{
+        width: 20%;
+    }
+
+    .writer h2{
+        margin-right: 50px;
+        margin-bottom: 40px;
+    }
+
+    .writer h6{
+        display: block;
+        width:100%;
+        margin-bottom: 20px;
+    }
+
+    .butts{
+        display: inline-block;
+        text-align: left;
+        width: 100%;
+        margin-bottom: 30px;
+        
+    }
+    
+    
+    .text{
+
+        width:100%;
+  
+    }
+
+    .text h2{
+        margin-bottom: 20px;
+    }
+
+    .comment{ 
+        width:100%;
+    }
+
+    .btncom{
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .sidebar{ 
+        width: 100%;
+        right: -100%;
+    }
+
+    .close_btn{
+        margin-left: 70%;
+        
+    }
+    
+    .side{
+        margin:10px;
+        width: 75%;
+    }
+
+    .report{
+        margin-left: 70%;
+    }
+
+   
+}
+
+@media (max-width: 500px){
+    .footer-links .footer-contenedor-pw {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .close_btn{
+        margin-left: 78%;
+        
+    }
+    
+    .side{
+        margin:10px;
+        width: 83%;
+    }
+
+    .report{
+        margin-left: 70%;
+    }
+}
+
+
+
+@media (max-width: 400px) {
+
+    .title h2{
+        margin-top: 20%;
+    }
+
+
+    .sidebar{ 
+        width: 100%;
+        right: -100%;
+    }
+
+    .close_btn{
+        margin-left: 75%;
+        
+    }
+    
+    .side{
+        margin:15px;
+        width: 80%;
+    }
+
+    .report{
+        margin-left: 60%;
+    }
+ 
 }
