@@ -34,6 +34,20 @@
   margin: 0px auto;
 }
 
+.social {
+  font-weight: 300;
+}
+
+.btn-link {
+  color: white;
+}
+
+.btn-link:focus {
+  color: white;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 @media (max-width: 500px) {
   body .contenedor-noticia .search-noticia {
     -ms-grid-columns: 1fr;

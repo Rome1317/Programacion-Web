@@ -112,6 +112,20 @@ hr {
   color: #ffffff;
 }
 
+.social {
+  font-weight: 300;
+}
+
+.btn-link {
+  color: white;
+}
+
+.btn-link:focus {
+  color: white;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 /*MEDIA QUERYS*/
 @media (max-width: 1000px) {
   .menu-btn-pw {

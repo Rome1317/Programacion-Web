@@ -88,4 +88,18 @@
         grid-template-rows: 1fr 1fr 3fr;
   }
 }
+
+.social {
+  font-weight: 300;
+}
+
+.btn-link {
+  color: white;
+}
+
+.btn-link:focus {
+  color: white;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
 /*# sourceMappingURL=profile_page.css.map */
