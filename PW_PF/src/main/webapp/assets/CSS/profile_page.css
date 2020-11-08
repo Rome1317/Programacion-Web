@@ -1,0 +1,105 @@
+.profile {
+  margin: 20px auto;
+  display: -ms-grid;
+  display: grid;
+  gap: 20px;
+  -ms-grid-columns: 1fr 3fr;
+      grid-template-columns: 1fr 3fr;
+  -ms-grid-rows: 1fr 2fr;
+      grid-template-rows: 1fr 2fr;
+}
+
+.profile .header-pw {
+  background: #131921;
+  grid-column: 1 / -1;
+  text-align: center;
+  background: url("/Recursos/Images/Ej3.jpg") no-repeat center/cover;
+  height: 500px;
+  border-radius: 10px;
+}
+
+.profile .header-pw .portada-pw {
+  width: 100%;
+  height: 70%;
+}
+
+.profile .header-pw .avatar-pw {
+  margin-top: 200px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+.profile .header-pw .user-name {
+  font-size: 30px;
+  margin-top: 14px;
+  color: white;
+}
+
+.profile .sidebar-pw {
+  background: #232f3f;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  font-size: 25px;
+  border-radius: 10px;
+  padding-top: 35px;
+}
+
+.profile .sidebar-pw button {
+  color: white;
+  background: none;
+  border: 0px;
+  margin: 20px 40px;
+}
+
+.profile .panel-pw {
+  background: #DFDFDF;
+  border-radius: 10px;
+  color: black;
+  padding: 50px;
+}
+
+.profile .panel-pw .opcion {
+  display: none;
+}
+
+.profile .panel-pw .opcion.activo {
+  display: -ms-grid;
+  display: grid;
+}
+
+@media screen and (max-width: 900px) {
+  .profile .profile {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 1fr 1fr 3fr;
+        grid-template-rows: 1fr 1fr 3fr;
+  }
+}
+
+.social {
+  font-weight: 300;
+}
+
+.btn-link {
+  color: white;
+}
+
+.btn-link:focus {
+  color: white;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+/*# sourceMappingURL=profile_page.css.map */

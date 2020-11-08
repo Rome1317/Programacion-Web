@@ -1,6 +1,0 @@
-serverlets\ResgistroUsuario.class
-modelos\Noticia_Categoria.class
-modelos\Noticia.class
-modelos\Usuario.class
-servicios\Conexion.class
-servicios\DAO_User.class

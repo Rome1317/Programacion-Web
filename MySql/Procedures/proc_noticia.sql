@@ -30,4 +30,11 @@ begin
 	end case;
 END$$
 
+create procedure `prc_noticia_home`()
+begin
+	select id_noticia, titulo, descripcion from Tbl_Noticia 
+    where aprovado = 1
+    order by likes DESC
+    LIMIT 4;
+END$$
 DELIMITER ;

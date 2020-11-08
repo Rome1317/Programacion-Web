@@ -10,18 +10,33 @@ create table if not exists Tbl_Usuario(
     imagen		varchar(50) null,
     rol			varchar(50) not null
 );
+/*ADMINISTRADORES*/
+insert into Tbl_Usuario values ("edgar_donato@outlook.com", "Donato Calvillo", "reycena99" , "https://www.facebook.com/edgar.calvillo2/", null, null, "Administrador");
+select * from Tbl_Usuario
+/*----------------*/
 create table if not exists Tbl_Noticia(
-	id_noticia		int 			auto_increment	primary key not null,
+	id_noticia		int 			auto_increment	primary key,
 	titulo			varchar(50) 	not null,
     descripcion		varchar(100) 	not null,
     noticia			varchar(1000) 	not null,
     aprovado		bool 			default 0,
     fk_usuario		varchar(50)		not null,
+    likes			int				default 0 ,
 	foreign key (fk_usuario) references Tbl_Usuario(email)
 );
-
+/*NOTICIAS HOME*/
+insert into Tbl_Noticia (titulo,descripcion,noticia,aprovado,fk_usuario,likes)
+values("XBOX SERIES X", "Nueva generacion de consolas de xbox", "Mucho texto sobre la nueva tecnologia de ultima generacion", 1,"edgar_donato@outlook.com",100);
+insert into Tbl_Noticia (titulo,descripcion,noticia,aprovado,fk_usuario,likes)
+values("PLAYSTATION 5", "Nueva generacion de consolas de Playstation", "Mucho texto sobre la nueva tecnologia de ultima generacion", 1,"edgar_donato@outlook.com",150);
+insert into Tbl_Noticia (titulo,descripcion,noticia,aprovado,fk_usuario,likes)
+values("CHIPS EN EL CEREBRO", "Nuevos chips para el cerebro", "Mucho texto sobre la nueva tecnologia de chips", 1,"edgar_donato@outlook.com",80);
+insert into Tbl_Noticia (titulo,descripcion,noticia,aprovado,fk_usuario,likes)
+values("CALENTAMIENTO GLOBAL", "Los polos se derriten", "Mucho texto sobre la contaminacion", 1,"edgar_donato@outlook.com",85);
+select * from Tbl_Noticia
+/*-----------------------*/
 create table if not exists Tbl_Categoria(
-	id_categoria	int auto_increment	primary key not null,
+	id_categoria	int auto_increment	primary key,prc_usuario
     nombre			varchar(50) not null,
     descripcion		varchar(200) null
 );
