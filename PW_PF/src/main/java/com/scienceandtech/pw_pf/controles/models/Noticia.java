@@ -5,6 +5,8 @@
  */
 package com.scienceandtech.pw_pf.controles.models;
 
+import java.util.List;
+
 /**
  *
  * @author edgar
@@ -16,8 +18,7 @@ public class Noticia {
     private String descripcion;
     private boolean aprovado;
     private String fk_usuario;
-
-  
+    private List<Imagen> Img;
 
     /*CONSTRUCTOR*/
     public Noticia(String titulo, String descripcion, String fk_usuario) {
@@ -33,7 +34,10 @@ public class Noticia {
     }
     
     /*GETTERS*/
-
+    public String getMainImg() {
+       return Img.get(0).getExtencion();
+    }
+    
     public int getId_noticia() {
         return id_noticia;
     }
@@ -76,4 +80,8 @@ public class Noticia {
         this.fk_usuario = fk_usuario;
     }
     
+        public void setImg(List<Imagen> Img) {
+        this.Img = Img;
+    }
+
 }

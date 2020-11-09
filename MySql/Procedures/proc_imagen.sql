@@ -1,5 +1,4 @@
 DROP procedure IF EXISTS `prc_imagen`;
-
 DELIMITER $$
 USE `ct_db`$$
 create procedure `prc_imagen`(
@@ -23,6 +22,15 @@ begin
 		select * from Tbl_Imagen 
         where id_imagen = _id_imagen;
 	end case;
+END$$
+
+create procedure `prc_imagen_home`(
+in _fk_noticia int
+)
+begin
+	select * from Tbl_Imagen
+    where fk_noticia = _fk_noticia
+    LIMIT 1;
 END$$
 
 DELIMITER ;

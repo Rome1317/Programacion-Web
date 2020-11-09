@@ -5,7 +5,9 @@
  */
 package com.scienceandtech.pw_pf.controles.controles;
 
+import com.scienceandtech.pw_pf.controles.models.Imagen;
 import com.scienceandtech.pw_pf.controles.models.Noticia;
+import com.scienceandtech.pw_pf.controles.models.dao.ImagenDAO;
 import com.scienceandtech.pw_pf.controles.models.dao.NoticiasDAO;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,20 +37,13 @@ public class MainServerlet extends HttpServlet {
      */ 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        response.setContentType("text/html;charset=UTF-8");
-//        try ( PrintWriter out = response.getWriter()) {
-//            /* TODO output your page here. You may use following sample code. */
-//            out.println("<!DOCTYPE html>");
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet MainServerlet</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("<h1>Servlet MainServerlet at " + request.getContextPath() + "</h1>");
-//              out.println("</body>");
-//            out.println("</html>");
-//        }
+
          List<Noticia> cards = NoticiasDAO.getHomeNews();
+         List<Imagen> imagenes;     
+         for(Noticia card : cards){
+             imagenes = ImagenDAO.getHomeImg(card);
+             card.setImg(imagenes);
+         }
          request.setAttribute("cards", cards);
          request.getRequestDispatcher("index.jsp").forward(request, response);        
     }

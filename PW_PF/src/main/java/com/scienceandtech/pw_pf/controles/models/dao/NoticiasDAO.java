@@ -23,10 +23,6 @@ public class NoticiasDAO {
         List<Noticia> noticias = new ArrayList<>();
         try {
             Connection con = DbConection.getConnection();
-//            CallableStatement statement = con.prepareCall("select id_noticia, titulo, descripcion from Tbl_Noticia \n" +
-//            "    where aprovado = 1\n" +
-//            "    order by likes DESC\n" +
-//            "    LIMIT 4");
             CallableStatement statement = con.prepareCall("{call prc_noticia_home()}");
             ResultSet resultSet = statement.executeQuery();
             

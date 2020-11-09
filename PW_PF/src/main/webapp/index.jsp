@@ -3,8 +3,10 @@
     Created on : Nov 7, 2020, 5:50:43 PM
     Author     : Edgar Donato
 --%>
+<%@page import="com.scienceandtech.pw_pf.controles.models.Imagen"%>
 <%@page import="com.scienceandtech.pw_pf.controles.models.Noticia"%>
 <%@page import="java.util.List"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
@@ -290,7 +292,7 @@
                 for (Noticia card : cards){ 
                 %>
                 <div class="new">
-                    <img src="assets/Recursos/Images/Ej6.jpg" alt="Noticia 1">
+                    <img src="<%= card.getMainImg()%>" alt="Noticia 1">              
                     <h3><%= card.getTitulo()%></h3>
                     <p><%= card.getDescripcion()%></p>
                     <a href="#">Aprender Mas <i class="fas fa-angle-double-right"></i></a>
@@ -312,7 +314,7 @@
             <div class="news-cards">
                 <%for(int i = 0; i < 4; i++){ %>
                 <div class="new">
-                    <img src="assets/Recursos/Images/Ej6.jpg" alt="Noticia 1">
+                    <img src="assets/Recursos/Images/Playstation5.jpg " alt="Noticia 1">
                     <h3>Lorem, ipsum dolor.</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta optio laudantium praesentium labore
                         expedita quibusdam.</p>
