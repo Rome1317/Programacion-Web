@@ -54,17 +54,46 @@ ul {
 }
 
 .menu .contenedor-botones-menu button {
-  font-size: 20px;
+  display: inline-block;
+  font-size: 17px;
   color: white;
   padding: 10px 20px;
   border: 1px solid transparent;
-  display: inline-block;
   cursor: pointer;
   background: none;
 }
 
 .menu .contenedor-botones-menu button:hover {
   border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.menu .contenedor-botones-menu .search-text {
+  display: inline-block;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 10px;
+}
+
+.menu .contenedor-botones-menu .look {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  border-radius: 0;
+}
+
+.menu .contenedor-botones-menu .look:hover {
+  border-bottom: 1px solid white;
+}
+
+.menu .contenedor-botones-menu .look:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-bottom: 1px solid white;
 }
 
 .menu .contenedor-botones-menu .btn-pw-menu-cerrar {
@@ -296,6 +325,12 @@ ul {
   }
   .menu .enlaces {
     width: 100%;
+  }
+  .menu .search {
+    width: auto;
+  }
+  .menu .look {
+    font-size: 14px;
   }
   .menu .contenedor-enlaces-nav a:hover {
     border: 1px solid rgba(255, 255, 255, 0.4);

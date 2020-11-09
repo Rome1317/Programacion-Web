@@ -64,19 +64,19 @@ body {
 }
 
 .img-1 {
-  background-image: url(/Recursos/Images/2.jpg);
+  background-image: url(../Recursos/Images/2.jpg);
   background-size: cover;
   background-position: center;
 }
 
 .img-2 {
-  background-image: url(/Recursos/Images/Ej2.jpg);
+  background-image: url(../Recursos/Images/Ej2.jpg);
   background-size: cover;
   background-position: center;
 }
 
 .img-3 {
-  background-image: url(/Recursos/Images/3.jpg);
+  background-image: url(../Recursos/Images/3.jpg);
   background-size: cover;
   background-position: center;
 }

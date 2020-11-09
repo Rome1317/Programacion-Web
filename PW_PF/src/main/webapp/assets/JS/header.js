@@ -38,3 +38,31 @@ document.querySelector('#btn-pw-menu-barras').addEventListener('click', (e)=>{
         }
     }   
 });
+
+// BOTON DE BUSQUEDA
+var search = document.getElementById("search");
+var box = document.getElementById("search-text");
+var look = document.getElementById("look");
+
+search.addEventListener("click", () =>{
+
+    var x = document.getElementById("look").value;
+    
+    if (x !== ""){
+        document.getElementById("look").value = ""
+        window.open("Search.html")
+    }
+    
+    
+    box.classList.toggle("d-none")
+
+});
+    
+
+look.addEventListener('keypress', function (e) {
+    var x = document.getElementById("look").value;
+    if (e.key === 'Enter' && x !== "") {
+        window.open("Search.html")
+    }
+});
+

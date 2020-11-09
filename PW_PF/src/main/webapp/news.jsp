@@ -1,3 +1,10 @@
+<%-- 
+    Document   : news
+    Created on : 8/11/2020, 11:51:02 PM
+    Author     : Gonzalez
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +26,7 @@
     <link
     rel="shortcut icon"
     type="image/x-icon"
-    href="../Logo/favicon2.ico"
+    href="assets/Recursos/Logo/favicon2.ico"
     sizes="50x50"
     />
 
@@ -33,247 +40,246 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
 
     <!--Custom css-->
-    <link rel="stylesheet" href="/CSS/styles.css">
-    <link rel="stylesheet" href="/CSS/news.css">
+    <link rel="stylesheet" href="assets/CSS/styles.css">
+    <link rel="stylesheet" href="assets/CSS/news.css">
 
 
 </head>
 <body>
-     <!--Boton menu-->
+        <!--Menu-->
+        <nav class="menu" id= "menu">
+            <div class="contenedor-pw contenedor-botones-menu">
+                <button id="btn-pw-menu-barras" class = "btn-pw-menu-barras"><i class="fas fa-bars"></i></button>
+                <a href="pagina_principal.html"><img src="assets/Recursos/Logo/logo.gif" alt=""></a>
+                <div class="contenedor-pw contenedor-enlaces-nav">
+                    <div class="enlaces">
+                        <a href="/HTML/profile.html">Mi Cuenta</a>
+                        <a href="#">Populares</a>
+                        <a href="#">Ayuda</a>
+                    </div>
+                </div>
 
-     <nav class="menu" id= "menu">
-        <div class="contenedor-pw contenedor-botones-menu">
-            <button id="btn-pw-menu-barras" class = "btn-pw-menu-barras"><i class="fas fa-bars"></i></button>
-            <a href="Home.html"><img src="/Recursos/Logo/logo.gif" alt=""></a>
-            <div class="contenedor-pw contenedor-enlaces-nav">
-                <div class="enlaces">
-                    <a href="/HTML/profile.html">Mi Cuenta</a>
-                    <a href="#">Populares</a>
-                    <a href="#">Ayuda</a>
+                <button id="btn-pw-menu-cerrar" class = "btn-pw-menu-cerrar"><i class ="fas fa-times"></i></button>
+            </div>
+
+            <div class="contenedor-pw contenedor-grid">
+                <div class="grid" id="grid">
+                    <div class="categorias">
+                       <button class ="btn-pw-regresar"><i class="fas fa-arrow-left"></i> Regresar</button>
+                       <h3 class="subtitulo">Categorias</h3>
+                       <a href="#" data-categoria="climate-enviroment">Clima & ambiente <i class="fas fa-arrow-right"></i></a>
+                       <a href="#" data-categoria="science">Ciencia <i class="fas fa-arrow-right"></i></a>
+                       <a href="#" data-categoria="media">Multimedia <i class="fas fa-arrow-right"></i></a>
+                       <a href="#" data-categoria="tech-tips">Tips Tecnologicos <i class="fas fa-arrow-right"></i></a>
+                       <a href="#" data-categoria="videogames">Videojuegos <i class="fas fa-arrow-right"></i></a>
+                       <a href="#" data-categoria="cars">Autos <i class="fas fa-arrow-right"></i></a>
+                       <a href="#" data-categoria="Cybersecurity">Ciberseguridad <i class="fas fa-arrow-right"></i></a>
+                       <a href="#" data-categoria="virtual-reality">Realida Virtual <i class="fas fa-arrow-right"></i></a>
+                       <a href="#" data-categoria="artificial-intelligence">Inteligencia Artificial <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="contenedor-subcategorias">
+                        <div class="subcategoria activo" data-categoria="climate-enviroment">
+                            <div class="banner-subcategoria">
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/clima5.jpg" alt="">
+                                </a>
+                            </div>  
+                            <div class="galeria-subcategoria">
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/clima2.jpg" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/clima3.jpg" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/clima4.jpg" alt="">
+                                 </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/clima1.jpg" alt="">
+                                </a>
+                            </div>   
+                        </div>  
+
+                        <div class="subcategoria" data-categoria="science">
+                            <div class="banner-subcategoria">
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/ciencia4.jpg" alt="">
+                                </a>
+                            </div>  
+                            <div class="galeria-subcategoria">
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/ciencia2.jpg" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/ciencia3.jpg" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/ciencia1.jpg" alt="">
+                                 </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/ciencia5.jpg" alt="">
+                                </a>
+                            </div>   
+                        </div>  
+
+                        <div class="subcategoria" data-categoria="media">
+                            <div class="banner-subcategoria">
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/media1.jpg" alt="">
+                                </a>
+                            </div>  
+                            <div class="galeria-subcategoria">
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/media2.jpg" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/media3.jpg" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/media4.jpg" alt="">
+                                 </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/media5.jpg" alt="">
+                                </a>
+                            </div>   
+                        </div>
+
+                        <div class="subcategoria" data-categoria="tech-tips">
+                            <div class="banner-subcategoria">
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/tech1.jpg" alt="">
+                                </a>
+                            </div>  
+                            <div class="galeria-subcategoria">
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/tech2.jpeg" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/tech3.png" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/tech4.jpg" alt="">
+                                 </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/tech5.jpg" alt="">
+                                </a>
+                            </div>   
+                        </div>
+
+                        <div class="subcategoria" data-categoria="videogames">
+                            <div class="banner-subcategoria">
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/vg1.jpg" alt="">
+                                </a>
+                            </div>  
+                            <div class="galeria-subcategoria">
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/vg2.jpg" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/vg3.jpg" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/vg4.jpg" alt="">
+                                 </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/vg1.jpg" alt="">
+                                </a>
+                            </div>   
+                        </div>
+
+                        <div class="subcategoria" data-categoria="cars">
+                            <div class="banner-subcategoria">
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/car3.jpg" alt="">
+                                </a>
+                            </div>  
+                            <div class="galeria-subcategoria">
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/car2.jpg" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/car1.jpg" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/car4.jpg" alt="">
+                                 </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/car5.jpg" alt="">
+                                </a>
+                            </div>   
+                        </div>
+
+                        <div class="subcategoria" data-categoria="Cybersecurity">
+                            <div class="banner-subcategoria">
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/cs5.jpg" alt="">
+                                </a>
+                            </div>  
+                            <div class="galeria-subcategoria">
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/cs1.jpg" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/cs2.jpg" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/cs3.jpg" alt="">
+                                 </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/cs4.jpg" alt="">
+                                </a>
+                            </div>   
+                        </div>
+
+                        <div class="subcategoria" data-categoria="virtual-reality">
+                            <div class="banner-subcategoria">
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/rv1.jpg" alt="">
+                                </a>
+                            </div>  
+                            <div class="galeria-subcategoria">
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/rv3.jpg" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/rv2.jpg" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/rv4.png" alt="">
+                                 </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/rv5.jpg" alt="">
+                                </a>
+                            </div>   
+                        </div>
+
+                        <div class="subcategoria" data-categoria="artificial-intelligence">
+                            <div class="banner-subcategoria">
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/ia1.jpeg" alt="">
+                                </a>
+                            </div>  
+                            <div class="galeria-subcategoria">
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/ia2.jpg" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/ia3.jpg" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/ia4.jfif" alt="">
+                                 </a>
+                                <a href="#">
+                                    <img src="assets/Recursos/Images/ia5.jpg" alt="">
+                                </a>
+                            </div>   
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <button id="btn-pw-menu-cerrar" class = "btn-pw-menu-cerrar"><i class ="fas fa-times"></i></button>
-        </div>
-
-        <div class="contenedor-pw contenedor-grid">
-            <div class="grid" id="grid">
-                <div class="categorias">
-                   <button class ="btn-pw-regresar"><i class="fas fa-arrow-left"></i> Regresar</button>
-                   <h3 class="subtitulo">Categorias</h3>
-                   <a href="#" data-categoria="climate-enviroment">Clima & ambiente <i class="fas fa-arrow-right"></i></a>
-                   <a href="#" data-categoria="science">Ciencia <i class="fas fa-arrow-right"></i></a>
-                   <a href="#" data-categoria="media">Multimedia <i class="fas fa-arrow-right"></i></a>
-                   <a href="#" data-categoria="tech-tips">Tips Tecnologicos <i class="fas fa-arrow-right"></i></a>
-                   <a href="#" data-categoria="videogames">Videojuegos <i class="fas fa-arrow-right"></i></a>
-                   <a href="#" data-categoria="cars">Autos <i class="fas fa-arrow-right"></i></a>
-                   <a href="#" data-categoria="Cybersecurity">Ciberseguridad <i class="fas fa-arrow-right"></i></a>
-                   <a href="#" data-categoria="virtual-reality">Realida Virtual <i class="fas fa-arrow-right"></i></a>
-                   <a href="#" data-categoria="artificial-intelligence">Inteligencia Artificial <i class="fas fa-arrow-right"></i></a>
-                </div>
-                
-                <div class="contenedor-subcategorias">
-                    <div class="subcategoria activo" data-categoria="climate-enviroment">
-                        <div class="banner-subcategoria">
-                            <a href="#">
-                                <img src="/Recursos/Images/clima5.jpg" alt="">
-                            </a>
-                        </div>  
-                        <div class="galeria-subcategoria">
-                            <a href="#">
-                                <img src="/Recursos/Images/clima2.jpg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/clima3.jpg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/clima4.jpg" alt="">
-                             </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/clima1.jpg" alt="">
-                            </a>
-                        </div>   
-                    </div>  
-
-                    <div class="subcategoria" data-categoria="science">
-                        <div class="banner-subcategoria">
-                            <a href="#">
-                                <img src="/Recursos/Images/ciencia4.jpg" alt="">
-                            </a>
-                        </div>  
-                        <div class="galeria-subcategoria">
-                            <a href="#">
-                                <img src="/Recursos/Images/ciencia2.jpg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/ciencia3.jpg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/ciencia1.jpg" alt="">
-                             </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/ciencia5.jpg" alt="">
-                            </a>
-                        </div>   
-                    </div>  
-
-                    <div class="subcategoria" data-categoria="media">
-                        <div class="banner-subcategoria">
-                            <a href="#">
-                                <img src="/Recursos/Images/media1.jpg" alt="">
-                            </a>
-                        </div>  
-                        <div class="galeria-subcategoria">
-                            <a href="#">
-                                <img src="/Recursos/Images/media2.jpg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/media3.jpg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/media4.jpg" alt="">
-                             </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/media5.jpg" alt="">
-                            </a>
-                        </div>   
-                    </div>
-                    
-                    <div class="subcategoria" data-categoria="tech-tips">
-                        <div class="banner-subcategoria">
-                            <a href="#">
-                                <img src="/Recursos/Images/tech1.jpg" alt="">
-                            </a>
-                        </div>  
-                        <div class="galeria-subcategoria">
-                            <a href="#">
-                                <img src="/Recursos/Images/tech2.jpeg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/tech3.png" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/tech4.jpg" alt="">
-                             </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/tech5.jpg" alt="">
-                            </a>
-                        </div>   
-                    </div>
-
-                    <div class="subcategoria" data-categoria="videogames">
-                        <div class="banner-subcategoria">
-                            <a href="#">
-                                <img src="/Recursos/Images/vg1.jpg" alt="">
-                            </a>
-                        </div>  
-                        <div class="galeria-subcategoria">
-                            <a href="#">
-                                <img src="/Recursos/Images/vg2.jpg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/vg3.jpg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/vg4.jpg" alt="">
-                             </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/vg1.jpg" alt="">
-                            </a>
-                        </div>   
-                    </div>
-
-                    <div class="subcategoria" data-categoria="cars">
-                        <div class="banner-subcategoria">
-                            <a href="#">
-                                <img src="/Recursos/Images/car3.jpg" alt="">
-                            </a>
-                        </div>  
-                        <div class="galeria-subcategoria">
-                            <a href="#">
-                                <img src="/Recursos/Images/car2.jpg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/car1.jpg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/car4.jpg" alt="">
-                             </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/car5.jpg" alt="">
-                            </a>
-                        </div>   
-                    </div>
-
-                    <div class="subcategoria" data-categoria="Cybersecurity">
-                        <div class="banner-subcategoria">
-                            <a href="#">
-                                <img src="/Recursos/Images/cs5.jpg" alt="">
-                            </a>
-                        </div>  
-                        <div class="galeria-subcategoria">
-                            <a href="#">
-                                <img src="/Recursos/Images/cs1.jpg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/cs2.jpg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/cs3.jpg" alt="">
-                             </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/cs4.jpg" alt="">
-                            </a>
-                        </div>   
-                    </div>
-
-                    <div class="subcategoria" data-categoria="virtual-reality">
-                        <div class="banner-subcategoria">
-                            <a href="#">
-                                <img src="/Recursos/Images/rv1.jpg" alt="">
-                            </a>
-                        </div>  
-                        <div class="galeria-subcategoria">
-                            <a href="#">
-                                <img src="/Recursos/Images/rv3.jpg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/rv2.jpg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/rv4.png" alt="">
-                             </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/rv5.jpg" alt="">
-                            </a>
-                        </div>   
-                    </div>
-
-                    <div class="subcategoria" data-categoria="artificial-intelligence">
-                        <div class="banner-subcategoria">
-                            <a href="#">
-                                <img src="/Recursos/Images/ia1.jpeg" alt="">
-                            </a>
-                        </div>  
-                        <div class="galeria-subcategoria">
-                            <a href="#">
-                                <img src="/Recursos/Images/ia2.jpg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/ia3.jpg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/ia4.jfif" alt="">
-                             </a>
-                            <a href="#">
-                                <img src="/Recursos/Images/ia5.jpg" alt="">
-                            </a>
-                        </div>   
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
+        </nav>
 
     <div class="sidebar pt-1" id="panel"> <!--Sidebar Comments-->
         
@@ -389,7 +395,7 @@
         </div>
 
         <div class="writer">
-            <img src="/Recursos/Images/Messi.jpg" alt="" class="perfil">
+            <img src="assets/Recursos/Images/Messi.jpg" alt="" class="perfil">
             <h2>Por Edgar Calvillo</h2>
 
             <h6>14 de octubre de 2020</h6>
@@ -407,20 +413,18 @@
 
         <div class="text">
             <h2>La NASA descubre 219 nuevos posibles planetas</h2>
-
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             <br>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-           
-            <img src="/Recursos/Images/1.jpg" alt="" class = "images">
-
+            
+            <img src="assets/Recursos/Images/1.jpg" alt="" class = "images">
+            
             <h2>Nuevos estudios</h2>
-
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             <br>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      
-            <img src="/Recursos/Images/3.jpg" alt="" class = "images">
+        
+             <img src="assets/Recursos/Images/3.jpg" alt="" class = "images">
         </div>
 
         <div class="comment">
@@ -565,9 +569,9 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <!--custom js-->
-    <script src="/JS/header.js"></script>
+    <script src="assets/JS/header.js"></script>
 
-    <script src="/JS/comments.js"></script>
+    <script src="assets/JS/comments.js"></script>
 
     <!-- Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
