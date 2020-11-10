@@ -6,7 +6,8 @@
 package com.scienceandtech.pw_pf.controles.models;
 
 /**
- *
+ * Model de Usuario
+ * POJO - Plain Old Java Object
  * @author edgar
  */
 public class Usuario {
@@ -29,7 +30,13 @@ public class Usuario {
         this.pass = pass;
         this.rol = rol;
     }
-     
+
+    public Usuario(String email, String username, String pass) {
+        this.email = email;
+        this.username = username;
+        this.pass = pass;
+    }
+
         /*SETTERS*/
     
     public void setEmail(String email) {

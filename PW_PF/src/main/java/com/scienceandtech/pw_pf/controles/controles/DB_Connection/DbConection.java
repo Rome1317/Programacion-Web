@@ -26,13 +26,22 @@ public class DbConection {
         // la ruta que es localhost puerto 3306
         // el nombre de la base de datos que es pwDB
         // lo demas son parametros para que no tengan problemas con zonas horarias
-        dataSource.setUrl("jdbc:mysql://localhost:3306/ct_db?useUnicode=true&useJDBCCompliantTimeZoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+        // dataSource.setUrl("jdbc:mysql://localhost:3306/ct_db?useUnicode=true&useJDBCCompliantTimeZoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
         // El nombre de usuario de su conexion
-        dataSource.setUsername("root");
+        //dataSource.setUsername("root");
         // La contraseña del usuario de su conexion
-        dataSource.setPassword("Reycena99");
+        //dataSource.setPassword("Reycena99");
         // dataSource.setMaxIdle(0);
         // dataSource.setMaxActive(100);
+        
+        //dataSource.setUrl("jdbc:mysql://localhost:3306/ct_db?useUnicode=true&useJDBCCompliantTimeZoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+        // El nombre de usuario de su conexion
+        //dataSource.setUsername("root");
+        // La contraseña del usuario de su conexion
+        //dataSource.setPassword("itsjohncena17");
+        // dataSource.setMaxIdle(0);
+        // dataSource.setMaxActive(100);
+       
     }
 
     /**

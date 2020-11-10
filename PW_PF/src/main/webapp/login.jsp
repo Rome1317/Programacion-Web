@@ -5,6 +5,13 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%
+    String email = (String)request.getAttribute("email");
+    String username = (String)request.getAttribute("username");
+    String pass = (String)request.getAttribute("pass");
+%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -105,13 +112,13 @@
             <!-- Class of bootstrap text bold and margin -->
             <h1 class="text-center mb-3"> ¡Welcome Back!</h1>
 
-            <form class="mb-3">
+            <form action="" class="mb-3">
     
               <!-- User -->
               <div class="mb-2">
-    
-                <label for="exampleInputEmail1" class="form-label font-weight-bold">Email or Username</label>
-                <input type="text" class="form-control bg-dark-x " placeholder="Enter Email or Username" id="exampleInputEmail1" aria-describedby="emailHelp">
+             
+                <label for="Email1" class="form-label font-weight-bold">Email or Username</label>
+                <input type="text" class="form-control bg-dark-x "  placeholder="Enter Email or Username" id="Emai1 User" aria-describedby="emailHelp">
     
                 <!-- Policy -->
                 <div id="emailHelp" class="form-text">We'll never share your information with anyone else.</div>
@@ -152,13 +159,13 @@
            <!-- Class of bootstrap text bold and margin -->
             <h1 class="text-center mb-3"> ¡Hello There!</h1>
       
-            <form class="mb-1">
+            <form  action="./LoginServlet" method="POST" enctype="multipart/form-data" class="mb-1">
 
               <!-- Email --> 
               <div class="mb-1">
     
-                <label for="exampleInputEmail1" class="form-label font-weight-bold">Email</label>
-                <input type="email" class="form-control bg-dark-x " placeholder="Enter Email" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="emai1" class="form-label font-weight-bold">Email</label>
+                <input type="email" class="form-control bg-dark-x " name="email" id="email" placeholder="Enter Email" aria-describedby="emailHelp">
     
                 <!-- Policy -->
                 <div id="emailHelp" class="form-text">We'll never share your information with anyone else.</div>
@@ -167,8 +174,8 @@
               <!-- User -->
               <div class="mb-1">
         
-                <label for="example" class="form-label font-weight-bold">Username</label>
-                <input type="text" class="form-control bg-dark-x " placeholder="Enter Username" id="example" aria-describedby="emailHelp">
+                <label for="username" class="form-label font-weight-bold">Username</label>
+                <input type="text" class="form-control bg-dark-x " name="username" id ="username" placeholder="Enter Username"  aria-describedby="emailHelp">
         
               </div>
     
@@ -176,12 +183,12 @@
               <div class="mb-3">
       
                 <label for="Password" class="form-label font-weight-bold">Password</label>
-                <input type="password" class="form-control bg-dark-x " placeholder="Enter Password" id="Password">
+                <input type="password" class="form-control bg-dark-x " name="pass" id="pass" placeholder="Enter Password" >
       
               </div>
     
               <!-- Log in -->
-              <button type="submit" class="btn btn-primary w-100 mb-3 font-weight-bold">Sign Up</button>
+              <button type="submit" class="btn btn-primary w-100 mb-3 font-weight-bold" href="LoginServlet">Sign Up</button>
     
               <!-- Remember me -->
               <div class=" form-check">
