@@ -26,6 +26,13 @@ public class Noticia {
         this.descripcion = descripcion;
         this.fk_usuario = fk_usuario;
     }
+
+    public Noticia(int id_noticia, String titulo, String descripcion, List<Imagen> Img) {
+        this.id_noticia = id_noticia;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.Img = Img;
+    }
     
     public Noticia(int id_noticia, String titulo, String descripcion) {
         this.id_noticia = id_noticia;

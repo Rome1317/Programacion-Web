@@ -39,7 +39,7 @@ public class MainServerlet extends HttpServlet {
             throws ServletException, IOException {
 
          List<Noticia> cards = NoticiasDAO.getHomeNews();
-         List<Imagen> imagenes;     
+         List<Imagen> imagenes;
          for(Noticia card : cards){
              imagenes = ImagenDAO.getHomeImg(card);
              card.setImg(imagenes);

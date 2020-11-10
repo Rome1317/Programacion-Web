@@ -22,27 +22,27 @@ import java.util.List;
 public class ImagenDAO {
     public static List<Imagen> getHomeImg(Noticia news){
         List<Imagen> imagenes = new ArrayList<>();
+           
         try{
-            Connection con = DbConection.getConnection();
-            
-                
+                Connection con = DbConection.getConnection();
+                      
                 CallableStatement statement = con.prepareCall("{call prc_imagen_home(?)}");
                 statement.setInt(1, news.getId_noticia());
-                
+                  
                 ResultSet resultSet = statement.executeQuery(); 
                 
                 while(resultSet.next()){
                     int id_imagen = resultSet.getInt(1);
                     String extencion = resultSet.getString(2);
                     int fk_noticia = resultSet.getInt(3);
-                    
-                    imagenes.add(new Imagen(id_imagen,extencion,fk_noticia));
-                }
-           
-          
+
+                    imagenes.add(new Imagen(id_imagen,extencion));
+                }   
+                con.close();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
         }finally{
+            
             return imagenes;
         }
     }

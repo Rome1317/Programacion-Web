@@ -22,7 +22,7 @@ public class NoticiasDAO {
     public static List<Noticia> getHomeNews(){
         List<Noticia> noticias = new ArrayList<>();
         try {
-            Connection con = DbConection.getConnection();
+            Connection con = DbConection.getConnection();        
             CallableStatement statement = con.prepareCall("{call prc_noticia_home()}");
             ResultSet resultSet = statement.executeQuery();
             

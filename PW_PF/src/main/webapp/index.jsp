@@ -288,8 +288,10 @@
 
             <!--News-->
             <div class="news-cards">
-                <%              
+                <%      
+                int j = 0;
                 for (Noticia card : cards){ 
+                    if(j < 4){
                 %>
                 <div class="new">
                     <img src="<%= card.getMainImg()%>" alt="Noticia 1">              
@@ -297,7 +299,11 @@
                     <p><%= card.getDescripcion()%></p>
                     <a href="#">Aprender Mas <i class="fas fa-angle-double-right"></i></a>
                 </div>
-                <% } %>    
+                <% 
+                    }
+                    j++;
+                } 
+                %>    
             </div>
 
             <!--Banner-->
@@ -312,29 +318,23 @@
 
             <!--News-->
             <div class="news-cards">
-                <%for(int i = 0; i < 4; i++){ %>
+                <%      
+                j = 0;
+                for (Noticia card : cards){ 
+                    if(j >= 4 && j < 12){
+                %>
                 <div class="new">
-                    <img src="assets/Recursos/Images/Playstation5.jpg " alt="Noticia 1">
-                    <h3>Lorem, ipsum dolor.</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta optio laudantium praesentium labore
-                        expedita quibusdam.</p>
+                    <img src="<%= card.getMainImg()%>" alt="Noticia 1">              
+                    <h3><%= card.getTitulo()%></h3>
+                    <p><%= card.getDescripcion()%></p>
                     <a href="#">Aprender Mas <i class="fas fa-angle-double-right"></i></a>
                 </div>
-                <% } %>
+                <% 
+                    }
+                    j++;
+                } 
+                %>  
             </div>
-
-            <div class="news-cards">
-                <%for(int i = 0; i < 4; i++){ %>
-                <div class="new">
-                    <img src="assets/Recursos/Images/Ej6.jpg" alt="Noticia 1">
-                    <h3>Lorem, ipsum dolor.</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta optio laudantium praesentium labore
-                        expedita quibusdam.</p>
-                    <a href="#">Aprender Mas <i class="fas fa-angle-double-right"></i></a>
-                </div>
-                <% } %>
-            </div>
-
 
             <!--Banner 2-->
             <section class="cards-banner-two">

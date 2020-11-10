@@ -35,6 +35,6 @@ begin
 	select id_noticia, titulo, descripcion from Tbl_Noticia 
     where aprovado = 1
     order by likes DESC
-    LIMIT 4;
+    LIMIT 12;
 END$$
 DELIMITER ;

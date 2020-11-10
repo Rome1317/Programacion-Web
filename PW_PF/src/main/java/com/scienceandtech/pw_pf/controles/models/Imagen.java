@@ -15,8 +15,11 @@ public class Imagen {
     private String extencion;
     private int fk_noticia;
 
+    public Imagen(int id_imagen, String extencion) {
+        this.id_imagen = id_imagen;
+        this.extencion = extencion;
+    }
 
-    
 //    CONSTRUCTOR
     public Imagen(int id_imagen, String extencion, int fk_noticia) {
         this.id_imagen = id_imagen;

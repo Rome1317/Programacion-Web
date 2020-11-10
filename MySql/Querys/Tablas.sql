@@ -73,10 +73,16 @@ insert into Tbl_Noticia (titulo,descripcion,noticia,aprovado,fk_usuario,likes)
 values("LOS SECRETOS DE UN METEORITO QUE CAYÓ EN 2018", 
 "Un meteorito «fireball» que cayó en 2018 contiene «compuestos orgánicos extraterrestres»", "Mucho texto sobre la nueva tecnologia de ultima generacion",
  1,"edgar_donato@outlook.com",200);
- 
+
 select * from Tbl_Noticia;
+select * from Tbl_Imagen;
 select *from Tbl_Categoria;
 select * from Tbl_Not_Cat;
+
+truncate table Tbl_Imagen;
+truncate table Tbl_Noticia;
+truncate table Tbl_Usuario;
+
 /*-----------------------*/
 create table if not exists Tbl_Categoria(
 	id_categoria	int auto_increment	primary key,
@@ -130,20 +136,22 @@ create table if not exists Tbl_Imagen(
 	foreign key (fk_noticia) references Tbl_Noticia(id_noticia)
 );
 /*Imagenes*/
-insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/xboxSeriesX.jpg",1);
-insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/Playstation5.jpg",2);
-insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/cs3.jpg",3);
-insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/clima5.jpg",4);
-
-insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/facebook.jpg",5);
-insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/wifi.jpg",7);
-insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/whatsapp.jpeg",8);
-insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/aoeIII.jpg",9);
-insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/meteoritos.jpg",10);
-insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/planetalava.jpg",11);
-insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/robots.jpg",12);
-insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/estacionespacial.jpg",13);
+insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/rome1.jpg",1);
+insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/rome2.jpg",2);
+insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/rome3.jpg",3);
+insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/rome4.jpg",4);
+insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/rome5.jpg",5);
+insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/rome6.jpg",7);
+insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/rome7.jpg",8);
+insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/rome9.jpg",9);
+insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/estacionespacial.jpg",10);
+insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/robots.jpg",11);
+insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/planetalava.jpg",12);
+insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/meteoritos.jpg",13);
 /*-------------------------*/
+
+delete from Tbl_Imagen where id_imagen= 8;
+
 create table if not exists Tbl_Video(
 	id_video	int auto_increment	primary key not null,
     ulr			varchar(50) not null,
