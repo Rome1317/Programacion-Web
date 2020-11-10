@@ -136,19 +136,19 @@ create table if not exists Tbl_Imagen(
 	foreign key (fk_noticia) references Tbl_Noticia(id_noticia)
 );
 /*Imagenes*/
-insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/rome1.jpg",1);
-insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/rome2.jpg",2);
-insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/rome3.jpg",3);
-insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/rome4.jpg",4);
-insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/rome5.jpg",5);
-insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/rome6.jpg",7);
-insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/rome7.jpg",8);
-insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/rome9.jpg",9);
+insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/xboxSeriesX.jpg",1);
+insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/Playstation5.jpg",2);
+insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/ia3.jpg",3);
+insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/clima5.jpg",4);
+insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/facebook.jpg",5);
+insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/wifi.jpg",7);
+insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/whatsapp.jpeg",8);
+insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/aoeIII.jpg",9);
 insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/estacionespacial.jpg",10);
 insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/robots.jpg",11);
 insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/planetalava.jpg",12);
 insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/meteoritos.jpg",13);
-/*-------------------------*/
+/*--------------------------------------------------------------------------------------------------*/
 
 delete from Tbl_Imagen where id_imagen= 8;
 

@@ -159,13 +159,13 @@
            <!-- Class of bootstrap text bold and margin -->
             <h1 class="text-center mb-3"> ¡Hello There!</h1>
       
-            <form  action="./LoginServlet" method="POST" enctype="multipart/form-data" class="mb-1">
+            <form  action="LoginServlet" method="POST" class="mb-1">
 
               <!-- Email --> 
               <div class="mb-1">
     
                 <label for="emai1" class="form-label font-weight-bold">Email</label>
-                <input type="email" class="form-control bg-dark-x " name="email" id="email" placeholder="Enter Email" aria-describedby="emailHelp">
+                <input type="email" class="form-control bg-dark-x " name="email" id="email" placeholder="Enter Email">
     
                 <!-- Policy -->
                 <div id="emailHelp" class="form-text">We'll never share your information with anyone else.</div>
@@ -175,7 +175,7 @@
               <div class="mb-1">
         
                 <label for="username" class="form-label font-weight-bold">Username</label>
-                <input type="text" class="form-control bg-dark-x " name="username" id ="username" placeholder="Enter Username"  aria-describedby="emailHelp">
+                <input type="text" class="form-control bg-dark-x " name="username" id ="username" placeholder="Enter Username">
         
               </div>
     
@@ -188,7 +188,7 @@
               </div>
     
               <!-- Log in -->
-              <button type="submit" class="btn btn-primary w-100 mb-3 font-weight-bold" href="LoginServlet">Sign Up</button>
+              <button type="submit" class="btn btn-primary w-100 mb-3 font-weight-bold" >Sign Up</button>
     
               <!-- Remember me -->
               <div class=" form-check">

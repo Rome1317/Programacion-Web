@@ -31,7 +31,8 @@ public class NoticiasDAO {
                 String titulo = resultSet.getString(2);
                 String descripcion = resultSet.getString(3);
                 noticias.add(new Noticia(id_noticia, titulo, descripcion));
-            }          
+            } 
+            con.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         } finally {
