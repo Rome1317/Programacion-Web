@@ -44,7 +44,10 @@ var search = document.getElementById("search");
 var box = document.getElementById("search-text");
 var look = document.getElementById("look");
 
+var searchbox = document.getElementById("search-box");
+
 search.addEventListener("click", () =>{
+    
 
     var x = document.getElementById("look").value;
     
@@ -54,7 +57,7 @@ search.addEventListener("click", () =>{
     }
     
     
-    box.classList.toggle("d-none")
+    box.classList.toggle("visible")
 
 });
     

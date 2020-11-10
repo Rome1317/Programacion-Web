@@ -29,12 +29,23 @@
         }
       }
 
-      .search-text{
+      .search-box{
         display: inline-block;
         justify-content: space-between;
         align-items: center;
 
-        margin-right: 10px;
+        padding-right: 520px;
+      }
+
+      .search-text{
+        display: inline-block;
+        justify-content: space-between;
+        align-items: center;
+        visibility: hidden;
+      }
+
+      .visible{
+        visibility: visible;
       }
 
       .look{
@@ -53,6 +64,11 @@
           border-bottom: 1px solid white;
         
         }
+      }
+
+      .photo{
+        width: 40px;
+        border-radius: 100%;
       }
   
       .btn-pw-menu-cerrar {
@@ -267,12 +283,16 @@
         width: 100%;
       }
 
-      .search{
-        width: auto;
+      .search-box{
+        width: 1000px;
+      }
+
+      .hide{
+        display: none;
       }
 
       .look{
-        font-size: 14px;
+        font-size: 13px;
       }
   
       .contenedor-enlaces-nav a:hover {

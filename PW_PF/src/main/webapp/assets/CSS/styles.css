@@ -67,6 +67,17 @@ ul {
   border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
+.menu .contenedor-botones-menu .search-box {
+  display: inline-block;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-right: 520px;
+}
+
 .menu .contenedor-botones-menu .search-text {
   display: inline-block;
   -webkit-box-pack: justify;
@@ -75,7 +86,11 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-right: 10px;
+  visibility: hidden;
+}
+
+.menu .contenedor-botones-menu .visible {
+  visibility: visible;
 }
 
 .menu .contenedor-botones-menu .look {
@@ -94,6 +109,11 @@ ul {
   -webkit-box-shadow: none;
           box-shadow: none;
   border-bottom: 1px solid white;
+}
+
+.menu .contenedor-botones-menu .photo {
+  width: 40px;
+  border-radius: 100%;
 }
 
 .menu .contenedor-botones-menu .btn-pw-menu-cerrar {
@@ -326,11 +346,14 @@ ul {
   .menu .enlaces {
     width: 100%;
   }
-  .menu .search {
-    width: auto;
+  .menu .search-box {
+    width: 1000px;
+  }
+  .menu .hide {
+    display: none;
   }
   .menu .look {
-    font-size: 14px;
+    font-size: 13px;
   }
   .menu .contenedor-enlaces-nav a:hover {
     border: 1px solid rgba(255, 255, 255, 0.4);

@@ -52,10 +52,13 @@
                 <a href="pagina_principal.html"><img src="assets/Recursos/Logo/logo.gif" alt=""></a>
                 <div class="contenedor-pw contenedor-enlaces-nav">
                     <div class="enlaces">
+                     <div class="search-box" id="search-box"> 
                         <button id="search" class = "search"><i class="fas fa-search"></i></button>
-                        <div class="search-text d-none" id="search-text">
-                            <input type="text" class="form-control look" value="" id="look" placeholder="What are you looking for?">
+                        <div class="search-text visible" id="search-text">
+                            <input type="text" class="form-control look " value="" id="look" placeholder="What are you looking for?">
                         </div>
+                     </div>
+                        <img src="assets/Recursos/Images/Messi.jpg" class="photo hide" >
                         <a href="/HTML/profile.html">Mi Cuenta</a>
                         <a href="#">Populares</a>
                         <a href="#">Ayuda</a>
