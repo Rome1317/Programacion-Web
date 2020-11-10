@@ -15,17 +15,31 @@ public class Noticia {
     /*ATRIBUTOS*/
     private int id_noticia;
     private String titulo;
+    private String resumen;
     private String descripcion;
+    private String  noticia;
     private boolean aprovado;
     private String fk_usuario;
     private List<Imagen> Img;
 
+    
+
     /*CONSTRUCTOR*/
+    public Noticia(String titulo,String resumen, String descripcion,String noticia, String fk_usuario) {
+        this.titulo = titulo;
+        this.resumen= resumen;
+        this.descripcion = descripcion;
+        this.noticia = noticia;
+        this.fk_usuario = fk_usuario;
+    }
+    
+       /*CONSTRUCTOR*/
     public Noticia(String titulo, String descripcion, String fk_usuario) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.fk_usuario = fk_usuario;
     }
+    
 
     public Noticia(int id_noticia, String titulo, String descripcion, List<Imagen> Img) {
         this.id_noticia = id_noticia;
@@ -52,9 +66,14 @@ public class Noticia {
     public String getTitulo() {
         return titulo;
     }
+   
 
     public String getDescripcion() {
         return descripcion;
+    }
+    
+    public String getNoticia() {
+        return noticia;
     }
 
     public boolean isAprovado() {
@@ -65,6 +84,11 @@ public class Noticia {
         return fk_usuario;
     }
     
+    public String getResumen(){
+        return resumen;
+    }
+  
+    
     /*SETTERS*/
 
     public void setId_noticia(int id_noticia) {
@@ -73,6 +97,10 @@ public class Noticia {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+    
+    public void setResumen(String resumen){
+        this.resumen = resumen;
     }
 
     public void setDescripcion(String descripcion) {

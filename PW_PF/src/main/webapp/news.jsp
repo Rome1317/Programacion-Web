@@ -53,6 +53,10 @@
                 <a href="pagina_principal.html"><img src="assets/Recursos/Logo/logo.gif" alt=""></a>
                 <div class="contenedor-pw contenedor-enlaces-nav">
                     <div class="enlaces">
+                        <button id="search" class = "search"><i class="fas fa-search"></i></button>
+                        <div class="search-text d-none" id="search-text">
+                            <input type="text" class="form-control look" value="" id="look" placeholder="What are you looking for?">
+                        </div>
                         <a href="/HTML/profile.html">Mi Cuenta</a>
                         <a href="#">Populares</a>
                         <a href="#">Ayuda</a>
@@ -429,7 +433,8 @@
 
         <div class="comment">
             <div class="butts">
-                <button type="submit" class="btn btn-primary btncom" id="btnop2"> Read Comments </button>
+                <button type="submit" class="btn btn-primary btncom d-none" id="btnop2"> Read Comments </button>
+                <button type="button" class="btn btn-outline-success btncom" id="btnop3"> Approve </button>
 
 
                 <button type="submit"  class="btn btn-light"> <i class="fab fa-facebook-f"></i></button>
@@ -572,6 +577,8 @@
     <script src="assets/JS/header.js"></script>
 
     <script src="assets/JS/comments.js"></script>
+    
+    <script src="assets/JS/news.js"></script>
 
     <!-- Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

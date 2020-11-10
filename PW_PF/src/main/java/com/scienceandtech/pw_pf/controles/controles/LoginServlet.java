@@ -55,7 +55,18 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
+        //Username or Email
+        String user = request.getParameter("user");
+        //Password
+        String password = request.getParameter("password");
  
+        boolean login = UsuarioDAO.loginUser(user,password);
+        
+        if(login == true){
+            response.sendRedirect("index.jsp");
+        }
+        
+       
     }
 
     /**
@@ -82,6 +93,8 @@ public class LoginServlet extends HttpServlet {
         UsuarioDAO.insertUser(user);
         
         response.sendRedirect("login.jsp");
+        
+        
         //processRequest(request, response);
     }
 

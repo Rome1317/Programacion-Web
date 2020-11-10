@@ -23,18 +23,15 @@ public class Usuario {
     private String rol;
     
         /*CONSTRUCTOR*/
-
-    public Usuario(String email, String username, String pass, String rol) {
-        this.email = email;
-        this.username = username;
-        this.pass = pass;
-        this.rol = rol;
-    }
-
     public Usuario(String email, String username, String pass) {
         this.email = email;
         this.username = username;
         this.pass = pass;
+    }
+
+    public Usuario(String user, String password) {
+        this.email = user;
+        this.pass = password;
     }
 
         /*SETTERS*/

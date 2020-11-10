@@ -17,7 +17,7 @@ import java.sql.SQLException;
  * @author Gonzalez
  */
 public class UsuarioDAO {
-    
+    /*
     public static int insertUser(Usuario user){
         
             try {
@@ -37,5 +37,61 @@ public class UsuarioDAO {
             return 0;
         }
     }
+    */
     
+    
+        public static int insertUser(Usuario user){
+        
+            try {
+            Connection con = DbConection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL prc_usuario(?,?,?,?,?,?,?,?);");         
+            
+            statement.setString(1,user.getEmail());
+            statement.setString(2,user.getUsername());
+            statement.setString(3,user.getPass());
+            statement.setString(4,"null");
+            statement.setString(5,"null");
+            statement.setString(6,"null");
+            statement.setString(7,"Usuario");
+            statement.setString(8,"nuevo");
+            
+            return statement.executeUpdate();           
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            return 0;
+        }
+    }
+        
+        public static Boolean loginUser(String user, String password){
+   
+            try {
+            Connection con = DbConection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL prc_usuario(?,?,?,?);");         
+            
+            statement.setString(1,user);
+            statement.setString(2,user);
+            statement.setString(3,password);
+            statement.setString(8,"login");
+            
+            ResultSet resultSet = statement.executeQuery();
+            // Si el resultSet tiene resultados lo recorremos
+            while (resultSet.next()) {
+                String username = resultSet.getString("username");
+                String pass = resultSet.getString("pass");
+                
+                if(username == user && pass == password){
+                    System.out.println(username);
+                    System.out.println(pass);
+                }
+                else{
+                    return false;
+                }
+            }           
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            return true;
+        }
+    }
 }

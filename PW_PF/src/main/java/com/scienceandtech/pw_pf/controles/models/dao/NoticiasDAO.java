@@ -39,4 +39,29 @@ public class NoticiasDAO {
             return noticias;
         }
     }
+    
+    
+    public static int insertNews(Noticia article){
+        
+            try {
+            Connection con = DbConection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL prc_noticia(?,?,?,?,?,?,?,?);");         
+            
+            statement.setInt(1,1);
+            statement.setString(2,article.getTitulo());
+            statement.setString(3,article.getResumen());
+            statement.setString(4,article.getDescripcion());
+            statement.setString(5,article.getNoticia());
+            statement.setBoolean(6,false);
+            statement.setString(7,"alberto@hotmail.com");
+            statement.setString(8,"nuevo");
+            
+            
+            return statement.executeUpdate();           
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            return 0;
+        }
+    }
 }

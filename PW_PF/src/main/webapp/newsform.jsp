@@ -289,10 +289,10 @@
     <div class="container">
         <div class=" col-xl-10 d-flex flex-column m-auto">
             
-            <form>
+            <form action="NewsFormServlet"  method="GET" enctype="multipart/form-data"  >
                 <div class="form-group">
                   <label for="title">Title</label>
-                  <input type="text" class="form-control" id="title" placeholder="Enter your news title">
+                  <input type="text" class="form-control" name="title" id="title" placeholder="Enter your news title">
                 </div>
 
                 <div class="butts">
@@ -301,63 +301,65 @@
 
                     <div class="btn-group-toggle text-xl-center text-lg-center text-md-center" data-toggle="buttons">
                         <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn9">
-                          <input type="checkbox"> Clima & Ambiente
+                          <input type="checkbox" name="categories[]" value="1"> Clima & Ambiente
                         </label>
                         <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn8">
-                            <input type="checkbox"> Ciencia
+                            <input type="checkbox" name="categories[]" value="2"> Ciencia
                         </label>
                         <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn7">
-                            <input type="checkbox"> Multimedia
+                            <input type="checkbox" name="categories[]" value="3"> Multimedia
                         </label>
                         <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn6">
-                            <input type="checkbox"> Tips Tecnologicos
+                            <input type="checkbox" name="categories[]" value="4"> Tips Tecnologicos
                         </label>
                         <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn5">
-                            <input type="checkbox"> Videojuegos
+                            <input type="checkbox" name="categories[]" value="5"> Videojuegos
                         </label>
                         <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn4">
-                            <input type="checkbox"> Autos
+                            <input type="checkbox" name="categories[]" value="6"> Autos
                         </label>
                         <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn3">
-                            <input type="checkbox"> Ciberseguridad
+                            <input type="checkbox" name="categories[]" value="7"> Ciberseguridad
                         </label>
                         <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn2">
-                            <input type="checkbox"> Realidad Virtual
+                            <input type="checkbox" name="categories[]" value="8"> Realidad Virtual
                         </label>
                         <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn">
-                            <input type="checkbox"> Inteligencia Artificial
+                            <input type="checkbox" name="categories[]" value="9"> Inteligencia Artificial
                         </label>
                     </div>
                 </div>
-        
+                
                 <div class="form-group">
                   <label for="summary">Summary</label>
-                  <textarea class="form-control" id="summary" rows="3" placeholder="Enter a summary of your story"></textarea>
+                  <textarea class="form-control" name="summary" id="summary" rows="3" placeholder="Enter a summary of your story"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="exampleFormControlFile1">Image</label>
-                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    <input type="file" class="form-control-file" name="image1" id="exampleFormControlFile1">
                 </div>
 
+                <!--
                 <div class="form-group">
                     <label for="caption">Image caption</label>
-                    <input type="text" class="form-control" id="caption" placeholder="Enter image caption">
+                    <input type="text" class="form-control" name="caption" id="caption" placeholder="Enter image caption">
                 </div>
+                -->
 
                 <div class="form-group">
                     <label for="sub1">Subtitle</label>
-                    <input type="text" class="form-control" id="sub1" placeholder="Enter subtitle">
+                    <input type="text" class="form-control" name="subtitle" id="sub1" placeholder="Enter subtitle">
                 </div>
                 
                 <div class="form-group">
                     <label for="exampleFormControlFile2">Image 2</label>
-                    <input type="file" class="form-control-file" id="exampleFormControlFile2">
+                    <input type="file" class="form-control-file" name="image2" id="exampleFormControlFile2">
                 </div>
 
                 <div class="form-group">
                     <label for="text1">Content</label>
-                    <textarea class="form-control" id="text1" rows="3" placeholder="Enter description"></textarea>
+                    <textarea class="form-control" name="content" id="text1" rows="3" placeholder="Enter description"></textarea>
                 </div>
 
                 <div class="d-none" id="second">
@@ -386,12 +388,12 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="exampleFormControlFile2">Image 3</label>
-                    <input type="file" class="form-control-file" id="exampleFormControlFile3">
+                    <label for="exampleFormControlFile3">Image 3</label>
+                    <input type="file" class="form-control-file" name="image3" id="exampleFormControlFile3">
                 </div>
 
                 <button type="button" class="btn btn-outline-link font-weight-bold mb-4" id="plus"> <i class="fas fa-plus"></i> Add Subtitle</button>
-                <button type="submit" class="btn btn-primary font-weight-bold px-4 float-right" >Publish</button>
+                <button type="submit" class="btn btn-primary font-weight-bold px-4 float-right">Publish</button>
                 
               </form>
         </div>

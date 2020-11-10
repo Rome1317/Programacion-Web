@@ -46,6 +46,10 @@
                 <a href="pagina_principal.html"><img src="assets/Recursos/Logo/logo.gif" alt=""></a>
                 <div class="contenedor-pw contenedor-enlaces-nav">
                     <div class="enlaces">
+                        <button id="search" class = "search"><i class="fas fa-search"></i></button>
+                        <div class="search-text d-none" id="search-text">
+                            <input type="text" class="form-control look" value="" id="look" placeholder="What are you looking for?">
+                        </div>
                         <a href="/HTML/profile.html">Mi Cuenta</a>
                         <a href="#">Populares</a>
                         <a href="#">Ayuda</a>

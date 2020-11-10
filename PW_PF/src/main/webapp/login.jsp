@@ -105,20 +105,22 @@
               <img src="assets/Recursos/Logo/logo 5.0.gif" class="logo" alt="Science & Tech" >
             </a>       
           </div>
+          
+          <!-- LOGIN -->
                  
-          <div class="px-xl-5 py-xl-2 p-4 w-100 align-self-center" id="login">
+          <div class="px-xl-5 py-xl-2 p-4 w-100 align-self-center" id="login">  
                   
   
             <!-- Class of bootstrap text bold and margin -->
             <h1 class="text-center mb-3"> ¡Welcome Back!</h1>
 
-            <form action="" class="mb-3">
+            <form action="LoginServlet" method="GET" class="mb-3">
     
               <!-- User -->
               <div class="mb-2">
              
-                <label for="Email1" class="form-label font-weight-bold">Email or Username</label>
-                <input type="text" class="form-control bg-dark-x "  placeholder="Enter Email or Username" id="Emai1 User" aria-describedby="emailHelp">
+                <label for="Emai1" class="form-label font-weight-bold">Email or Username</label>
+                <input type="text" class="form-control bg-dark-x " name="user" placeholder="Enter Email or Username" id="Emai1 User" aria-describedby="emailHelp">
     
                 <!-- Policy -->
                 <div id="emailHelp" class="form-text">We'll never share your information with anyone else.</div>
@@ -128,7 +130,7 @@
               <div class="mb-3">
     
                 <label for="exampleInputPassword1" class="form-label font-weight-bold">Password</label>
-                <input type="password" class="form-control bg-dark-x " placeholder="Enter Password" id="exampleInputPassword1">
+                <input type="password" class="form-control bg-dark-x " name="password" placeholder="Enter Password" id="exampleInputPassword1">
   
                 <!-- Link -->
                 <a href="#" id="pwHelp" class="form-text text-decoration-none">¿Forgot your password?</a>
@@ -153,6 +155,8 @@
               <button type="submit" class="btn btn-outline-light flex-grow-1 ml-2 font-weight-bold" > <i class="fab fa-facebook-f lead mr-2"></i> Facebook</button>
             </div>
           </div>
+          
+          <!-- REGISTRO -->
 
           <div class="px-lg-5 py-lg-2 p-4 w-100 align-self-center d-none" id="register">
               
@@ -165,7 +169,7 @@
               <div class="mb-1">
     
                 <label for="emai1" class="form-label font-weight-bold">Email</label>
-                <input type="email" class="form-control bg-dark-x " name="email" id="email" placeholder="Enter Email">
+                <input type="email" class="form-control bg-dark-x " name="email" id="email" placeholder="Enter Email"  aria-describedby="emailHelp">
     
                 <!-- Policy -->
                 <div id="emailHelp" class="form-text">We'll never share your information with anyone else.</div>
