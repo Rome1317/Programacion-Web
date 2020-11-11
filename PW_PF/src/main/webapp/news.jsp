@@ -4,7 +4,11 @@
     Author     : Gonzalez
 --%>
 
+<%@page import="com.scienceandtech.pw_pf.controles.models.Noticia"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    Noticia cards = (Noticia)request.getAttribute("cards");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -391,14 +395,17 @@
 
     <div class="container">
         <div class="title">
-            <h2>¿Estamos solos en el universo? </h2>
+        <!--titulo-->
+            <h2><%= cards.getTitulo() %> </h2>
         </div>
 
         <div class="foot">
-            <h2>Saturno es el sexto planeta del sistema solar contando desde el Sol, el segundo en tamaño y masa después de Júpiter y el único con un sistema de anillos visible desde la Tierra</h2>
+            <!-- descripcion -->
+            <h2><%=cards.getDescripcion()%></h2>
         </div>
 
         <div class="writer">
+            <!--PERFIL IMAGENES -->
             <img src="assets/Recursos/Images/Messi.jpg" alt="" class="perfil">
             <h2>Por Edgar Calvillo</h2>
 
@@ -416,19 +423,16 @@
         </div>
 
         <div class="text">
-            <h2>La NASA descubre 219 nuevos posibles planetas</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <br>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h2><%= cards.getTitulo() %> </h2>
+            <p><%= cards.getDescripcion() %></p>
             
-            <img src="assets/Recursos/Images/1.jpg" alt="" class = "images">
+            <img src="<%=cards.getMainImg()%>" alt="" class = "images">
             
-            <h2>Nuevos estudios</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <br>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<!--            <h2>Nuevos estudios</h2>-->
+           <p><%= cards.getNoticia() %></p>
         
-             <img src="assets/Recursos/Images/3.jpg" alt="" class = "images">
+             <img src="<%=cards.getImg().get(1).getExtencion()%>" alt="" class = "images">
+             <img src="<%=cards.getImg().get(2).getExtencion()%>" alt="" class = "images">
         </div>
 
         <div class="comment">
@@ -442,8 +446,7 @@
                 <button type="submit"  class="btn btn-light"><i class="fas fa-crown"></i></button>
                 <button type="submit"  class="btn btn-light"><i class="fas fa-share"></i></button>
                 <button type="submit"  class="btn btn-link"><i class="fas fa-bookmark"></i></i></button>
-        
-
+       
             </div>
         </div>
     </div>

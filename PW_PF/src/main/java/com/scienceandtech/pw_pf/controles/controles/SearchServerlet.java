@@ -10,9 +10,8 @@ import com.scienceandtech.pw_pf.controles.models.Noticia;
 import com.scienceandtech.pw_pf.controles.models.dao.ImagenDAO;
 import com.scienceandtech.pw_pf.controles.models.dao.NoticiasDAO;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
 import java.util.List;
-import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,8 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author edgar
  */
-@WebServlet(name = "MainServerlet", urlPatterns = {"/MainServerlet"})
-public class MainServerlet extends HttpServlet {
+@WebServlet(name = "SearchServerlet", urlPatterns = {"/SearchServerlet"})
+public class SearchServerlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,19 +33,23 @@ public class MainServerlet extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     */ 
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-         List<Noticia> cards = NoticiasDAO.getHomeNews();
-         List<Imagen> imagenes;
-         for(Noticia card : cards){
-             imagenes = ImagenDAO.getHomeImg(card);
-             card.setImg(imagenes);
-         }
-         request.setAttribute("cards", cards);
-         request.getRequestDispatcher("index.jsp").forward(request, response);        
+        response.setContentType("text/html;charset=UTF-8");
+        try ( PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+           List<Noticia> cards = NoticiasDAO.getSearchNews("Xbox");
+           List<Imagen> imagenes;
+            for(Noticia card : cards){
+                imagenes = ImagenDAO.getHomeImg(card);
+                card.setImg(imagenes);
+            }
+           request.setAttribute("cards", cards);
+           request.getRequestDispatcher("search.jsp").forward(request, response);        
+        }
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

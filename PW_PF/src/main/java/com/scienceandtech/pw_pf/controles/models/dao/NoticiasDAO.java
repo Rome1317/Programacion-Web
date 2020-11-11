@@ -19,6 +19,7 @@ import java.util.List;
  * @author edgar
  */
 public class NoticiasDAO {
+    
     public static List<Noticia> getHomeNews(){
         List<Noticia> noticias = new ArrayList<>();
         try {
@@ -30,16 +31,68 @@ public class NoticiasDAO {
                 int id_noticia = resultSet.getInt(1);
                 String titulo = resultSet.getString(2);
                 String descripcion = resultSet.getString(3);
-                noticias.add(new Noticia(id_noticia, titulo, descripcion));
+                String noticia = resultSet.getString(4);
+                boolean aprobado = resultSet.getBoolean(5);
+                String fk_usuario = resultSet.getString(6);
+                int likes = resultSet.getInt(7);
+                noticias.add(new Noticia(id_noticia, titulo, descripcion, noticia, aprobado, fk_usuario, likes));
             } 
             con.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         } finally {
             return noticias;
-        }
+        }   
     }
     
+    public static List<Noticia> getSearchNews(String buscar){
+        List<Noticia> noticias = new ArrayList<>();
+        try{
+            Connection con = DbConection.getConnection();        
+            CallableStatement statement = con.prepareCall("{call prc_noticia_search(?)}");
+            statement.setString(1,buscar);       
+            ResultSet resultSet = statement.executeQuery();
+            
+            while(resultSet.next()){
+                int id_noticia = resultSet.getInt(1);
+                String titulo = resultSet.getString(2);
+                String descripcion = resultSet.getString(3);
+                String noticia = resultSet.getString(4);
+                boolean aprobado = resultSet.getBoolean(5);
+                String fk_usuario = resultSet.getString(6);
+                int likes = resultSet.getInt(7);
+                noticias.add(new Noticia(id_noticia, titulo, descripcion, noticia, aprobado, fk_usuario, likes));
+            }
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            return noticias;
+        }   
+    }
+    
+    public static Noticia getOneNew(int id){
+        Noticia noticias = null;
+        try{
+            Connection con = DbConection.getConnection();        
+            CallableStatement statement = con.prepareCall("{call pcr_noticia_one(?)}");
+            statement.setInt(1,id);       
+            ResultSet resultSet = statement.executeQuery();
+            while(resultSet.next()){
+                int id_noticia = resultSet.getInt(1);
+                String titulo = resultSet.getString(2);
+                String descripcion = resultSet.getString(3);
+                String noticia = resultSet.getString(4);
+                boolean aprobado = resultSet.getBoolean(5);
+                String fk_usuario = resultSet.getString(6);
+                int likes = resultSet.getInt(7);
+                noticias = new Noticia(id_noticia, titulo, descripcion, noticia, aprobado, fk_usuario, likes);
+            }
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            return noticias;
+        }  
+    }
     
     public static int insertNews(Noticia article){
         

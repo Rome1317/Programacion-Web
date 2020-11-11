@@ -1,46 +1,41 @@
 <%-- 
-    Document   : Home
-    Created on : Nov 7, 2020, 5:50:43 PM
-    Author     : Edgar Donato
+    Document   : search
+    Created on : Nov 10, 2020, 2:38:20 PM
+    Author     : edgar
 --%>
-<%@page import="com.scienceandtech.pw_pf.controles.models.Imagen"%>
-<%@page import="com.scienceandtech.pw_pf.controles.models.Noticia"%>
-<%@page import="java.util.List"%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%@page import="java.util.List"%>
+<%@page import="com.scienceandtech.pw_pf.controles.models.Noticia"%>
+<%@page import="com.scienceandtech.pw_pf.controles.models.Noticia"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-        List<Noticia> cards = (List<Noticia>)request.getAttribute("cards");
+    List<Noticia> cards = (List<Noticia>)request.getAttribute("cards");
 %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Science & Tech</title>
+        <title>Document</title>
 
-        <!-- Bootstrap -->
-          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+         <!-- Bootstrap -->
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
         <!--Font awesome-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-            integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
-            crossorigin="anonymous" />
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
 
         <!--Font oswald-->
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300&display=swap" 
-        rel="stylesheet"
-        >
 
         <!--Custom css-->
         <link rel="stylesheet" href="assets/CSS/styles.css">
-        <link rel="stylesheet" href="assets/CSS/main_page.css">
+        <link rel="stylesheet" href="assets/CSS/search.css">       
     </head>
     <body>
-        <!--Menu-->
-        <nav class="menu" id= "menu">
+            <nav class="menu" id= "menu">
             <div class="contenedor-pw contenedor-botones-menu">
                 <button id="btn-pw-menu-barras" class = "btn-pw-menu-barras"><i class="fas fa-bars"></i></button>
                 <a href="pagina_principal.html"><img src="assets/Recursos/Logo/logo.gif" alt=""></a>
@@ -278,98 +273,43 @@
             </div>
         </nav>
 
-        <!-- Container -->
-
-        <div class="contenedor-pw">
-            <!--show case-->
-            <header class="showcase">
-                <h2>¡Grandes noticias de hoy!</h2>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus odio voluptatem, labore saepe dolor
-                    quo iure enim inventore quod beatae vero nulla animi obcaecati aspernatur dignissimos quam, ut ea quae.
-                </p>
-                <a href="#" class="btn-pw">Leer Mas <i class="fas fa-angle-double-right"></i></a>
-            </header>
-
-            <!--News-->
-            <div class="news-cards">
-                <%      
-                int j = 0;
-                for (Noticia card : cards){ 
-                    if(j < 4){
-                %>
-                <div class="new">
-                    <img src="<%= card.getMainImg()%>" alt="Noticia 1">              
-                    <h3><%= card.getTitulo()%></h3>
-                    <p><%= card.getDescripcion()%></p>
-                    <a href="NewsServerlet?noticia=<%=card.getId_noticia()%>">Aprender Mas <i class="fas fa-angle-double-right"></i></a>
-                </div>
-                <% 
+          
+            <div class="contenedor-pw">               
+                <div class="contenedor-noticia">
+                    <%
+                    for(Noticia card : cards){                             
+                    %>
+                    <div class = "search-noticia">
+                        <a href="NewsServerlet?noticia=<%=card.getId_noticia()%>"><%= card.getTitulo()%>.</a>
+                        <p><%= card.getDescripcion()%></p>
+                        <img src="<%= card.getMainImg()%>" alt="Noticia 1">
+                    </div>
+                    <hr>
+                    <%
                     }
-                    j++;
-                } 
-                %>    
+                    %>
+                </div>              
+            </div>
+                <!--Social-->
+                <section class="social">
+                    <p>Siguenos Science & Tech</p>
+                    <div class="links">
+                        <a href="https://www.facebook.com/Romeesponja" class="btn btn-link ">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="btn btn-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="btn btn-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+
+                </section>
             </div>
 
-            <!--Banner-->
-            <section class="cards-banner-one">
-                <div class="content">
-                    <h2>Lorem, ipsum dolor.</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam dolorum, qui recusandae eum sed
-                        voluptas esse nisi. Dolores, nam reprehenderit.</p>
-                    <a href="#" class="btn-pw">Leer Mas <i class="fas fa-angle-double-right"></i></a>
-                </div>
-            </section>
-
-            <!--News-->
-            <div class="news-cards">
-                <%      
-                j = 0;
-                for (Noticia card : cards){ 
-                    if(j >= 4 && j < 12){
-                %>
-                <div class="new">
-                    <img src="<%= card.getMainImg()%>" alt="Noticia 1">              
-                    <h3><%= card.getTitulo()%></h3>
-                    <p><%= card.getDescripcion()%></p>
-                    <a href="NewsServerlet?noticia=<%=card.getId_noticia()%>">Aprender Mas <i class="fas fa-angle-double-right"></i></a>
-                </div>
-                <% 
-                    }
-                    j++;
-                } 
-                %>  
-            </div>
-
-            <!--Banner 2-->
-            <section class="cards-banner-two">
-                <div class="content">
-                    <h2>Lorem, ipsum dolor.</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut ab laborum officiis rem maiores sed
-                        consequuntur recusandae asperiores odit quibusdam.</p>
-                    <a href="#" class="btn-pw">Leer Mas <i class="fas fa-angle-double-right"></i></a>
-                </div>
-            </section>
-
-            <!--Social-->
-            <section class="social">
-                <p>Siguenos Science & Tech</p>
-                <div class="links">
-                    <a href="https://www.facebook.com/Romeesponja" class="btn btn-link ">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="btn btn-link">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="btn btn-link">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                </div>
-
-            </section>
-        </div>
-
-         <!--footer-->
-         <div class="footer-links">
+        <!--footer-->
+        <div class="footer-links">
             <div class="footer-contenedor-pw">
                 <ul>
                     <li>
@@ -486,23 +426,18 @@
             <h6>&#169 2020 Science & Tech. Todos los derechos reservados. </h6>
         </footer>
 
-        <!--SCRIPTS-->
+             <!-- Bootstrap -->
+             <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+             crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+             integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+             crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+             integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+             crossorigin="anonymous"></script>
 
-        <!--scroll reveal-->
-        <script src="https://unpkg.com/scrollreveal"></script>
-
-        <!--custom js-->
+            <!--custom js-->
         <script src="assets/JS/header.js"></script>
-
-        <!-- Bootstrap -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-            crossorigin="anonymous"></script>
     </body>
 </html>

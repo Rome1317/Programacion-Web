@@ -20,7 +20,18 @@ public class Noticia {
     private String  noticia;
     private boolean aprovado;
     private String fk_usuario;
+    private int likes;
     private List<Imagen> Img;
+
+    public Noticia(int id_noticia, String titulo, String descripcion, String noticia, boolean aprovado, String fk_usuario, int likes) {
+        this.id_noticia = id_noticia;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.noticia = noticia;
+        this.aprovado = aprovado;
+        this.fk_usuario = fk_usuario;
+        this.likes = likes;
+    }
 
     
 
@@ -58,6 +69,16 @@ public class Noticia {
     public String getMainImg() {
        return Img.get(0).getExtencion();
     }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public List<Imagen> getImg() {
+        return Img;
+    }
+    
+   
     
     public int getId_noticia() {
         return id_noticia;
