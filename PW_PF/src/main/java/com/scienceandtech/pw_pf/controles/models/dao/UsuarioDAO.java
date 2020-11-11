@@ -77,16 +77,7 @@ public class UsuarioDAO {
             ResultSet resultSet = statement.executeQuery();
             // Si el resultSet tiene resultados lo recorremos
             while (resultSet.next()) {
-                String username = resultSet.getString("username");
-                String pass = resultSet.getString("pass");
-                
-                if(username == user && pass == password){
-                    System.out.println(username);
-                    System.out.println(pass);
-                }
-                else{
-                    return false;
-                }
+
             }           
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());

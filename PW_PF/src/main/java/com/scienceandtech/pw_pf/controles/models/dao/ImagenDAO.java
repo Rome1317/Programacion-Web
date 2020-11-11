@@ -46,4 +46,27 @@ public class ImagenDAO {
             return imagenes;
         }
     }
+    
+    public static int insertImages(Imagen image){
+
+        try{
+            Connection con = DbConection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL prc_imagen(?,?,?,?);");         
+            
+            statement.setInt(1,image.getId_imagen());
+            statement.setString(2,image.getExtencion());
+            statement.setInt(3,image.getFk_noticia());
+            statement.setString(4,"nuevo");
+        
+
+            
+            return statement.executeUpdate();           
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            return 0;
+        }
+                      
+
+    }
 }

@@ -52,12 +52,19 @@
                 <a href="pagina_principal.html"><img src="assets/Recursos/Logo/logo.gif" alt=""></a>
                 <div class="contenedor-pw contenedor-enlaces-nav">
                     <div class="enlaces">
-                     <div class="search-box" id="search-box"> 
-                        <button id="search" class = "search"><i class="fas fa-search"></i></button>
-                        <div class="search-text visible" id="search-text">
-                            <input type="text" class="form-control look " value="" id="look" placeholder="What are you looking for?">
-                        </div>
-                     </div>
+                       
+                            <div class="search-box" id="search-box"> 
+                                <form action="" method="" class="">
+                                    <button type="submit" id="search" class = "search"><i class="fas fa-search"></i></button>
+                                <div class="search-text visible" id="search-text">
+                                    
+                                    <input type="text" class="form-control look " value="" id="look" placeholder="What are you looking for?">
+                             
+                                </div>
+                                </form>
+
+                            </div>
+                        
                         <img src="assets/Recursos/Images/Messi.jpg" class="photo hide" >
                         <a href="/HTML/profile.html">Mi Cuenta</a>
                         <a href="#">Populares</a>
@@ -292,7 +299,7 @@
     <div class="container">
         <div class=" col-xl-10 d-flex flex-column m-auto">
             
-            <form action="NewsFormServlet"  method="GET" enctype="multipart/form-data"  >
+            <form action="NewsFormServlet"  method="POST" enctype="multipart/form-data"  >
                 <div class="form-group">
                   <label for="title">Title</label>
                   <input type="text" class="form-control" name="title" id="title" placeholder="Enter your news title">

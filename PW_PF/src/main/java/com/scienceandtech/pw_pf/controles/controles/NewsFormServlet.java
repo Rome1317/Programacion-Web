@@ -102,10 +102,6 @@ public class NewsFormServlet extends HttpServlet {
         
         String user = "";
         
-        Noticia article = new Noticia(title,summary,subtitle,content, user);
-        
-        NoticiasDAO.insertNews(article);
-        
         //Ubicacion
         String path = request.getServletContext().getRealPath("");
         
@@ -143,6 +139,23 @@ public class NewsFormServlet extends HttpServlet {
         String fullPath3 = path + FileUtils.RUTE_USER_IMAGE + "/" + nameImage3;
     
         file3.write(fullPath3);
+        
+        
+        Noticia article = new Noticia(title,summary,subtitle,content, user);
+        
+        int id = 10;
+        
+        Imagen image1 = new Imagen(1, FileUtils.RUTE_USER_IMAGE + "/" + nameImage, id);
+        Imagen image2 = new Imagen(1, FileUtils.RUTE_USER_IMAGE + "/" + nameImage2, id);
+        Imagen image3 = new Imagen(1, FileUtils.RUTE_USER_IMAGE + "/" + nameImage3, id);
+        
+        //NoticiasDAO.insertNews(article);
+        
+        //ImagenDAO.insertImages(image1);
+        //ImagenDAO.insertImages(image2);
+        //ImagenDAO.insertImages(image3);
+        
+        
         
     }
 
