@@ -1,5 +1,6 @@
 use CT_DB;
 
+select * from Tbl_Usuario;
 select * from Tbl_Noticia;
 select * from Tbl_Imagen;
 select *from Tbl_Categoria;
@@ -147,4 +148,6 @@ insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/met
 insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/1.jpg",13);
 insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/3.jpg",13);
 /*--------------------------------------------------------------------------------------------------*/
- 
+
+select * from Tbl_Noticia noti
+inner join Tbl_Categ

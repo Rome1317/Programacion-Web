@@ -63,26 +63,31 @@ public class UsuarioDAO {
         }
     }
         
-        public static Boolean loginUser(String user, String password){
-   
+        public static Usuario loginUser(String user, String password){
+            Usuario usuario = null;
             try {
             Connection con = DbConection.getConnection();
-            CallableStatement statement = con.prepareCall("CALL prc_usuario(?,?,?,?);");         
+            CallableStatement statement = con.prepareCall("CALL prc_usuario(?,?);");         
             
             statement.setString(1,user);
-            statement.setString(2,user);
-            statement.setString(3,password);
-            statement.setString(8,"login");
+            statement.setString(2,password);           
             
             ResultSet resultSet = statement.executeQuery();
-            // Si el resultSet tiene resultados lo recorremos
-            while (resultSet.next()) {
-
-            }           
+            while (resultSet.next()) {            
+                String email = resultSet.getString("email");
+                String username = resultSet.getString("username");
+                String pass = resultSet.getString("pass");
+                String facebook = resultSet.getString("facebook");
+                String twitter = resultSet.getString("twitter");
+                String imagenes = resultSet.getString("imagen");
+                String rol = resultSet.getString("rol");
+                usuario = new Usuario(email,username,pass,facebook, twitter, imagenes,rol);
+            }      
+            con.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         } finally {
-            return true;
+            return usuario;
         }
     }
 }

@@ -62,7 +62,16 @@ public class SearchServerlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String buscar = request.getParameter("buscar");
+        
+        List<Noticia> cards = NoticiasDAO.getSearchNews(buscar);
+           List<Imagen> imagenes;
+            for(Noticia card : cards){
+                imagenes = ImagenDAO.getHomeImg(card);
+                card.setImg(imagenes);
+            }
+        request.setAttribute("cards", cards);
+        request.getRequestDispatcher("search.jsp").forward(request, response);  
     }
 
     /**

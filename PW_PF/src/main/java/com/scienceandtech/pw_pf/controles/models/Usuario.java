@@ -21,6 +21,16 @@ public class Usuario {
     private String twitter;
     private String imagen;
     private String rol;
+
+    public Usuario(String email, String username, String pass, String facebook, String twitter, String imagen, String rol) {
+        this.email = email;
+        this.username = username;
+        this.pass = pass;
+        this.facebook = facebook;
+        this.twitter = twitter;
+        this.imagen = imagen;
+        this.rol = rol;
+    }
     
         /*CONSTRUCTOR*/
     public Usuario(String email, String username, String pass) {

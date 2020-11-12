@@ -3,6 +3,7 @@
     Created on : Nov 7, 2020, 5:50:43 PM
     Author     : Edgar Donato
 --%>
+<%@page import="com.scienceandtech.pw_pf.controles.models.Usuario"%>
 <%@page import="com.scienceandtech.pw_pf.controles.models.Imagen"%>
 <%@page import="com.scienceandtech.pw_pf.controles.models.Noticia"%>
 <%@page import="java.util.List"%>
@@ -11,6 +12,7 @@
 
 <%
         List<Noticia> cards = (List<Noticia>)request.getAttribute("cards");
+        Usuario usuario = (Usuario)request.getAttribute("usuario");
 %>
 <!DOCTYPE html>
 <html>
@@ -43,14 +45,30 @@
         <nav class="menu" id= "menu">
             <div class="contenedor-pw contenedor-botones-menu">
                 <button id="btn-pw-menu-barras" class = "btn-pw-menu-barras"><i class="fas fa-bars"></i></button>
-                <a href="pagina_principal.html"><img src="assets/Recursos/Logo/logo.gif" alt=""></a>
+                <a href="MainServerlet"><img src="assets/Recursos/Logo/logo.gif" alt=""></a>
                 <div class="contenedor-pw contenedor-enlaces-nav">
                     <div class="enlaces">
-                        <button id="search" class = "search"><i class="fas fa-search"></i></button>
-                        <div class="search-text d-none" id="search-text">
-                            <input type="text" class="form-control look" value="" id="look" placeholder="What are you looking for?">
-                        </div>
+                       <div class="search-box" id="search-box"> 
+                                <form action="./SearchServerlet" method="GET" class="">
+                                    <button type="submit" id="search" class = "search"><i class="fas fa-search"></i></button>
+                                <div class="search-text visible" id="search-text">                                   
+                                    <input type="text" class="form-control look " name="buscar" id="buscar" placeholder="What are you looking for?">                             
+                                </div>
+                                </form>
+                            </div>
+                        
+                        <img src="assets/Recursos/Images/Messi.jpg" class="photo hide" >
+                        <%
+                            if(usuario != null){
+                        %>
+                        <a href="PerfilServerlet"><%=usuario.getUsername()%></a>
+                        <% 
+                            }else{ 
+                        %>
                         <a href="/HTML/profile.html">Mi Cuenta</a>
+                        <%
+                            }
+                        %>
                         <a href="#">Populares</a>
                         <a href="#">Ayuda</a>
                     </div>
@@ -64,21 +82,21 @@
                     <div class="categorias">
                        <button class ="btn-pw-regresar"><i class="fas fa-arrow-left"></i> Regresar</button>
                        <h3 class="subtitulo">Categorias</h3>
-                       <a href="#" data-categoria="climate-enviroment">Clima & ambiente <i class="fas fa-arrow-right"></i></a>
-                       <a href="#" data-categoria="science">Ciencia <i class="fas fa-arrow-right"></i></a>
-                       <a href="#" data-categoria="media">Multimedia <i class="fas fa-arrow-right"></i></a>
-                       <a href="#" data-categoria="tech-tips">Tips Tecnologicos <i class="fas fa-arrow-right"></i></a>
-                       <a href="#" data-categoria="videogames">Videojuegos <i class="fas fa-arrow-right"></i></a>
-                       <a href="#" data-categoria="cars">Autos <i class="fas fa-arrow-right"></i></a>
-                       <a href="#" data-categoria="Cybersecurity">Ciberseguridad <i class="fas fa-arrow-right"></i></a>
-                       <a href="#" data-categoria="virtual-reality">Realida Virtual <i class="fas fa-arrow-right"></i></a>
-                       <a href="#" data-categoria="artificial-intelligence">Inteligencia Artificial <i class="fas fa-arrow-right"></i></a>
+                       <a href="SearchServerlet?buscar=Clima y ambiente" data-categoria="climate-enviroment">Clima & ambiente <i class="fas fa-arrow-right"></i></a>
+                       <a href="SearchServerlet?buscar=Ciencia" data-categoria="science">Ciencia <i class="fas fa-arrow-right"></i></a>
+                       <a href="SearchServerlet?buscar=Multimedia" data-categoria="media">Multimedia <i class="fas fa-arrow-right"></i></a>
+                       <a href="SearchServerlet?buscar=Tips Tecnologicos" data-categoria="tech-tips">Tips Tecnologicos <i class="fas fa-arrow-right"></i></a>
+                       <a href="SearchServerlet?buscar=Videojuegos" data-categoria="videogames">Videojuegos <i class="fas fa-arrow-right"></i></a>
+                       <a href="SearchServerlet?buscar=Autos" data-categoria="cars">Autos <i class="fas fa-arrow-right"></i></a>
+                       <a href="SearchServerlet?buscar=Ciberseguridad" data-categoria="Cybersecurity">Ciberseguridad <i class="fas fa-arrow-right"></i></a>
+                       <a href="SearchServerlet?buscar=Realidad Virtual" data-categoria="virtual-reality">Realida Virtual <i class="fas fa-arrow-right"></i></a>
+                       <a href="SearchServerlet?buscar=Inteligencia Artificial" data-categoria="artificial-intelligence">Inteligencia Artificial <i class="fas fa-arrow-right"></i></a>
                     </div>
 
                     <div class="contenedor-subcategorias">
                         <div class="subcategoria activo" data-categoria="climate-enviroment">
                             <div class="banner-subcategoria">
-                                <a href="#">
+                                <a href="SearchServerlet?busqueda=Clima">
                                     <img src="assets/Recursos/Images/clima5.jpg" alt="">
                                 </a>
                             </div>  

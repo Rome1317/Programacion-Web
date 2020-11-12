@@ -397,7 +397,7 @@
         <div class="title">
             
         <!--titulo-->
-            <img src="assets/Recursos/Images/15.jpg" alt="" class="main-img">
+<!--            <img src="assets/Recursos/Images/15.jpg" alt="" class="main-img">-->
             <h2><%= cards.getTitulo() %> </h2>
         </div>
 

@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -52,21 +53,23 @@ public class LoginServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-        
+            throws ServletException, IOException {        
         //Username or Email
         String user = request.getParameter("user");
         //Password
         String password = request.getParameter("password");
  
-        boolean login = UsuarioDAO.loginUser(user,password);
+//        Usuario user = UsuarioDAO.loginUser(user,password);
+        Usuario temp = UsuarioDAO.loginUser(user, password);
         
-        if(login == true){
-            response.sendRedirect("index.jsp");
-        }
+        HttpSession session = request.getSession();
+        session.setAttribute("USER", temp);
         
-       
+        if(temp != null){
+            request.getRequestDispatcher("MainServerlet").forward(request, response);
+        }else{
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        }             
     }
 
     /**

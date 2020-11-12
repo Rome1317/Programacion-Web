@@ -45,6 +45,32 @@ public class NoticiasDAO {
         }   
     }
     
+    public static List<Noticia> getUserNews(String email){
+        List<Noticia> noticias = new ArrayList<>();
+        try{
+            Connection con = DbConection.getConnection();        
+            CallableStatement statement = con.prepareCall("{call prc_noticia_creada(?)}");
+            statement.setString(1,email);       
+            ResultSet resultSet = statement.executeQuery();
+            
+            while(resultSet.next()){
+                int id_noticia = resultSet.getInt(1);
+                String titulo = resultSet.getString(2);
+                String descripcion = resultSet.getString(3);
+                String noticia = resultSet.getString(4);
+                boolean aprobado = resultSet.getBoolean(5);
+                String fk_usuario = resultSet.getString(6);
+                int likes = resultSet.getInt(7);
+                noticias.add(new Noticia(id_noticia, titulo, descripcion, noticia, aprobado, fk_usuario, likes));
+            }
+            con.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            return noticias;
+        }   
+    }
+    
     public static List<Noticia> getSearchNews(String buscar){
         List<Noticia> noticias = new ArrayList<>();
         try{
