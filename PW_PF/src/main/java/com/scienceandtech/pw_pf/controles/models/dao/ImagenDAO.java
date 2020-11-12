@@ -60,7 +60,8 @@ public class ImagenDAO {
         
 
             
-            return statement.executeUpdate();           
+            statement.executeUpdate(); 
+            con.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         } finally {

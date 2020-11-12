@@ -21,6 +21,10 @@ public class Noticia_Categoria {
         this.fk_categoria = fk_categoria;
     }
     
+     public Noticia_Categoria(int fk_noticia) {
+        this.fk_noticia = fk_noticia;
+    }
+    
     /*GETTERS*/
     public int getId_not_cat() {
         return id_not_cat;

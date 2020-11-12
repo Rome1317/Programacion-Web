@@ -9,6 +9,7 @@ package com.scienceandtech.pw_pf.controles.controles;
 import com.scienceandtech.pw_pf.controles.models.Imagen;
 import com.scienceandtech.pw_pf.controles.models.Noticia;
 import com.scienceandtech.pw_pf.controles.models.Noticia_Categoria;
+import com.scienceandtech.pw_pf.controles.models.dao.CategoriaDAO;
 import com.scienceandtech.pw_pf.controles.models.dao.ImagenDAO;
 import com.scienceandtech.pw_pf.controles.models.dao.NoticiasDAO;
 
@@ -84,10 +85,6 @@ public class NewsFormServlet extends HttpServlet {
         
         //Categorias
         String[] checked = request.getParameterValues("categories[]");
-        
-        if(checked != null){
-            
-        }
 
         //Resumen
         String summary = request.getParameter("summary");
@@ -140,36 +137,45 @@ public class NewsFormServlet extends HttpServlet {
     
         file3.write(fullPath3);
         
+        if(checked != null){
+            
         
-        Noticia article = new Noticia(title,summary,subtitle,content, user);
-        
-        
-        NoticiasDAO.insertNews(article);
-        
-        //INSERT WORKS!
-    
-       //int id = NoticiasDAO.getnewsid(title);
-       
-       int id = NoticiasDAO.getnewsid(article);
-        
-        //GET ID WORKS!
+            Noticia article = new Noticia(title,summary,subtitle,content, user);
         
         
-        Imagen image1 = new Imagen(1, FileUtils.RUTE_USER_IMAGE + "/" + nameImage, id);
-        Imagen image2 = new Imagen(1, FileUtils.RUTE_USER_IMAGE + "/" + nameImage2, id);
-        Imagen image3 = new Imagen(1, FileUtils.RUTE_USER_IMAGE + "/" + nameImage3, id);
+            NoticiasDAO.insertNews(article);
+            
+            //int id = NoticiasDAO.getnewsid(title);
+            
+            int id = NoticiasDAO.getnewsid(article);
+            
+            //GET ID WORKS!
+            
+            
+            Noticia_Categoria category = new Noticia_Categoria(id);
+            
+            CategoriaDAO.insertCategories(category, checked);
         
-        if(nameImage != "")
-            ImagenDAO.insertImages(image1);
-        if(nameImage2 != "")
-            ImagenDAO.insertImages(image2);
-        if(nameImage3 != "")
-            ImagenDAO.insertImages(image3);
+            //INSERT WORKS!
         
-        //INSERT IMAGES WORKS!
         
-        response.sendRedirect("newsform.jsp");
+            Imagen image1 = new Imagen(1, FileUtils.RUTE_USER_IMAGE + "/" + nameImage, id);
+            Imagen image2 = new Imagen(1, FileUtils.RUTE_USER_IMAGE + "/" + nameImage2, id);
+            Imagen image3 = new Imagen(1, FileUtils.RUTE_USER_IMAGE + "/" + nameImage3, id);
+        
+            if(nameImage != "")
+                ImagenDAO.insertImages(image1);
+            if(nameImage2 != "")
+                ImagenDAO.insertImages(image2);
+            if(nameImage3 != "")
+                ImagenDAO.insertImages(image3);
+        
+            //INSERT IMAGES WORKS!
+        
+            response.sendRedirect("newsform.jsp");
+        }
     }
+  
 
     /**
      * Returns a short description of the servlet.
