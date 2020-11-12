@@ -99,8 +99,8 @@ public class NewsFormServlet extends HttpServlet {
         //Contenido
         String content = request.getParameter("content");
         
-        
-        String user = "";
+        //Usuario
+        String user = "alberto@hotmail.com";
         
         //Ubicacion
         String path = request.getServletContext().getRealPath("");
@@ -143,20 +143,32 @@ public class NewsFormServlet extends HttpServlet {
         
         Noticia article = new Noticia(title,summary,subtitle,content, user);
         
-        int id = 10;
+        
+        NoticiasDAO.insertNews(article);
+        
+        //INSERT WORKS!
+    
+       //int id = NoticiasDAO.getnewsid(title);
+       
+       int id = NoticiasDAO.getnewsid(article);
+        
+        //GET ID WORKS!
+        
         
         Imagen image1 = new Imagen(1, FileUtils.RUTE_USER_IMAGE + "/" + nameImage, id);
         Imagen image2 = new Imagen(1, FileUtils.RUTE_USER_IMAGE + "/" + nameImage2, id);
         Imagen image3 = new Imagen(1, FileUtils.RUTE_USER_IMAGE + "/" + nameImage3, id);
         
-        //NoticiasDAO.insertNews(article);
+        if(nameImage != "")
+            ImagenDAO.insertImages(image1);
+        if(nameImage2 != "")
+            ImagenDAO.insertImages(image2);
+        if(nameImage3 != "")
+            ImagenDAO.insertImages(image3);
         
-        //ImagenDAO.insertImages(image1);
-        //ImagenDAO.insertImages(image2);
-        //ImagenDAO.insertImages(image3);
+        //INSERT IMAGES WORKS!
         
-        
-        
+        response.sendRedirect("newsform.jsp");
     }
 
     /**

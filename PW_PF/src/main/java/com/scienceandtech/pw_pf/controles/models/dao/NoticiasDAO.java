@@ -106,15 +106,69 @@ public class NoticiasDAO {
             statement.setString(4,article.getDescripcion());
             statement.setString(5,article.getNoticia());
             statement.setBoolean(6,false);
-            statement.setString(7,"alberto@hotmail.com");
+            statement.setString(7,article.getFk_usuario());
             statement.setString(8,"nuevo");
             
-            
-            return statement.executeUpdate();           
+           
+            statement.executeUpdate();  
+            con.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         } finally {
             return 0;
+        }
+    }
+    
+    /*
+    public static int getnewsid(String title){
+        int id = 0;
+         try {
+            Connection con = DbConection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL prc_getidnews(?);");         
+            
+            statement.setString(1,title);
+            
+            ResultSet resultSet = statement.executeQuery();
+            
+            while(resultSet.next()){
+               id = resultSet.getInt("id_noticia");
+             
+            }
+            
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            return id;
+        }
+    }
+    */
+    
+    
+        public static int getnewsid(Noticia news){
+        int id = 0;
+         try {
+            Connection con = DbConection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL prc_getidnews(?,?,?,?);");         
+            
+            statement.setString(1,news.getTitulo());
+            statement.setString(2,news.getDescripcion());
+            statement.setString(3,news.getNoticia());
+            statement.setString(4,news.getFk_usuario());
+            
+            
+            ResultSet resultSet = statement.executeQuery();
+            
+            while(resultSet.next()){
+               id = resultSet.getInt(1);
+             
+            }
+            
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            return id;
         }
     }
 }

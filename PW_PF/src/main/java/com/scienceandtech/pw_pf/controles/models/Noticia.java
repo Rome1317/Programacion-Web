@@ -41,6 +41,7 @@ public class Noticia {
         this.resumen= resumen;
         this.descripcion = descripcion;
         this.noticia = noticia;
+        this.fk_usuario = fk_usuario;
     }
     
        /*CONSTRUCTOR*/
