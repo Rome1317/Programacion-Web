@@ -67,8 +67,7 @@
                         
                         <img src="assets/Recursos/Images/Messi.jpg" class="photo hide" >
                         <a href="/HTML/profile.html">Mi Cuenta</a>
-                        <a href="#">Populares</a>
-                        <a href="#">Ayuda</a>
+                        <button type="button" class="btn btn-outline-info info">Write News</button>
                     </div>
                 </div>
 

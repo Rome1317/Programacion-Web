@@ -332,16 +332,41 @@
                         <h2>INFORMACION DEL PERFIL</h2>
                         <hr>
                         <form>
-                        <div class="row">
-                          <div class="col">
-                                <label for="validationCustom01">Nombre(s)</label>
-                                <input type="text" class="form-control" placeholder="Nombre(s)">
-                            </div>
-                            <div class="col">
-                                <label for="validationCustom02">Apellidos</label>
-                                <input type="text" class="form-control" placeholder="Apellidos">
+
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label for="validationCustom01">Email</label>
+                                    <input type="text" class="form-control" placeholder="Email">
                                 </div>
+
+                                <div class="col">
+                                    <label for="validationCustom02">User</label>
+                                    <input type="text" class="form-control" placeholder="Username">
+                                </div>
+
                             </div>
+
+
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label for="validationCustom03">Password</label>
+                                    <input type="text" class="form-control" placeholder="Password">
+                                </div>
+
+                                <div class="col">
+                                    <label for="exampleFormControlFile1">Image</label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                </div>
+
+                            </div>
+
+                            <div class="row float-right mt-2">
+                                <div class="col">
+                                    <button type="button" class="btn btn-outline-info">Save Changes</button>
+                                </div>
+
+                            </div>
+
                         </form>
                     </div>
                     
