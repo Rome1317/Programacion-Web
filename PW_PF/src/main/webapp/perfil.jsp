@@ -11,6 +11,10 @@
 <% 
     Usuario usuario = (Usuario)request.getAttribute("usuario");
     List<Noticia> noticiasCreadas = (List<Noticia>)request.getAttribute("noticiasCreadas");
+    List<Noticia> noticiasNoArobadas = (List<Noticia>)request.getAttribute("noticiasNoArobadas");
+    List<Noticia> noticiasDespues = (List<Noticia>)request.getAttribute("noticiasDespues");
+    List<Noticia> noticiasFavoritas = (List<Noticia>)request.getAttribute("noticiasFavoritas");
+    
 %>
 <!DOCTYPE html>
 <html>
@@ -300,17 +304,26 @@
 
             <header class="header-pw">
                 <!-- <img src="/Recursos/Images/rv1.jpg" alt="" class="portada-pw"> -->
-                <img src="assets/Recursos/Images/Messi.jpg" alt="" class = "avatar-pw">
+                <img src="<%= usuario.getImagen()%>" alt="" class = "avatar-pw">
                 <h2 class="user-name"><%= usuario.getUsername()%></h2>
+<!--                <h2 class="user-name"><%= usuario.getRol()%></h2>-->
                 <!-- <h2>EDGAR DONATO CALVILLO LUMBRERAS</h2> -->
             </header>
 
             <aside class="sidebar-pw">
                 <button data-opciones="informacion"> <i class="fas fa-id-card"></i></i>   Informacion</a>
+                <%if(usuario.getRol().equals("Administrador") == true || usuario.getRol().equals("Creador Contenido" ) == true ){ %>
                 <button data-opciones="mis-noticias"> <i class="fas fa-book-open"></i>   Mis Noticias</button>
+                <% } %>  
+                <%if(usuario.getRol().equals("Administrador") == true || usuario.getRol().equals("Editor") ) {%>
                 <button data-opciones="gestion"> <i class="fas fa-tasks"></i>   Gestionar Noticias</button> 
+                <% } %>  
+                <%if(usuario.getRol().equals("Moderador") == false) {%>
                 <button data-opciones="mas-tarde"> <i class="fas fa-clock"></i>   Ver mas tarde</button>
-                <button data-opciones="favoritos"> <i class="fas fa-crown"></i>   Favoritos</button>    
+                <% } %>  
+                <%if(usuario.getRol().equals("Moderador") == false) {%>
+                <button data-opciones="favoritos"> <i class="fas fa-crown"></i>   Favoritos</button>  
+                <% } %>  
             </aside>
 
             <div class="panel-pw">
@@ -349,9 +362,7 @@
                             <p><%= card.getDescripcion()%></p>
                             <a href="#">Aprender Mas <i class="fas fa-angle-double-right"></i></a>
                         </div>                         
-                        <%                            
-                            } 
-                        %>    
+                         <% } %>
                      </div>
                         <% 
                         }else{
@@ -363,45 +374,92 @@
                     </div>          
                       
                    
-
+                   
                     <div class="opcion" id="opcion" data-opciones="gestion">
                         <h2>GESTIONAR NOTICIAS</h2>
                         <hr>
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <a href="#" class="card-link">Aprobar</a>
-                              <a href="#" class="card-link">Descartar</a>
-                            </div>
-                          </div>
+                         <%
+                        if(noticiasCreadas != null){
+                        %>
+                    <div class="news-cards">
+                        <%                            
+                            for (Noticia card : noticiasNoArobadas){                           
+                        %>
+                        
+                        <div class="new">
+                            <img src="<%= card.getMainImg()%>" alt="Noticia 1">              
+                            <h3><%= card.getTitulo()%></h3>
+                            <p><%= card.getDescripcion()%></p>
+                            <a href="#">Aprender Mas <i class="fas fa-angle-double-right"></i></a>
+                        </div>                         
+                         <% } %>
                     </div>
-
+                        <% 
+                        }else{
+                        %>
+                        <h3>No cuenta con noticias por aprobar</h3>
+                        <%
+                        }
+                        %>
+                    </div>
+                 
+                    
+                    
                     <div class="opcion" id="opcion" data-opciones="mas-tarde">
                         <h2>VER MAS TARDE</h2>
                         <hr>
-                        <div class="card" style="width: 18rem;">
-                            <img src="assets/Recursos/Images/Ej4.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                          </div>
+                        <%
+                        if(noticiasCreadas != null){
+                        %>
+                    <div class="news-cards">
+                        <%                            
+                            for (Noticia card : noticiasDespues){                           
+                        %>
+                        
+                        <div class="new">
+                            <img src="<%= card.getMainImg()%>" alt="Noticia 1">              
+                            <h3><%= card.getTitulo()%></h3>
+                            <p><%= card.getDescripcion()%></p>
+                            <a href="#">Aprender Mas <i class="fas fa-angle-double-right"></i></a>
+                        </div>                         
+                         <% } %>
+                    </div>
+                        <% 
+                        }else{
+                        %>
+                        <h3>No cuenta con noticias por aprobar</h3>
+                        <%
+                        }
+                        %>
                     </div>  
-
+                    
+                    
                     <div class="opcion" id="opcion" data-opciones="favoritos">
                         <h2>FAVORITOS</h2>
                         <hr>
-                        <div class="card" style="width: 18rem;">
-                            <img src="assets/Recursos/Images/Ej4.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                          </div>
+                         <%
+                        if(noticiasCreadas != null){
+                        %>
+                    <div class="news-cards">
+                        <%                            
+                            for (Noticia card : noticiasFavoritas){                           
+                        %>
+                        
+                        <div class="new">
+                            <img src="<%= card.getMainImg()%>" alt="Noticia 1">              
+                            <h3><%= card.getTitulo()%></h3>
+                            <p><%= card.getDescripcion()%></p>
+                            <a href="#">Aprender Mas <i class="fas fa-angle-double-right"></i></a>
+                        </div>                         
+                         <% } %>
+                    </div>
+                        <% 
+                        }else{
+                        %>
+                        <h3>No cuenta con noticias por aprobar</h3>
+                        <%
+                        }
+                        %>
                     </div>  
 
                 </div>

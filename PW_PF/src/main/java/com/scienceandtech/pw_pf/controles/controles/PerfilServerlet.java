@@ -63,13 +63,40 @@ public class PerfilServerlet extends HttpServlet {
          HttpSession session = request.getSession();
          Usuario usuario = (Usuario)session.getAttribute("USER"); //trae datos del controller login con la sesion activa
          
-         //usuario.getUsername();
+         /*Noticias creadas por el usuario*/
          List<Noticia> noticiasCreadas = NoticiasDAO.getUserNews(usuario.getEmail());
          List<Imagen> imagenes;
          for(Noticia card : noticiasCreadas){
              imagenes = ImagenDAO.getHomeImg(card);
              card.setImg(imagenes);
          }
+         
+         /*Noticias no aprobadas*/
+             List<Noticia> noticiasNoArobadas = NoticiasDAO.getNotApproved();
+             imagenes = null;
+            for(Noticia card : noticiasNoArobadas){
+                imagenes = ImagenDAO.getHomeImg(card);
+                card.setImg(imagenes);
+            }
+         
+         /*Favoritos*/
+          List<Noticia> noticiasFavoritas = NoticiasDAO.getSaveNews("Favoritos",usuario.getEmail());
+         imagenes = null;
+            for(Noticia card : noticiasFavoritas){
+                imagenes = ImagenDAO.getHomeImg(card);
+                card.setImg(imagenes);
+            }
+         /*Ver mas tarde*/
+         List<Noticia> noticiasDespues = NoticiasDAO.getSaveNews("Despues",usuario.getEmail());
+         imagenes = null;
+            for(Noticia card : noticiasDespues){
+                imagenes = ImagenDAO.getHomeImg(card);
+                card.setImg(imagenes);
+            }
+         
+         request.setAttribute("noticiasFavoritas", noticiasFavoritas);
+         request.setAttribute("noticiasDespues", noticiasDespues);
+         request.setAttribute("noticiasNoArobadas", noticiasNoArobadas);
          request.setAttribute("noticiasCreadas", noticiasCreadas);
          request.setAttribute("usuario", usuario);
          request.getRequestDispatcher("perfil.jsp").forward(request, response);         

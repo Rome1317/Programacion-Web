@@ -6,8 +6,9 @@ create table if not exists Tbl_Usuario(
     pass		varchar(50)	not null,
     facebook	varchar(50) null,
     twitter		varchar(50)	null,
-    imagen		varchar(50) null,
-    rol			varchar(50) not null
+    imagen		varchar(50) default 'assets/Recursos/Images/perfil.jpg',
+    rol			varchar(50) not null,
+    baneado		bool		default 0
 );
 
 create table if not exists Tbl_Noticia(
@@ -18,6 +19,8 @@ create table if not exists Tbl_Noticia(
     aprovado		bool 			default 0,
     fk_usuario		varchar(50)		not null,
     likes			int				default 0 ,
+    fecha			datetime		default now(),
+    resumen			varchar(1000)	not null,
 	foreign key (fk_usuario) references Tbl_Usuario(email)
 );
 

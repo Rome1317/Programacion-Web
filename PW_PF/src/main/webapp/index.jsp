@@ -56,11 +56,11 @@
                                 </div>
                                 </form>
                             </div>
-                        
-                        <img src="assets/Recursos/Images/Messi.jpg" class="photo hide" >
+                                               
                         <%
                             if(usuario != null){
                         %>
+                        <img src="<%= usuario.getImagen()%>" class="photo hide" >
                         <a href="PerfilServerlet"><%=usuario.getUsername()%></a>
                         <% 
                             }else{ 
