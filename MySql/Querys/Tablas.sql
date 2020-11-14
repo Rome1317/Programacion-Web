@@ -57,6 +57,7 @@ create table if not exists Tbl_Comentario(
     comentario		varchar(200) not null,
 	fk_usuario		varchar(50) not null,
     fk_noticia		int not null,
+    fk_padre		int default 0,
 	foreign key (fk_usuario) references Tbl_Usuario(email),
 	foreign key (fk_noticia) references Tbl_Noticia(id_noticia)
 );

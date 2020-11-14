@@ -44,16 +44,12 @@ public class UsuarioDAO {
         
             try {
             Connection con = DbConection.getConnection();
-            CallableStatement statement = con.prepareCall("CALL prc_usuario(?,?,?,?,?,?,?,?);");         
+            CallableStatement statement = con.prepareCall("CALL prc_signin(?,?,?,?);");         
             
             statement.setString(1,user.getEmail());
             statement.setString(2,user.getUsername());
             statement.setString(3,user.getPass());
-            statement.setString(4,"null");
-            statement.setString(5,"null");
-            statement.setString(6,"null");
-            statement.setString(7,"Usuario");
-            statement.setString(8,"nuevo");
+            statement.setString(4,"Usuario");
             
             return statement.executeUpdate();           
         } catch (SQLException ex) {

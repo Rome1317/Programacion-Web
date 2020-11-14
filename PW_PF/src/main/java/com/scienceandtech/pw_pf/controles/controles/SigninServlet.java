@@ -5,7 +5,6 @@
  */
 package com.scienceandtech.pw_pf.controles.controles;
 
-
 import com.scienceandtech.pw_pf.controles.models.Usuario;
 import com.scienceandtech.pw_pf.controles.models.dao.UsuarioDAO;
 import java.io.IOException;
@@ -15,14 +14,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Gonzalez
  */
-@WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "SigninServlet", urlPatterns = {"/SigninServlet"})
+public class SigninServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,9 +35,17 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-   
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet SigninServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet SigninServlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -53,8 +59,8 @@ public class LoginServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {        
-       
+            throws ServletException, IOException {
+        processRequest(request, response);
     }
 
     /**
@@ -68,22 +74,22 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //Username or Email
-        String user = request.getParameter("user");
+        
+        //Email
+        String email = request.getParameter("email");
+        //Username
+        String username = request.getParameter("username");
         //Password
-        String password = request.getParameter("password");
- 
-        //Usuario user = UsuarioDAO.loginUser(user,password);
-        Usuario temp = UsuarioDAO.loginUser(user, password);
+        String pass = request.getParameter("pass");
         
-        HttpSession session = request.getSession();
-        session.setAttribute("USER", temp);
+        Usuario user = new Usuario(email,username,pass);
         
-        if(temp != null){
-            request.getRequestDispatcher("MainServerlet").forward(request, response);
-        }else{
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-        }             
+        UsuarioDAO.insertUser(user);
+        
+        response.sendRedirect("login.jsp");
+        
+        
+        //processRequest(request, response);
     }
 
     /**

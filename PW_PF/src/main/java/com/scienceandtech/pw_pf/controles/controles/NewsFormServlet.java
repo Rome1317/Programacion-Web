@@ -9,6 +9,7 @@ package com.scienceandtech.pw_pf.controles.controles;
 import com.scienceandtech.pw_pf.controles.models.Imagen;
 import com.scienceandtech.pw_pf.controles.models.Noticia;
 import com.scienceandtech.pw_pf.controles.models.Noticia_Categoria;
+import com.scienceandtech.pw_pf.controles.models.Usuario;
 import com.scienceandtech.pw_pf.controles.models.dao.CategoriaDAO;
 import com.scienceandtech.pw_pf.controles.models.dao.ImagenDAO;
 import com.scienceandtech.pw_pf.controles.models.dao.NoticiasDAO;
@@ -23,6 +24,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 /**
@@ -97,8 +99,10 @@ public class NewsFormServlet extends HttpServlet {
         String content = request.getParameter("content");
         
         //Usuario
-        String user = "alberto@hotmail.com";
+        HttpSession session = request.getSession();
+         Usuario usuario = (Usuario)session.getAttribute("USER"); //trae datos del controller login con la sesion activa
         
+  
         //Ubicacion
         String path = request.getServletContext().getRealPath("");
         
@@ -137,10 +141,12 @@ public class NewsFormServlet extends HttpServlet {
     
         file3.write(fullPath3);
         
-        if(checked != null){
+        //usuario.getEmail().equals("") != true
+        
+        if(checked != null && title.equals("") != true  && summary.equals("") != true  && subtitle.equals("") != true  && content.equals("") != true){
             
         
-            Noticia article = new Noticia(title,summary,subtitle,content, user);
+            Noticia article = new Noticia(title,summary,subtitle,content, /*usuario.getEmail()*/ "rome@hotmail.com");
         
         
             NoticiasDAO.insertNews(article);
@@ -173,6 +179,9 @@ public class NewsFormServlet extends HttpServlet {
             //INSERT IMAGES WORKS!
         
             response.sendRedirect("newsform.jsp");
+        }
+        else{
+            
         }
     }
   

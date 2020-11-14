@@ -47,7 +47,7 @@ body{
     font-size: 20px;
     display: inline-block;
     margin-left: 20px;
-    margin-right: 300px;
+    margin-right: 35%;
     margin-bottom: 50px;
 }
 
@@ -68,6 +68,12 @@ body{
     width: 10%;
     border-radius: 100px;
 
+}
+
+.edit{
+    width: 15%;
+    font-size: 15px;
+    margin-right: 10px;
 }
 
 .text h2{
@@ -172,6 +178,11 @@ body{
     //line-height: 20px;
 }
 
+.answer{
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgb(231, 231, 231);
+
+}
 
 .post .text-muted{
     font-size: 13px;
@@ -187,13 +198,14 @@ body{
     
 }
 
-.reply{
-    height: 40px;
-    border-bottom: 1px solid rgb(231, 231, 231);
+.btns{
+    text-align: right;
+    
 }
 
-.report{
-    margin-left: 75%;
+
+.replies{
+    margin-top: 15px;
 }
 
 .btn-link{
@@ -225,7 +237,7 @@ body{
 
 
     .writer h2{
-        margin-right: 60%;
+        margin-right: 52%;
         margin-bottom: 50px;
     }
 
@@ -280,9 +292,6 @@ body{
         width: 70%;
     }
 
-    .report{
-        margin-left: 65%;
-    }
 
 
 }
@@ -309,7 +318,7 @@ body{
     }
 
     .writer h2{
-        margin-right: 50px;
+        margin-right: 44%;
         margin-bottom: 40px;
     }
 
@@ -363,9 +372,6 @@ body{
         width: 75%;
     }
 
-    .report{
-        margin-left: 70%;
-    }
 
    
 }
@@ -376,6 +382,10 @@ body{
         margin-top: -17%;
         font-size:25px;
         margin-left: 10px;
+    }
+
+    .writer h2{
+        margin-right: 14%;
     }
 
     .perfil{
@@ -396,11 +406,8 @@ body{
         width: 83%;
     }
 
-    .report{
-        margin-left: 70%;
-    }
-}
 
+}
 
 
 @media (max-width: 400px) {
@@ -408,6 +415,10 @@ body{
     .title h2{
         margin-top: -20%;
         font-size:25px;
+    }
+
+    .writer h2{
+        margin-right: 5%;
     }
 
     .sidebar{ 
@@ -425,8 +436,5 @@ body{
         width: 80%;
     }
 
-    .report{
-        margin-left: 60%;
-    }
  
 }

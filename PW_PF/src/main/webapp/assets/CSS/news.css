@@ -41,7 +41,7 @@ body {
   font-size: 20px;
   display: inline-block;
   margin-left: 20px;
-  margin-right: 300px;
+  margin-right: 35%;
   margin-bottom: 50px;
 }
 
@@ -60,6 +60,12 @@ body {
 .perfil {
   width: 10%;
   border-radius: 100px;
+}
+
+.edit {
+  width: 15%;
+  font-size: 15px;
+  margin-right: 10px;
 }
 
 .text h2 {
@@ -157,6 +163,11 @@ body {
   background-color: transparent;
 }
 
+.answer {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e7e7e7;
+}
+
 .post .text-muted {
   font-size: 13px;
   margin-right: 7px;
@@ -168,13 +179,12 @@ body {
   font-size: 15px;
 }
 
-.reply {
-  height: 40px;
-  border-bottom: 1px solid #e7e7e7;
+.btns {
+  text-align: right;
 }
 
-.report {
-  margin-left: 75%;
+.replies {
+  margin-top: 15px;
 }
 
 .btn-link {
@@ -200,7 +210,7 @@ body {
     margin: auto;
   }
   .writer h2 {
-    margin-right: 60%;
+    margin-right: 52%;
     margin-bottom: 50px;
   }
   .writer h6 {
@@ -238,9 +248,6 @@ body {
     margin: 35px;
     width: 70%;
   }
-  .report {
-    margin-left: 65%;
-  }
 }
 
 @media (max-width: 1000px) {
@@ -257,7 +264,7 @@ body {
     margin-top: -7%;
   }
   .writer h2 {
-    margin-right: 50px;
+    margin-right: 44%;
     margin-bottom: 40px;
   }
   .writer h6 {
@@ -296,9 +303,6 @@ body {
     margin: 10px;
     width: 75%;
   }
-  .report {
-    margin-left: 70%;
-  }
 }
 
 @media (max-width: 500px) {
@@ -306,6 +310,9 @@ body {
     margin-top: -17%;
     font-size: 25px;
     margin-left: 10px;
+  }
+  .writer h2 {
+    margin-right: 14%;
   }
   .perfil {
     width: 15%;
@@ -321,15 +328,15 @@ body {
     margin: 10px;
     width: 83%;
   }
-  .report {
-    margin-left: 70%;
-  }
 }
 
 @media (max-width: 400px) {
   .title h2 {
     margin-top: -20%;
     font-size: 25px;
+  }
+  .writer h2 {
+    margin-right: 5%;
   }
   .sidebar {
     width: 100%;
@@ -341,9 +348,6 @@ body {
   .side {
     margin: 15px;
     width: 80%;
-  }
-  .report {
-    margin-left: 60%;
   }
 }
 /*# sourceMappingURL=news.css.map */

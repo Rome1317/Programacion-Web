@@ -114,7 +114,7 @@
             <!-- Class of bootstrap text bold and margin -->
             <h1 class="text-center mb-3"> ¡Welcome Back!</h1>
 
-            <form action="LoginServlet" method="GET" class="mb-3">
+            <form action="LoginServlet" method="POST" class="mb-3">
     
               <!-- User -->
               <div class="mb-2">
@@ -163,7 +163,7 @@
            <!-- Class of bootstrap text bold and margin -->
             <h1 class="text-center mb-3"> ¡Hello There!</h1>
       
-            <form  action="LoginServlet" method="POST" class="mb-1">
+            <form  action="SigninServlet" method="POST" class="mb-1">
 
               <!-- Email --> 
               <div class="mb-1">

@@ -327,7 +327,8 @@
                 </ul>
             </div>
 
-            <div class="post ml-1">
+            <form>
+            <div class="post answer ml-1" id ="post">
                 <div class="mb-3">
                     <h6 class="font-weight-bold mb-0">Rome Glz</h6>
                     <h6 class="text-muted">Victoria </h6>
@@ -339,56 +340,58 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et minima exercitationem quasi, at nemo ab numquam voluptas qui enim, deleniti laboriosam ratione similique voluptatibus dolores, neque impedit ipsa ducimus consectetur.</p>
                 </div>
 
-                <div class="mb-4 reply">
-                    <a href="#" class="mr-2">Reply</a>
-                    <a href="#" class="mr-2">Share</a>
+                <div class="mb-1 " id="">
+                    <form action="" >
+                        <a href="#" class="mr-2" id="reply_btn">Reply</a>
+                        <a href="#" class="mr-2">Share</a>
 
-                    <a href="#" class="report">Flag</a>
+                        <div class="btns">
+
+                            <button type="submit" class="btn btn-link " id="ban"><i class="fas fa-ban"></i> </button>
+                            <button type="submit" class="btn btn-link " id="delete"><i class="far fa-trash-alt"></i> </button>
+
+                        </div>
+
+
+                        <div class="d-none" id="respond">
+
+                            <textarea rows="1" class="form-control mb-3 texta " id="text2" placeholder="Reply to this comment."></textarea>
+
+                           
+                            <div class="options"> 
+                                <button type="button" class="btn btn-outline-dark" id="btnc2"> Cancel </button>
+                                <button type="submit" class="btn btn-primary btnpost" id="btnp2"> Post </button>
+                            </div>
+
+                        </div> 
+                
+                    </form>
                 </div>
+
+                <div class="replies ml-4">
+                    <div class="mb-3">
+                        <h6 class="font-weight-bold mb-0">Rome Glz</h6>
+                        <h6 class="text-muted">Victoria </h6>
+                        <h6 class="text-muted">|</h6>
+                        <h6 class="text-muted">2min ago </h6>
+                    </div>
+
+                    <div class="opinion">
+                        <p>Donas me la pela.</p>
+                    </div>
+
+                    <div class="btns">
+
+                        <button type="submit" class="btn btn-link" id="ban"><i class="fas fa-ban"></i> </button>
+                        <button type="submit" class="btn btn-link" id="delete"><i class="far fa-trash-alt"></i> </button>
+           
+                    </div>
+
+                </div> 
 
             </div>
+            </form>
 
-            <div class="post ml-1">
-                <div class="mb-3">
-                    <h6 class="font-weight-bold mb-0">Rome Glz</h6>
-                    <h6 class="text-muted">Victoria </h6>
-                    <h6 class="text-muted">|</h6>
-                    <h6 class="text-muted">2min ago </h6>
-                </div>
-
-                <div class="opinion">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et minima exercitationem quasi, at nemo ab numquam voluptas qui enim, deleniti laboriosam ratione similique voluptatibus dolores, neque impedit ipsa ducimus consectetur.</p>
-                </div>
-
-                <div class="mb-4 reply">
-                    <a href="#" class="mr-2">Reply</a>
-                    <a href="#" class="mr-2">Share</a>
-
-                    <a href="#" class="report">Flag</a>
-                </div>
-
-            </div>
-
-            <div class="post ml-1">
-                <div class="mb-3">
-                    <h6 class="font-weight-bold mb-0">Rome Glz</h6>
-                    <h6 class="text-muted">Victoria </h6>
-                    <h6 class="text-muted">|</h6>
-                    <h6 class="text-muted">2min ago </h6>
-                </div>
-
-                <div class="opinion">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et minima exercitationem quasi, at nemo ab numquam voluptas qui enim, deleniti laboriosam ratione similique voluptatibus dolores, neque impedit ipsa ducimus consectetur.</p>
-                </div>
-
-                <div class="mb-4 reply">
-                    <a href="#" class="mr-2">Reply</a>
-                    <a href="#" class="mr-2">Share</a>
-
-                    <a href="#" class="report">Flag</a>
-                </div>
-
-            </div>
 
         </div>
     </div>

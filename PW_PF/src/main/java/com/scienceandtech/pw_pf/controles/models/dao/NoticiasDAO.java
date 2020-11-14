@@ -177,7 +177,7 @@ public class NoticiasDAO {
         
             try {
             Connection con = DbConection.getConnection();
-            CallableStatement statement = con.prepareCall("CALL prc_noticia(?,?,?,?,?,?,?,?);");         
+            CallableStatement statement = con.prepareCall("CALL prc_newnoticia(?,?,?,?,?,?,?);");         
             
             statement.setInt(1,1);
             statement.setString(2,article.getTitulo());
@@ -186,7 +186,6 @@ public class NoticiasDAO {
             statement.setString(5,article.getNoticia());
             statement.setBoolean(6,false);
             statement.setString(7,article.getFk_usuario());
-            statement.setString(8,"nuevo");
             
            
             statement.executeUpdate();  

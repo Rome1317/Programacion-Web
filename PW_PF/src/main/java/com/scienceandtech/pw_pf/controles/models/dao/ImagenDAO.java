@@ -51,12 +51,11 @@ public class ImagenDAO {
 
         try{
             Connection con = DbConection.getConnection();
-            CallableStatement statement = con.prepareCall("CALL prc_imagen(?,?,?,?);");         
+            CallableStatement statement = con.prepareCall("CALL prc_newimagen(?,?);");         
             
-            statement.setInt(1,image.getId_imagen());
-            statement.setString(2,image.getExtencion());
-            statement.setInt(3,image.getFk_noticia());
-            statement.setString(4,"nuevo");
+       
+            statement.setString(1,image.getExtencion());
+            statement.setInt(2,image.getFk_noticia());
         
 
             
