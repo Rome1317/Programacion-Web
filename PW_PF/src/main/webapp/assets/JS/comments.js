@@ -28,10 +28,26 @@ document.addEventListener('click', function(event) {
   
     if (!isClickInside) {
       //the click was outside the specifiedElement, do something
-      text.rows="1"
-      opt.classList.add("d-none")
+      text.rows="1";
+      opt.classList.add("d-none");
     }
     else{
-        opt.classList.remove("d-none")
+        opt.classList.remove("d-none");
     }
   });
+  
+var post = document.getElementById("post");
+var reply_btn = document.getElementById("reply_btn");
+var respond = document.getElementById("respond");
+
+reply_btn.addEventListener("click", () =>{
+    respond.classList.toggle("d-none")
+
+});
+
+var clear2 = document.getElementById("btnc2");
+
+clear2.addEventListener("click", () =>{
+    respond.classList.toggle("d-none");
+
+});

@@ -188,13 +188,27 @@ body {
 }
 
 .btn-link {
+  color: #2262ec;
+}
+
+.btn-link.btn-link:focus {
+  color: #353535;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.unpressed {
   color: #353535;
 }
 
-.btn-link:focus {
+.unpressed:focus {
   color: #2262ec;
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+
+.fav {
+  color: #fdd700;
 }
 
 /*MEDIA QUERYS*/

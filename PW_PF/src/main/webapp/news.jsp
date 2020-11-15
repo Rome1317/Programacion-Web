@@ -368,8 +368,8 @@
 
                         <div class="btns">
 
-                            <button type="submit" class="btn btn-link " id="ban"><i class="fas fa-ban"></i> </button>
-                            <button type="submit" class="btn btn-link " id="delete"><i class="far fa-trash-alt"></i> </button>
+                            <button type="submit" class="btn btn-link unpressed" id="ban"><i class="fas fa-ban"></i> </button>
+                            <button type="submit" class="btn btn-link unpressed" id="delete"><i class="far fa-trash-alt"></i> </button>
 
                         </div>
 
@@ -403,8 +403,8 @@
 
                     <div class="btns">
 
-                        <button type="submit" class="btn btn-link" id="ban"><i class="fas fa-ban"></i> </button>
-                        <button type="submit" class="btn btn-link" id="delete"><i class="far fa-trash-alt"></i> </button>
+                        <button type="submit" class="btn btn-link unpressed" id="ban"><i class="fas fa-ban"></i> </button>
+                        <button type="submit" class="btn btn-link unpressed" id="delete"><i class="far fa-trash-alt"></i> </button>
            
                     </div>
 
