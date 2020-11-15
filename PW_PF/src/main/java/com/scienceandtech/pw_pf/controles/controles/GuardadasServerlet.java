@@ -26,27 +26,29 @@ import javax.servlet.http.HttpSession;
  *
  * @author edgar
  */
-@WebServlet(name = "NewsServerlet", urlPatterns = {"/NewsServerlet"})
-public class NewsServerlet extends HttpServlet {
-
+@WebServlet(name = "GuardadasServerlet", urlPatterns = {"/GuardadasServerlet"})
+public class GuardadasServerlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            
-            
-        }
-    }
 
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //Trae la noticia
-        String noticia = request.getParameter("noticia");
-        int id_noticia = Integer.parseInt(noticia);
-        Noticia cards = NoticiasDAO.getOneNew(id_noticia);
+        //Nos trae el id de la tabla guardado para borrarla
+        String guardada = request.getParameter("guardada");
+        int id_guardada = Integer.parseInt(guardada);
+        
+        //Nos trae el id de la noticia
+        Guardadas noticiaStr = GuardadasDAO.getSearchGuardadas(id_guardada);
+        
+        //Se elimina de la tabla guardada
+        GuardadasDAO.deleteSaveNew(id_guardada);
+        
+        /*Traemos lo necesario para inicializar la pagina otra vez*/
+        Noticia cards = NoticiasDAO.getOneNew(noticiaStr.getFk_noticia());
         
         //Trae las imagenes
         List<Imagen> imagenes =ImagenDAO.getHomeImg(cards);
@@ -57,23 +59,25 @@ public class NewsServerlet extends HttpServlet {
         Usuario usuario = (Usuario)session.getAttribute("USER"); //trae datos del controller login con la sesion activa
         
         //Trae si esta guardada como DESPUES
-        Guardadas Despues = GuardadasDAO.getSaveNews(usuario.getEmail(), id_noticia, "Despues");
+        Guardadas Despues = GuardadasDAO.getSaveNews(usuario.getEmail(), noticiaStr.getFk_noticia(), "Despues");
         
         //Trae si esta guardada como FAVORITOS
-        Guardadas Favoritas = GuardadasDAO.getSaveNews(usuario.getEmail(), id_noticia, "Favoritos");
+        Guardadas Favoritas = GuardadasDAO.getSaveNews(usuario.getEmail(), noticiaStr.getFk_noticia(), "Favoritos");
         
         //Envia todo al jsp
         request.setAttribute("Despues", Despues);
         request.setAttribute("Favoritas", Favoritas);
         request.setAttribute("usuario", usuario);
         request.setAttribute("cards", cards);
-        request.getRequestDispatcher("news.jsp").forward(request, response);        
+        
+        request.getRequestDispatcher("news.jsp").forward(request, response);         
     }
 
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+         request.getRequestDispatcher("NewsServerlet").forward(request, response); 
     }
 
     @Override

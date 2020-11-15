@@ -6,6 +6,11 @@ select * from Tbl_Imagen;
 select * from Tbl_Categoria;
 select * from Tbl_Not_Cat;
 
+select id_guardadas from Tbl_Guardadas
+where fk_usuario = "edgar_donato@outlook.com" and
+fk_noticia = 1 and
+etiqueta = "Favoritos";
+
 drop table Tbl_Imagen;
 drop table Tbl_Not_Cat;
 drop table Tbl_Video;
@@ -188,3 +193,13 @@ insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/met
 insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/1.jpg",6);
 insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/3.jpg",6);
 /*--------------------------------------------------------------------------------------------------*/
+
+/*Favoritos*/
+insert into Tbl_Guardadas (etiqueta,fk_usuario,fk_noticia) values ("Favoritos","edgar_donato@outlook.com", 1);
+insert into Tbl_Guardadas (etiqueta,fk_usuario,fk_noticia) values ("Favoritos","edgar_donato@outlook.com", 2);
+insert into Tbl_Guardadas (etiqueta,fk_usuario,fk_noticia) values ("Favoritos","edgar_donato@outlook.com", 3);
+
+/*Ver Mas tarde*/
+insert into Tbl_Guardadas (etiqueta,fk_usuario,fk_noticia) values ("Despues","Jerson@outlook.com", 1);
+insert into Tbl_Guardadas (etiqueta,fk_usuario,fk_noticia) values ("Despues","Jerson@outlook.com", 2);
+insert into Tbl_Guardadas (etiqueta,fk_usuario,fk_noticia) values ("Despues","Jerson@outlook.com", 3);

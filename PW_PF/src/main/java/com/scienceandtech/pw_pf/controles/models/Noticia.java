@@ -5,6 +5,9 @@
  */
 package com.scienceandtech.pw_pf.controles.models;
 
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -22,6 +25,9 @@ public class Noticia {
     private String fk_usuario;
     private int likes;
     private List<Imagen> Img;
+    private Date fecha;
+
+   
 
     public Noticia(int id_noticia, String titulo, String descripcion, String noticia, boolean aprovado, String fk_usuario, int likes) {
         this.id_noticia = id_noticia;
@@ -32,7 +38,18 @@ public class Noticia {
         this.fk_usuario = fk_usuario;
         this.likes = likes;
     }
-
+    
+     public Noticia(int id_noticia, String titulo, String descripcion, String noticia, boolean aprovado, String fk_usuario, int likes, Date fecha, String resumen) {
+        this.id_noticia = id_noticia;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.noticia = noticia;
+        this.aprovado = aprovado;
+        this.fk_usuario = fk_usuario;
+        this.likes = likes;
+        this.fecha = fecha;
+        this.resumen = resumen;
+    }
     
 
     /*CONSTRUCTOR*/
@@ -79,7 +96,13 @@ public class Noticia {
         return Img;
     }
     
-   
+    public String getFecha() {        
+            DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
+            String hora = hourFormat.format(this.fecha);
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            String fecha =dateFormat.format(this.fecha);
+            return fecha;
+    }
     
     public int getId_noticia() {
         return id_noticia;

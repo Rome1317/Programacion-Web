@@ -19,7 +19,7 @@
              
 <!--            <welcome-file>NewsFormServlet</welcome-file>    -->
 <!--           <welcome-file>SearchServerlet</welcome-file>  -->
-     <welcome-file>newsform.jsp</welcome-file> 
+     <welcome-file>login.jsp</welcome-file> 
             
             
             

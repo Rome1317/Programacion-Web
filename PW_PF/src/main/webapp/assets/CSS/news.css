@@ -197,6 +197,19 @@ body {
           box-shadow: none;
 }
 
+.unpressed{
+    color: rgb(53, 53, 53);
+}
+
+.unpressed:focus{
+    color: rgb(34, 98, 236);
+    box-shadow: none;
+}
+
+.fav{
+    color: rgb(253, 215, 0);
+}
+
 /*MEDIA QUERYS*/
 @media (max-width: 1100px) {
   .foot h2 {

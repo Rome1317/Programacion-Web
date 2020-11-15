@@ -26,48 +26,58 @@ import javax.servlet.http.HttpSession;
  *
  * @author edgar
  */
-@WebServlet(name = "NewsServerlet", urlPatterns = {"/NewsServerlet"})
-public class NewsServerlet extends HttpServlet {
-
+@WebServlet(name = "GuardadasNewServerlet", urlPatterns = {"/GuardadasNewServerlet"})
+public class GuardadasNewServerlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            
-            
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet GuardadasNewServerlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet GuardadasNewServerlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
-
-
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //Trae la noticia
-        String noticia = request.getParameter("noticia");
-        int id_noticia = Integer.parseInt(noticia);
-        Noticia cards = NoticiasDAO.getOneNew(id_noticia);
-        
-        //Trae las imagenes
-        List<Imagen> imagenes =ImagenDAO.getHomeImg(cards);
-        cards.setImg(imagenes);
+        //Nos trae el id de la noticia
+        String guardada = request.getParameter("guardada");
+        int id_guardada = Integer.parseInt(guardada);
         
         //Trae al usuario en las sesion actual
         HttpSession session = request.getSession();
         Usuario usuario = (Usuario)session.getAttribute("USER"); //trae datos del controller login con la sesion activa
         
-        //Trae si esta guardada como DESPUES
-        Guardadas Despues = GuardadasDAO.getSaveNews(usuario.getEmail(), id_noticia, "Despues");
+        //Agregar a la tabla guardadas
+        GuardadasDAO.newSaveNew(usuario.getEmail(),id_guardada, "Favoritos");
+        
+         //Trae si esta guardada como DESPUES
+        Guardadas Despues = GuardadasDAO.getSaveNews(usuario.getEmail(), id_guardada, "Despues");
         
         //Trae si esta guardada como FAVORITOS
-        Guardadas Favoritas = GuardadasDAO.getSaveNews(usuario.getEmail(), id_noticia, "Favoritos");
+        Guardadas Favoritas = GuardadasDAO.getSaveNews(usuario.getEmail(), id_guardada, "Favoritos");
         
-        //Envia todo al jsp
+        //Trae la noticia
+         Noticia cards = NoticiasDAO.getOneNew(id_guardada);
+        
+        //Trae las imagenes
+        List<Imagen> imagenes =ImagenDAO.getHomeImg(cards);
+        cards.setImg(imagenes);
+        
         request.setAttribute("Despues", Despues);
         request.setAttribute("Favoritas", Favoritas);
         request.setAttribute("usuario", usuario);
         request.setAttribute("cards", cards);
-        request.getRequestDispatcher("news.jsp").forward(request, response);        
+        request.getRequestDispatcher("news.jsp").forward(request, response);
     }
 
     @Override

@@ -24,6 +24,16 @@ public class Guardadas {
         this.fk_noticia = fk_noticia;
     }
 
+    public Guardadas(int id_guardadas, String fk_usuario, int fk_noticia) {
+        this.id_guardadas = id_guardadas;
+        this.fk_usuario = fk_usuario;
+        this.fk_noticia = fk_noticia;
+    }
+
+    public Guardadas(int id_guardadas) {
+        this.id_guardadas = id_guardadas;
+    }
+
 // GETTER
 
     public int getId_guardadas() {

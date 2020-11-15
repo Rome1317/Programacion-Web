@@ -52,10 +52,10 @@
                                 <form action="./SearchServerlet" method="GET" class="">
                                     <button type="submit" id="search" class = "search"><i class="fas fa-search"></i></button>
                                 <div class="search-text visible" id="search-text">                                   
-                                    <input type="text" class="form-control look " name="buscar" id="buscar" placeholder="What are you looking for?">                             
+                                    <input type="text" class="form-control look" name="buscar" id="buscar" placeholder="What are you looking for?">                             
                                 </div>
                                 </form>
-                            </div>
+                        </div>
                                                
                         <%
                             if(usuario != null){

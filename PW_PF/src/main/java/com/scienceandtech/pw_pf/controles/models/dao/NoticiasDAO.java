@@ -9,6 +9,7 @@ import com.scienceandtech.pw_pf.controles.controles.DB_Connection.DbConection;
 import com.scienceandtech.pw_pf.controles.models.Noticia;
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -147,13 +148,11 @@ public class NoticiasDAO {
         }   
     }
     
-    /*COSAS DE ROME*/
-    
     public static Noticia getOneNew(int id){
         Noticia noticias = null;
         try{
             Connection con = DbConection.getConnection();        
-            CallableStatement statement = con.prepareCall("{call pcr_noticia_one(?)}");
+            CallableStatement statement = con.prepareCall("{call prc_noticia_one(?)}");
             statement.setInt(1,id);       
             ResultSet resultSet = statement.executeQuery();
             while(resultSet.next()){
@@ -164,7 +163,9 @@ public class NoticiasDAO {
                 boolean aprobado = resultSet.getBoolean(5);
                 String fk_usuario = resultSet.getString(6);
                 int likes = resultSet.getInt(7);
-                noticias = new Noticia(id_noticia, titulo, descripcion, noticia, aprobado, fk_usuario, likes);
+                Date fecha = resultSet.getDate(8);
+                String resumen = resultSet.getString(9);
+                noticias = new Noticia(id_noticia, titulo, descripcion, noticia, aprobado, fk_usuario, likes, fecha, resumen);
             }
         }catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -172,6 +173,8 @@ public class NoticiasDAO {
             return noticias;
         }  
     }
+    
+        /*COSAS DE ROME*/
     
     public static int insertNews(Noticia article){
         
