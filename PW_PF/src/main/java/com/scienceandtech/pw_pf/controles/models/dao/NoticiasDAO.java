@@ -122,6 +122,21 @@ public class NoticiasDAO {
         }   
     }
     
+    public static void approveNews(int id){
+         try{
+            Connection con = DbConection.getConnection();        
+            CallableStatement statement = con.prepareCall("{call prc_noticias_aprobar(?)}");
+            statement.setInt(1,id);
+            
+            statement.executeUpdate();            
+            con.close();         
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        } finally {      
+        }   
+    }
+    
     public static List<Noticia> getSaveNews(String tipo, String email){
         List<Noticia> noticias = new ArrayList<>();
         try{

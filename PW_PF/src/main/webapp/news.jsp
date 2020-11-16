@@ -320,17 +320,17 @@
         <div class="side mt-5">
 
             <div>
-                <h2>Comments</h2>
+                <h2>Comentarios</h2>
                 <h2 class="total">327</h2>
             </div>
 
-            <form>
+            <form  action="NewComentarioServerlet" method="POST">
                 <div class="form-group mt-2">
-                    <textarea rows="1" class="form-control mb-3 texta " id="text1" placeholder="Share your thoughts."></textarea>
-
+                    <textarea rows="1" class="form-control mb-3 texta " id="text1" placeholder="Share your thoughts."  name = "comentario"></textarea>
+                    <textarea name="id" value = "<%= cards.getId_noticia()%>"><%= cards.getId_noticia()%></textarea>
                     <div class="options d-none" id="opt"> 
                         <button type="button" class="btn btn-outline-dark" id="btnc"> Cancel </button>
-                        <button type="submit" class="btn btn-primary btnpost" id="btnp"> Post </button>
+                        <button type="submit" class="btn btn-primary btnpost" id="btnp" name=" "> Post </button>
                     </div>
 
                     <h6 class="text2 mb-3">Science & Tech needs your voice. We welcome your on-topic commentary, criticism and expertise.</h6>
@@ -348,52 +348,22 @@
                 </ul>
             </div>
 
-            <form>
+                                   
             <div class="post answer ml-1" id ="post">
+                <!--PRIMER FOR DE COMENTRAIOS PADRE-->
                 <div class="mb-3">
                     <h6 class="font-weight-bold mb-0">Rome Glz</h6>
                     <h6 class="text-muted">Victoria </h6>
                     <h6 class="text-muted">|</h6>
                     <h6 class="text-muted">2min ago </h6>
                 </div>
-
                 <div class="opinion">
+                   <!--COMENTARIO-->
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et minima exercitationem quasi, at nemo ab numquam voluptas qui enim, deleniti laboriosam ratione similique voluptatibus dolores, neque impedit ipsa ducimus consectetur.</p>
                 </div>
-
-                <div class="mb-1 " id="">
-                    <form action="" >
-                        <a href="#" class="mr-2" id="reply_btn">Reply</a>
-                        <a href="#" class="mr-2">Share</a>
-
-                        <div class="btns">
-
-                            <button type="submit" class="btn btn-link unpressed" id="ban"><i class="fas fa-ban"></i> </button>
-                            <button type="submit" class="btn btn-link unpressed" id="delete"><i class="far fa-trash-alt"></i> </button>
-
-                        </div>
-
-
-                        <div class="d-none" id="respond">
-
-                            <textarea rows="1" class="form-control mb-3 texta " id="text2" placeholder="Reply to this comment."></textarea>
-
-                           
-                            <div class="options"> 
-                                <button type="button" class="btn btn-outline-dark" id="btnc2"> Cancel </button>
-                                <button type="submit" class="btn btn-primary btnpost" id="btnp2"> Post </button>
-                            </div>
-
-                        </div> 
-                
-                    </form>
-                </div>
-
                 <div class="replies ml-4">
                     <div class="mb-3">
                         <h6 class="font-weight-bold mb-0">Rome Glz</h6>
-                        <h6 class="text-muted">Victoria </h6>
-                        <h6 class="text-muted">|</h6>
                         <h6 class="text-muted">2min ago </h6>
                     </div>
 
@@ -409,11 +379,30 @@
                     </div>
 
                 </div> 
+                <div class="mb-1" id="">
+                    <form>
+                        <a href="#" class="mr-2" id="reply_btn">Reply</a>
+                        <a href="#" class="mr-2">Share</a>
 
+                        <div class="btns">
+
+                            <button type="submit" class="btn btn-link unpressed" id="ban"><i class="fas fa-ban"></i> </button>
+                            <button type="submit" class="btn btn-link unpressed" id="delete"><i class="far fa-trash-alt"></i> </button>
+
+                        </div>
+
+
+                        <div class="d-none" id="respond">
+                            <textarea rows="1" class="form-control mb-3 texta " id="text2" placeholder="Reply to this comment."></textarea>                          
+                            <div class="options"> 
+                                <button type="button" class="btn btn-outline-dark" id="btnc2"> Cancel </button>
+                                <button type="submit" class="btn btn-primary btnpost" id="btnp2"> Post </button>
+                            </div>
+
+                        </div> 
+                    </form>
+                </div>
             </div>
-            </form>
-
-
         </div>
     </div>
 
@@ -492,7 +481,7 @@
             <div class="butts">
                 <button type="submit" class="btn btn-primary btncom d-none" id="btnop2"> Read Comments </button>
                 <%if(cards.isAprovado() == false && (usuario.getRol().equals("Administrador") == true || usuario.getRol().equals("Editor") == true)){%>
-                <button type="button" class="btn btn-outline-success btncom" id="btnop3"> Approve </button>
+                <a href = "AprobarNoticiasServerlet?id=<%= cards.getId_noticia()%>" type="button" class="btn btn-outline-success btncom" id="btnop3"> Approve </a>
                 <%}%>
                 <button type="<%=usuario.getFacebook()%>"  class="btn btn-light"> <i class="fab fa-facebook-f"></i></button>
                 <button type="<%=usuario.getTwitter()%>"  class="btn btn-light"> <i class="fab fa-twitter"></i></i></button>
