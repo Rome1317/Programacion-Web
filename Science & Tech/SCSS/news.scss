@@ -47,7 +47,7 @@ body{
     font-size: 20px;
     display: inline-block;
     margin-left: 20px;
-    margin-right: 35%;
+    margin-right: 38%;
     margin-bottom: 50px;
 }
 
@@ -59,8 +59,8 @@ body{
     
 }
 
-.butts{
-    text-align: right;
+
+.cell{
     display: inline;
 }
 
@@ -73,7 +73,7 @@ body{
 .edit{
     width: 15%;
     font-size: 15px;
-    margin-right: 10px;
+    //margin-right: 10px;
 }
 
 .text h2{
@@ -231,6 +231,14 @@ body{
 
 .fav{
     color: rgb(253, 215, 0);
+}
+
+.size{
+    width: 25%;
+}
+
+.reject h6{
+    color: black;
 }
 
 /*MEDIA QUERYS*/
@@ -426,7 +434,30 @@ body{
 }
 
 
-@media (max-width: 400px) {
+@media (max-width: 430px) {
+
+    .cell{
+        display: block;
+        margin-bottom: 30px;
+    }
+
+    .cell2{
+        margin-left: 33%;
+        margin-bottom: 20px;
+    }
+
+    .comment{
+        margin-bottom: 0px;
+    }
+
+    .btncom{
+        margin: 0;
+    }
+
+
+    .size{
+        width: 47%;
+    }
 
     .title h2{
         margin-top: -20%;

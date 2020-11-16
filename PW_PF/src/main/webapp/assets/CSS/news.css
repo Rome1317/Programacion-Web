@@ -41,7 +41,7 @@ body {
   font-size: 20px;
   display: inline-block;
   margin-left: 20px;
-  margin-right: 35%;
+  margin-right: 38%;
   margin-bottom: 50px;
 }
 
@@ -52,8 +52,7 @@ body {
   margin-right: 20%;
 }
 
-.butts {
-  text-align: right;
+.cell {
   display: inline;
 }
 
@@ -65,7 +64,6 @@ body {
 .edit {
   width: 15%;
   font-size: 15px;
-  margin-right: 10px;
 }
 
 .text h2 {
@@ -188,26 +186,35 @@ body {
 }
 
 .btn-link {
+  color: #2262ec;
+}
+
+.btn-link.btn-link:focus {
+  color: #353535;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.unpressed {
   color: #353535;
 }
 
-.btn-link:focus {
+.unpressed:focus {
   color: #2262ec;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-.unpressed{
-    color: rgb(53, 53, 53);
+.fav {
+  color: #fdd700;
 }
 
-.unpressed:focus{
-    color: rgb(34, 98, 236);
-    box-shadow: none;
+.size {
+  width: 25%;
 }
 
-.fav{
-    color: rgb(253, 215, 0);
+.reject h6 {
+  color: black;
 }
 
 /*MEDIA QUERYS*/
@@ -343,7 +350,24 @@ body {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 430px) {
+  .cell {
+    display: block;
+    margin-bottom: 30px;
+  }
+  .cell2 {
+    margin-left: 33%;
+    margin-bottom: 20px;
+  }
+  .comment {
+    margin-bottom: 0px;
+  }
+  .btncom {
+    margin: 0;
+  }
+  .size {
+    width: 47%;
+  }
   .title h2 {
     margin-top: -20%;
     font-size: 25px;

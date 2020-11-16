@@ -476,19 +476,39 @@
              <p><%= cards.getNoticia() %></p>
              <img src="<%=cards.getImg().get(2).getExtencion()%>" alt="" class = "images">
         </div>
-
+                
         <div class="comment">
             <div class="butts">
-                <button type="submit" class="btn btn-primary btncom d-none" id="btnop2"> Read Comments </button>
-                <%if(cards.isAprovado() == false && (usuario.getRol().equals("Administrador") == true || usuario.getRol().equals("Editor") == true)){%>
-                <a href = "AprobarNoticiasServerlet?id=<%= cards.getId_noticia()%>" type="button" class="btn btn-outline-success btncom" id="btnop3"> Approve </a>
-                <%}%>
-                <button type="<%=usuario.getFacebook()%>"  class="btn btn-light"> <i class="fab fa-facebook-f"></i></button>
-                <button type="<%=usuario.getTwitter()%>"  class="btn btn-light"> <i class="fab fa-twitter"></i></i></button>
-                <button type="submit"  class="btn btn-light"><i class="fas fa-crown"></i></button>
-                <button type="submit"  class="btn btn-light"><i class="fas fa-share"></i></button>
-                <button type="submit"  class="btn btn-link"><i class="fas fa-bookmark"></i></i></button>
-       
+                <div class="cell">
+                    <button type="submit" class="btn btn-primary btncom d-none" id="btnop2"> Read Comments </button>
+                    <%if(cards.isAprovado() == false && (usuario.getRol().equals("Administrador") == true || usuario.getRol().equals("Editor") == true)){%>
+                        <a href = "AprobarNoticiasServerlet?id=<%= cards.getId_noticia()%>" type="button" class="btn btn-outline-success size mr-3" id="btnop3"> Approve </a>
+                    <%}%>
+                    <button type="button" class="btn btn-outline-danger size " id="btnop4"> Reject </button>
+                </div>
+                <div class="float-right cell2">
+
+                    <button type="<%=usuario.getFacebook()%>" class="btn btn-light"> <i class="fab fa-facebook-f"></i></button>
+                    <button type="<%=usuario.getTwitter()%>" class="btn btn-light"> <i class="fab fa-twitter"></i></i></button>
+                    <button type="submit" class="btn btn-light"><i class="fas fa-crown"></i></button>
+                    <button type="submit" class="btn btn-light"><i class="fas fa-share"></i></button>
+                    <button type="submit" class="btn btn-link unpressed"><i class="fas fa-bookmark"></i></i></button>
+
+                </div>
+
+                <div class="d-none reject" id="reject">
+                    <form>
+                        <div class="form-group mt-4">
+                          <h6>Report your reasons to the writer</h6>
+                          <textarea class="form-control" id="reasons" rows="3" placeholder="Share your thoughts about this article"></textarea>
+                        </div>
+
+                        <div class="options" id="opt">
+                            <button type="button" class="btn btn-outline-dark" id="cancel"> Cancel </button>
+                            <button type="submit" class="btn btn-primary btnpost" id="send"> Send </button>
+                        </div>
+                      </form>
+                </div>
             </div>
         </div>
     </div>

@@ -6,3 +6,13 @@ btn3.addEventListener("click", () =>{
     btn3.classList.add("d-none")
 });
 
+var reject = document.getElementById("reject");
+var cancel = document.getElementById("cancel");
+
+btn4.addEventListener("click", () =>{
+    reject.classList.toggle("d-none");
+});
+
+cancel.addEventListener("click", () =>{
+    reject.classList.toggle("d-none");
+});

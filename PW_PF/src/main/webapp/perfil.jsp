@@ -323,7 +323,8 @@
                 <% } %>  
                 <%if(usuario.getRol().equals("Moderador") == false) {%>
                 <button data-opciones="favoritos"> <i class="fas fa-crown"></i>   Favoritos</button>  
-                <% } %>  
+                <% } %> 
+                <button data-opciones="logout"> <i class="fas fa-door-open"></i> Log out</button>
             </aside>
 
             <div class="panel-pw">
@@ -356,6 +357,19 @@
                                 <div class="col">
                                     <label for="exampleFormControlFile1">Image</label>
                                     <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                </div>
+
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label for="validationCustom04">Facebook</label>
+                                    <input type="text" class="form-control" placeholder="Facebook">
+                                </div>
+
+                                <div class="col">
+                                    <label for="validationCustom05">Twitter</label>
+                                    <input type="text" class="form-control" placeholder="Twitter">
                                 </div>
 
                             </div>
