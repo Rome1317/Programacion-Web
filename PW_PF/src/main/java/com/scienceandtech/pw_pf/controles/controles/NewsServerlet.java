@@ -5,10 +5,12 @@
  */
 package com.scienceandtech.pw_pf.controles.controles;
 
+import com.scienceandtech.pw_pf.controles.models.Comentario;
 import com.scienceandtech.pw_pf.controles.models.Guardadas;
 import com.scienceandtech.pw_pf.controles.models.Imagen;
 import com.scienceandtech.pw_pf.controles.models.Noticia;
 import com.scienceandtech.pw_pf.controles.models.Usuario;
+import com.scienceandtech.pw_pf.controles.models.dao.ComentarioDAO;
 import com.scienceandtech.pw_pf.controles.models.dao.GuardadasDAO;
 import com.scienceandtech.pw_pf.controles.models.dao.ImagenDAO;
 import com.scienceandtech.pw_pf.controles.models.dao.NoticiasDAO;
@@ -62,7 +64,11 @@ public class NewsServerlet extends HttpServlet {
         //Trae si esta guardada como FAVORITOS
         Guardadas Favoritas = GuardadasDAO.getSaveNews(usuario.getEmail(), id_noticia, "Favoritos");
         
+        //Trae comentarios
+        List<Comentario> comentarios = ComentarioDAO.getComentarios(id_noticia);
+        
         //Envia todo al jsp
+        request.setAttribute("comentarios", comentarios);
         request.setAttribute("Despues", Despues);
         request.setAttribute("Favoritas", Favoritas);
         request.setAttribute("usuario", usuario);

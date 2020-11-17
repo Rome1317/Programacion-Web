@@ -15,6 +15,19 @@ public class Comentario {
     private String comentario;
     private String fk_usuario;
     private int fk_noticia;
+    private int id_padre;
+
+    public int getId_padre() {
+        return id_padre;
+    }
+
+    public Comentario(int id_comentario, String comentario, String fk_usuario, int fk_noticia, int id_padre) {
+        this.id_comentario = id_comentario;
+        this.comentario = comentario;
+        this.fk_usuario = fk_usuario;
+        this.fk_noticia = fk_noticia;
+        this.id_padre = id_padre;
+    }
     
 //    CONSTRUCTOR
 

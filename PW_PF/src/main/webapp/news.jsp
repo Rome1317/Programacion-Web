@@ -4,6 +4,8 @@
     Author     : Gonzalez
 --%>
 
+<%@page import="com.scienceandtech.pw_pf.controles.models.Comentario"%>
+<%@page import="java.util.List"%>
 <%@page import="com.scienceandtech.pw_pf.controles.models.Guardadas"%>
 <%@page import="com.scienceandtech.pw_pf.controles.models.Usuario"%>
 <%@page import="com.scienceandtech.pw_pf.controles.models.Noticia"%>
@@ -13,6 +15,7 @@
     Usuario usuario = (Usuario)request.getAttribute("usuario");
     Guardadas Favoritas = (Guardadas)request.getAttribute("Favoritas");
     Guardadas Despues = (Guardadas)request.getAttribute("Despues");
+    List<Comentario> comentarios = (List<Comentario>)request.getAttribute("comentarios");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -324,10 +327,10 @@
                 <h2 class="total">327</h2>
             </div>
 
-            <form  action="NewComentarioServerlet" method="POST">
+            <form  action="NewComentarioServerlet?id=<%=cards.getId_noticia()%>" method="POST">
                 <div class="form-group mt-2">
                     <textarea rows="1" class="form-control mb-3 texta " id="text1" placeholder="Share your thoughts."  name = "comentario"></textarea>
-                    <textarea name="id" value = "<%= cards.getId_noticia()%>"><%= cards.getId_noticia()%></textarea>
+                    
                     <div class="options d-none" id="opt"> 
                         <button type="button" class="btn btn-outline-dark" id="btnc"> Cancel </button>
                         <button type="submit" class="btn btn-primary btnpost" id="btnp" name=" "> Post </button>
@@ -351,24 +354,51 @@
                                    
             <div class="post answer ml-1" id ="post">
                 <!--PRIMER FOR DE COMENTRAIOS PADRE-->
+                <%
+                    for(Comentario com : comentarios){
+                    %>
                 <div class="mb-3">
-                    <h6 class="font-weight-bold mb-0">Rome Glz</h6>
-                    <h6 class="text-muted">Victoria </h6>
+                    <h6 class="font-weight-bold mb-0"><%= com.getFk_usuario()%></h6>
+<!--                    <h6 class="text-muted">Victoria </h6>
                     <h6 class="text-muted">|</h6>
-                    <h6 class="text-muted">2min ago </h6>
+                    <h6 class="text-muted">2min ago </h6>-->
                 </div>
                 <div class="opinion">
                    <!--COMENTARIO-->
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et minima exercitationem quasi, at nemo ab numquam voluptas qui enim, deleniti laboriosam ratione similique voluptatibus dolores, neque impedit ipsa ducimus consectetur.</p>
+                    <p><%= com.getComentario()%></p>
                 </div>
+                  <div class="mb-1" id="">
+                    <form action = "NewComentarioServerlet?id=<%=cards.getId_noticia()%>&id_padre=<%=com.getId_comentario()%>" method="POST">
+                        <a href="#" class="mr-2" id="reply_btn">Reply</a>
+                        <a href="#" class="mr-2">Share</a>
+
+                        <div class="btns">
+                            <button type="submit" class="btn btn-link unpressed" id="ban"><i class="fas fa-ban"></i> </button>
+                            <button type="submit" class="btn btn-link unpressed" id="delete"><i class="far fa-trash-alt"></i> </button>
+                        </div>
+
+                        <div class="d-none" id="respond">
+                            <textarea rows="1" class="form-control mb-3 texta " id="text2" placeholder="Reply to this comment." name ="comentario"></textarea>                          
+                            <div class="options"> 
+                                <button type="button" class="btn btn-outline-dark" id="btnc2"> Cancel </button>
+                                <button type="submit" class="btn btn-primary btnpost" id="btnp2"> Post </button>
+                            </div>
+                        </div> 
+                    </form>
+                </div>
+                
+                    <%
+                        for(Comentario comen : comentarios){
+                            if(com.getId_comentario() == comen.getId_padre()){
+                    %>
                 <div class="replies ml-4">
                     <div class="mb-3">
-                        <h6 class="font-weight-bold mb-0">Rome Glz</h6>
+                        <h6 class="font-weight-bold mb-0"><%=comen.getFk_usuario()%></h6>
                         <h6 class="text-muted">2min ago </h6>
                     </div>
 
                     <div class="opinion">
-                        <p>Donas me la pela.</p>
+                        <p><%=comen.getComentario()%></p>
                     </div>
 
                     <div class="btns">
@@ -379,29 +409,16 @@
                     </div>
 
                 </div> 
-                <div class="mb-1" id="">
-                    <form>
-                        <a href="#" class="mr-2" id="reply_btn">Reply</a>
-                        <a href="#" class="mr-2">Share</a>
-
-                        <div class="btns">
-
-                            <button type="submit" class="btn btn-link unpressed" id="ban"><i class="fas fa-ban"></i> </button>
-                            <button type="submit" class="btn btn-link unpressed" id="delete"><i class="far fa-trash-alt"></i> </button>
-
-                        </div>
-
-
-                        <div class="d-none" id="respond">
-                            <textarea rows="1" class="form-control mb-3 texta " id="text2" placeholder="Reply to this comment."></textarea>                          
-                            <div class="options"> 
-                                <button type="button" class="btn btn-outline-dark" id="btnc2"> Cancel </button>
-                                <button type="submit" class="btn btn-primary btnpost" id="btnp2"> Post </button>
-                            </div>
-
-                        </div> 
-                    </form>
-                </div>
+                <% 
+                    }
+                   }
+                %>
+              
+               
+                    <%
+                       
+                     }
+                    %>
             </div>
         </div>
     </div>
