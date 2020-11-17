@@ -377,7 +377,7 @@
                             <button type="submit" class="btn btn-link unpressed" id="delete"><i class="far fa-trash-alt"></i> </button>
                         </div>
 
-                        <div class="d-none" id="respond">
+                        <div class="" id="respond">
                             <textarea rows="1" class="form-control mb-3 texta " id="text2" placeholder="Reply to this comment." name ="comentario"></textarea>                          
                             <div class="options"> 
                                 <button type="button" class="btn btn-outline-dark" id="btnc2"> Cancel </button>
