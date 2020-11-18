@@ -29,8 +29,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author edgar
  */
-@WebServlet(name = "AprobarNoticiasServerlet", urlPatterns = {"/AprobarNoticiasServerlet"})
-public class AprobarNoticiasServerlet extends HttpServlet {
+@WebServlet(name = "BorrarComServerlet", urlPatterns = {"/BorrarComServerlet"})
+public class BorrarComServerlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -40,10 +40,10 @@ public class AprobarNoticiasServerlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AprobarNoticiasServerlet</title>");            
+            out.println("<title>Servlet BorrarComServerlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AprobarNoticiasServerlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet BorrarComServerlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -52,28 +52,32 @@ public class AprobarNoticiasServerlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //OBTENEMOS EL ID DE LA NOTICIA
-        String id = request.getParameter("id");
-        int id_noticia = Integer.parseInt(id);
+        //Obtenemos el id del comentario que queremos borrar
+        String id_com = request.getParameter("id_com");
+        int id_comentario = Integer.parseInt(id_com);
         
-        //APROBAMOS LA NOTICIA
-        NoticiasDAO.approveNews(id_noticia);
+        //Enviamos tambien el id de la noticia pa no batallar
+        String id_not = request.getParameter("id_not");
+        int id_noticia = Integer.parseInt(id_not);
         
-        //TRAEMOS LA NOTICIA
+        //Mandamos borrar el comentario de la DB
+        ComentarioDAO.deleteComentario(id_comentario);
+        
+        /*Traemos lo necesario para inicializar la pagina otra vez*/
         Noticia cards = NoticiasDAO.getOneNew(id_noticia);
         
         //Trae las imagenes
         List<Imagen> imagenes =ImagenDAO.getHomeImg(cards);
         cards.setImg(imagenes);
         
-        //Traer datos del que escribio la noticia
+         //Traer datos del que escribio la noticia
         Usuario escritor = UsuarioDAO.getEscritor(cards.getFk_usuario());
         
         //Trae al usuario en las sesion actual
         HttpSession session = request.getSession();
         Usuario usuario = (Usuario)session.getAttribute("USER"); //trae datos del controller login con la sesion activa
         
-        //Preguntamos si hay alguien logueado
+         //Preguntamos si hay alguien logueado
         if(usuario == null){
             usuario = new Usuario("Anonimo","Anonimo","","", "", "assets/Recursos/Images/perfil.jpg","Registrada", false);
         }
@@ -88,19 +92,20 @@ public class AprobarNoticiasServerlet extends HttpServlet {
         List<Comentario> comentarios = ComentarioDAO.getComentarios(id_noticia);
         
         //Envia todo al jsp
-        request.setAttribute("escritor", escritor);
         request.setAttribute("comentarios", comentarios);
+        request.setAttribute("escritor", escritor);
         request.setAttribute("Despues", Despues);
         request.setAttribute("Favoritas", Favoritas);
         request.setAttribute("usuario", usuario);
         request.setAttribute("cards", cards);
-        request.getRequestDispatcher("news.jsp").forward(request, response); 
+        
+        request.getRequestDispatcher("news.jsp").forward(request, response);       
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
     }
 
     @Override

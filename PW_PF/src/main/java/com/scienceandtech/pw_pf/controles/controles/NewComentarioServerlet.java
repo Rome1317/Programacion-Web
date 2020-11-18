@@ -14,6 +14,7 @@ import com.scienceandtech.pw_pf.controles.models.dao.ComentarioDAO;
 import com.scienceandtech.pw_pf.controles.models.dao.GuardadasDAO;
 import com.scienceandtech.pw_pf.controles.models.dao.ImagenDAO;
 import com.scienceandtech.pw_pf.controles.models.dao.NoticiasDAO;
+import com.scienceandtech.pw_pf.controles.models.dao.UsuarioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -69,6 +70,11 @@ public class NewComentarioServerlet extends HttpServlet {
         HttpSession session = request.getSession();
         Usuario usuario = (Usuario)session.getAttribute("USER"); //trae datos del controller login con la sesion activa
         
+        //Preguntamos si hay alguien logueado
+        if(usuario == null){
+            usuario = new Usuario("Anonimo","Anonimo","","", "", "assets/Recursos/Images/perfil.jpg","Registrada", false);
+        }
+        
         //Agrega el comentario a la tabla
         ComentarioDAO.newComentario(usuario.getEmail(), id_noticia, comentario, id_padre);
         
@@ -77,6 +83,9 @@ public class NewComentarioServerlet extends HttpServlet {
         //Trae las imagenes
         List<Imagen> imagenes =ImagenDAO.getHomeImg(cards);
         cards.setImg(imagenes);
+        
+        //Traer datos del que escribio la noticia
+        Usuario escritor = UsuarioDAO.getEscritor(cards.getFk_usuario());
         
         //Trae si esta guardada como DESPUES
         Guardadas Despues = GuardadasDAO.getSaveNews(usuario.getEmail(), id_noticia, "Despues");
@@ -88,6 +97,7 @@ public class NewComentarioServerlet extends HttpServlet {
         List<Comentario> comentarios = ComentarioDAO.getComentarios(id_noticia);
         
         //Envia todo al jsp
+        request.setAttribute("escritor", escritor);
         request.setAttribute("comentarios", comentarios);
         request.setAttribute("Despues", Despues);
         request.setAttribute("Favoritas", Favoritas);

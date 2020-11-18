@@ -60,7 +60,7 @@ create table if not exists Tbl_Comentario(
 	foreign key (fk_usuario) references Tbl_Usuario(email),
 	foreign key (fk_noticia) references Tbl_Noticia(id_noticia)
 );
-
+alter table tbl_comentario add id_padre int default 0;
 create table if not exists Tbl_Guardadas(
 	id_guardadas	int auto_increment	primary key not null,
     etiqueta		varchar(50) not null, /*Favoritos o ver mas tarde*/

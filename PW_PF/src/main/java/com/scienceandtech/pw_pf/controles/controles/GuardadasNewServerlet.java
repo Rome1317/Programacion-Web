@@ -5,13 +5,16 @@
  */
 package com.scienceandtech.pw_pf.controles.controles;
 
+import com.scienceandtech.pw_pf.controles.models.Comentario;
 import com.scienceandtech.pw_pf.controles.models.Guardadas;
 import com.scienceandtech.pw_pf.controles.models.Imagen;
 import com.scienceandtech.pw_pf.controles.models.Noticia;
 import com.scienceandtech.pw_pf.controles.models.Usuario;
+import com.scienceandtech.pw_pf.controles.models.dao.ComentarioDAO;
 import com.scienceandtech.pw_pf.controles.models.dao.GuardadasDAO;
 import com.scienceandtech.pw_pf.controles.models.dao.ImagenDAO;
 import com.scienceandtech.pw_pf.controles.models.dao.NoticiasDAO;
+import com.scienceandtech.pw_pf.controles.models.dao.UsuarioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -53,12 +56,20 @@ public class GuardadasNewServerlet extends HttpServlet {
         String guardada = request.getParameter("guardada");
         int id_guardada = Integer.parseInt(guardada);
         
+        //Nos trae en que lista se ve a guardar
+        String etiqueta = request.getParameter("etiqueta");
+
         //Trae al usuario en las sesion actual
         HttpSession session = request.getSession();
         Usuario usuario = (Usuario)session.getAttribute("USER"); //trae datos del controller login con la sesion activa
         
+         //Preguntamos si hay alguien logueado
+        if(usuario == null){
+            usuario = new Usuario("Anonimo","Anonimo","","", "", "assets/Recursos/Images/perfil.jpg","Registrada", false);
+        }
+        
         //Agregar a la tabla guardadas
-        GuardadasDAO.newSaveNew(usuario.getEmail(),id_guardada, "Favoritos");
+        GuardadasDAO.newSaveNew(usuario.getEmail(),id_guardada, etiqueta);
         
          //Trae si esta guardada como DESPUES
         Guardadas Despues = GuardadasDAO.getSaveNews(usuario.getEmail(), id_guardada, "Despues");
@@ -73,6 +84,14 @@ public class GuardadasNewServerlet extends HttpServlet {
         List<Imagen> imagenes =ImagenDAO.getHomeImg(cards);
         cards.setImg(imagenes);
         
+        //Traer datos del que escribio la noticia
+        Usuario escritor = UsuarioDAO.getEscritor(cards.getFk_usuario());
+        
+        //Trae comentarios
+        List<Comentario> comentarios = ComentarioDAO.getComentarios(id_guardada);
+        
+        request.setAttribute("comentarios", comentarios);
+        request.setAttribute("escritor", escritor);
         request.setAttribute("Despues", Despues);
         request.setAttribute("Favoritas", Favoritas);
         request.setAttribute("usuario", usuario);

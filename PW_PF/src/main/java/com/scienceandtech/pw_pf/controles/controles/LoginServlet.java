@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
         Usuario temp = UsuarioDAO.loginUser(user, password);
         
         HttpSession session = request.getSession();
-        session.setAttribute("USER", temp);
+        session.setAttribute("USER", temp);    
         
         if(temp != null){
             request.getRequestDispatcher("MainServerlet").forward(request, response);

@@ -21,8 +21,17 @@ public class Usuario {
     private String twitter;
     private String imagen;
     private String rol;
+    private boolean baneado;
 
-    public Usuario(String email, String username, String pass, String facebook, String twitter, String imagen, String rol) {
+    public void setBaneado(boolean baneado) {
+        this.baneado = baneado;
+    }
+
+    public boolean isBaneado() {
+        return baneado;
+    }
+
+    public Usuario(String email, String username, String pass, String facebook, String twitter, String imagen, String rol, boolean baneado) {
         this.email = email;
         this.username = username;
         this.pass = pass;
@@ -30,6 +39,7 @@ public class Usuario {
         this.twitter = twitter;
         this.imagen = imagen;
         this.rol = rol;
+        this.baneado = baneado;
     }
     
         /*CONSTRUCTOR*/

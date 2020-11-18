@@ -38,28 +38,26 @@ public class UsuarioDAO {
         }
     }
     */
-    
-    
-        public static int insertUser(Usuario user){
-        
+  
+    public static int insertUser(Usuario user){       
             try {
-            Connection con = DbConection.getConnection();
-            CallableStatement statement = con.prepareCall("CALL prc_signin(?,?,?,?);");         
-            
-            statement.setString(1,user.getEmail());
-            statement.setString(2,user.getUsername());
-            statement.setString(3,user.getPass());
-            statement.setString(4,"Usuario");
-            
-            return statement.executeUpdate();           
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        } finally {
-            return 0;
-        }
+                Connection con = DbConection.getConnection();
+                CallableStatement statement = con.prepareCall("CALL prc_signin(?,?,?,?);");         
+
+                statement.setString(1,user.getEmail());
+                statement.setString(2,user.getUsername());
+                statement.setString(3,user.getPass());
+                statement.setString(4,"Usuario");
+
+                return statement.executeUpdate();           
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            } finally {
+                return 0;
+            }
     }
         
-        public static Usuario loginUser(String user, String password){
+    public static Usuario loginUser(String user, String password){
             Usuario usuario = null;
             try {
             Connection con = DbConection.getConnection();
@@ -77,7 +75,8 @@ public class UsuarioDAO {
                 String twitter = resultSet.getString("twitter");
                 String imagenes = resultSet.getString("imagen");
                 String rol = resultSet.getString("rol");
-                usuario = new Usuario(email,username,pass,facebook, twitter, imagenes,rol);
+                boolean baneado = resultSet.getBoolean("baneado");
+                usuario = new Usuario(email,username,pass,facebook, twitter, imagenes,rol, baneado);
             }      
             con.close();
         } catch (SQLException ex) {
@@ -85,5 +84,49 @@ public class UsuarioDAO {
         } finally {
             return usuario;
         }
+    }
+        
+    public static Usuario getEscritor(String _email){
+        Usuario escritor = null;
+        try {
+            Connection con = DbConection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL prc_usuario_escritor(?);");                   
+            statement.setString(1,_email);          
+            
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {            
+                String email = resultSet.getString("email");
+                String username = resultSet.getString("username");
+                String pass = resultSet.getString("pass");
+                String facebook = resultSet.getString("facebook");
+                String twitter = resultSet.getString("twitter");
+                String imagenes = resultSet.getString("imagen");
+                String rol = resultSet.getString("rol");
+                boolean baneado = resultSet.getBoolean("baneado");
+                escritor = new Usuario(email,username,pass,facebook, twitter, imagenes,rol, baneado);
+            }      
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            return escritor;
+        }
+    }  
+    
+    public static void banUser(boolean estatus, String _email){
+          try {
+                Connection con = DbConection.getConnection();
+                CallableStatement statement = con.prepareCall("CALL prc_usuario_estatus(?,?);");         
+
+                statement.setBoolean(1,estatus);
+                statement.setString(2,_email);
+
+                statement.executeUpdate(); 
+                con.close();
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            } finally {
+             
+            }
     }
 }
