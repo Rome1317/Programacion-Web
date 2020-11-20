@@ -62,4 +62,19 @@ public class ComentarioDAO {
             return comentarios;
         }   
     }
+    
+    public static void deleteComentario(int id_comentario){
+         try {
+            Connection con = DbConection.getConnection();        
+            CallableStatement statement = con.prepareCall("{call prc_comentarios_borrar(?)}");
+            statement.setInt(1,id_comentario);
+            
+            statement.executeUpdate();
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+        
+        }   
+    }
 }

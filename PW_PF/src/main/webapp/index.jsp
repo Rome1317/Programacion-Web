@@ -65,12 +65,11 @@
                         <% 
                             }else{ 
                         %>
-                        <a href="/HTML/profile.html">Mi Cuenta</a>
+                        <a href="login.jsp">Mi Cuenta</a>
                         <%
                             }
                         %>
-                        <a href="#">Populares</a>
-                        <a href="#">Ayuda</a>
+                        <a type="button" class="btn btn-outline-info info">Write News</a>
                     </div>
                 </div>
 

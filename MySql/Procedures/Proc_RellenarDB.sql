@@ -5,11 +5,10 @@ select * from Tbl_Noticia;
 select * from Tbl_Imagen;
 select * from Tbl_Categoria;
 select * from Tbl_Not_Cat;
-
-select id_guardadas from Tbl_Guardadas
-where fk_usuario = "edgar_donato@outlook.com" and
-fk_noticia = 1 and
-etiqueta = "Favoritos";
+select * from Tbl_Guardadas;
+select * from Tbl_Comentario;
+    
+truncate table Tbl_Guardadas;
 
 drop table Tbl_Imagen;
 drop table Tbl_Not_Cat;
@@ -122,6 +121,11 @@ values("LOS SECRETOS DE UN METEORITO QUE CAYÓ EN 2018",
 "Un meteorito «fireball» que cayó en 2018 contiene «compuestos orgánicos extraterrestres»", "Mucho texto sobre la nueva tecnologia de ultima generacion",
  1,"edgar_donato@outlook.com",200, "Resumen de Noticias");
  
+insert into Tbl_Noticia (titulo,descripcion,noticia,aprovado,fk_usuario,likes, resumen)
+values("NOTICIA DE PRUEBA 1", 
+"Un meteorito «fireball» que cayó en 2018 contiene «compuestos orgánicos extraterrestres»", "Mucho texto sobre la nueva tecnologia de ultima generacion",
+ 1,"edgar_donato@outlook.com",200, "Resumen de Noticias");
+ 
  /*Noticia/Categoria*/
 insert into Tbl_Not_Cat(fk_noticia,fk_categoria) values (1,5);
 insert into Tbl_Not_Cat(fk_noticia,fk_categoria) values (2,5);
@@ -140,6 +144,8 @@ insert into Tbl_Not_Cat(fk_noticia,fk_categoria) values (11,2);
 
 insert into Tbl_Not_Cat(fk_noticia,fk_categoria) values (12,1);
 insert into Tbl_Not_Cat(fk_noticia,fk_categoria) values (12,2);
+
+insert into Tbl_Not_Cat(fk_noticia,fk_categoria) values (13,2);
 
 insert into Tbl_Not_Cat(fk_noticia,fk_categoria) values (6,1);
 /*-------------------------------------------------------------*/
@@ -192,6 +198,10 @@ insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/pla
 insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/meteoritos.jpg",6);
 insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/1.jpg",6);
 insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/3.jpg",6);
+
+insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/aoeIII.jpg",13);
+insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/aoeIII2.jpg",13);
+insert into Tbl_Imagen(extencion,fk_noticia) values ("assets/Recursos/Images/aoeIII3.jpg",13);
 /*--------------------------------------------------------------------------------------------------*/
 
 /*Favoritos*/

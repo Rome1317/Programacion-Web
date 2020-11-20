@@ -16,6 +16,7 @@
     Guardadas Favoritas = (Guardadas)request.getAttribute("Favoritas");
     Guardadas Despues = (Guardadas)request.getAttribute("Despues");
     List<Comentario> comentarios = (List<Comentario>)request.getAttribute("comentarios");
+    Usuario escritor = (Usuario)request.getAttribute("escritor");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,13 +77,21 @@
                                                
                         <%
                             if(usuario != null){
-                        %>
-                        <img src="<%= usuario.getImagen()%>" class="photo hide" >
-                        <a href="PerfilServerlet"><%=usuario.getUsername()%></a>
+                            String user = usuario.getUsername();
+                                if(usuario.getUsername().equals("Anonimo") == true){
+                        %>                                                   
+                                <img src="<%= usuario.getImagen()%>" class="photo hide" >
+                                <a href="login.jsp">Mi cuenta</a>   
                         <% 
+                                }else{
+                        %>
+                                <img src="<%= usuario.getImagen()%>" class="photo hide" >
+                                <a href="PerfilServerlet"><%=usuario.getUsername()%></a>
+                        <%
+                                }
                             }else{ 
                         %>
-                        <a href="/HTML/profile.html">Mi Cuenta</a>
+                        <a href="login.jsp">Mi Cuenta</a>
                         <%
                             }
                         %>
@@ -321,13 +330,13 @@
         </div>
 
         <div class="side mt-5">
-
             <div>
                 <h2>Comentarios</h2>
-                <h2 class="total">327</h2>
+<!--                <h2 class="total">327</h2>-->
             </div>
 
-            <form  action="NewComentarioServerlet?id=<%=cards.getId_noticia()%>" method="POST">
+            <form  action="NewComentarioServerlet?id=<%=cards.getId_noticia()%>&id_padre=0" method="POST">
+                <%if(usuario.isBaneado() == false){%>
                 <div class="form-group mt-2">
                     <textarea rows="1" class="form-control mb-3 texta " id="text1" placeholder="Share your thoughts."  name = "comentario"></textarea>
                     
@@ -338,6 +347,7 @@
 
                     <h6 class="text2 mb-3">Science & Tech needs your voice. We welcome your on-topic commentary, criticism and expertise.</h6>
                 </div>
+                <%}%>
             </form>
 
             <div class="bar mb-4">
@@ -356,7 +366,8 @@
                 <!--PRIMER FOR DE COMENTRAIOS PADRE-->
                 <%
                     for(Comentario com : comentarios){
-                    %>
+                        if(com.getId_padre() == 0){
+                %>
                 <div class="mb-3">
                     <h6 class="font-weight-bold mb-0"><%= com.getFk_usuario()%></h6>
 <!--                    <h6 class="text-muted">Victoria </h6>
@@ -367,16 +378,22 @@
                    <!--COMENTARIO-->
                     <p><%= com.getComentario()%></p>
                 </div>
+                
                   <div class="mb-1" id="">
+                    
                     <form action = "NewComentarioServerlet?id=<%=cards.getId_noticia()%>&id_padre=<%=com.getId_comentario()%>" method="POST">
                         <a href="#" class="mr-2" id="reply_btn">Reply</a>
                         <a href="#" class="mr-2">Share</a>
-
+                        
                         <div class="btns">
-                            <button type="submit" class="btn btn-link unpressed" id="ban"><i class="fas fa-ban"></i> </button>
-                            <button type="submit" class="btn btn-link unpressed" id="delete"><i class="far fa-trash-alt"></i> </button>
+                            <%if(usuario.getRol().equals("Administrador") == true || usuario.getRol().equals("Moderador") == true){%>
+                            <a href = "BanServerlet?email=<%=com.getFk_usuario()%>&id_not=<%=cards.getId_noticia()%>" type="submit" class="btn btn-link unpressed" id="ban"><i class="fas fa-ban"></i> </a>
+                            <a href = "BorrarComServerlet?id_com=<%=com.getId_comentario()%>&id_not=<%=cards.getId_noticia()%>" type="submit" class="btn btn-link unpressed" id="delete"><i class="far fa-trash-alt"></i> </a>
+                            <%
+                                }
+                            %>
                         </div>
-
+                        <%if(usuario.isBaneado() == false){%>
                         <div class="d-none" id="respond">
                             <textarea rows="1" class="form-control mb-3 texta " id="text2" placeholder="Reply to this comment." name ="comentario"></textarea>                          
                             <div class="options"> 
@@ -384,9 +401,10 @@
                                 <button type="submit" class="btn btn-primary btnpost" id="btnp2"> Post </button>
                             </div>
                         </div> 
+                        <%}%>
                     </form>
                 </div>
-                
+                <% } %>
                     <%
                         for(Comentario comen : comentarios){
                             if(com.getId_comentario() == comen.getId_padre()){
@@ -402,10 +420,12 @@
                     </div>
 
                     <div class="btns">
-
-                        <button type="submit" class="btn btn-link unpressed" id="ban"><i class="fas fa-ban"></i> </button>
-                        <button type="submit" class="btn btn-link unpressed" id="delete"><i class="far fa-trash-alt"></i> </button>
-           
+                        <%if(usuario.getRol().equals("Administrador") == true || usuario.getRol().equals("Moderador") == true){%>
+                        <a href = "BanServerlet?email=<%=com.getFk_usuario()%>&id_not=<%=cards.getId_noticia()%>" type="submit" class="btn btn-link unpressed" id="ban"><i class="fas fa-ban"></i> </a>
+                        <a href = "BorrarComServerlet?id_com=<%=comen.getId_comentario()%>&id_not=<%=cards.getId_noticia()%>" type="submit" class="btn btn-link unpressed" id="delete"><i class="far fa-trash-alt"></i> </a>
+                        <%
+                            }
+                        %>
                     </div>
 
                 </div> 
@@ -438,42 +458,44 @@
 
         <div class="writer">
             <!--PERFIL IMAGENES -->
-            <img src="<%= usuario.getImagen()%>" alt="" class="perfil">
-            <h2>Por <%= usuario.getUsername()%></h2>
+            <img src="<%= escritor.getImagen()%>" alt="" class="perfil">
+            <h2>Por <%= escritor.getUsername()%></h2>
 
             <h6><%=cards.getFecha()%></h6>
 
             <div class="butts">
-                <button type="submit"  class="btn btn-light"> <i class="fab fa-facebook-f"></i></button>
-                <button type="submit"  class="btn btn-light"> <i class="fab fa-twitter"></i></i></button>
+                <a href="<%=escritor.getFacebook()%>" type="submit"  class="btn btn-light"> <i class="fab fa-facebook-f"></i></a>
+                <a href="<%=escritor.getTwitter()%>" type="submit"  class="btn btn-light"> <i class="fab fa-twitter"></i></i></a>
                 <!--Favoritos-->
                 <%
-                    if(Favoritas != null){
+                    if(usuario.getUsername().equals("Anonimo") == false){
+                        if(Favoritas != null){
                 %>
                 <!--SI ES SU NOTICIA FAV ASI QUE SI LE PICA SI QUITA DE LA TABLA-->
                 <a href="GuardadasServerlet?guardada=<%= Favoritas.getId_guardadas()%>" type="submit"  class="btn"><i class="fas fa-crown"></i></i></a>
                 <%
-                   }else{
+                        }else{
                 %>
                 <!--NO ES SU NOTICIA FAVORITA ASI QUE SI LE PICA SE AGREGA A LA TABLA-->
-                <a href="GuardadasNewServerlet?guardada=<%= cards.getId_noticia()%>" type="submit"  class="btn btn-light"><i class="fas fa-crown"></i></i></a>
+                <a href="GuardadasNewServerlet?guardada=<%= cards.getId_noticia()%>&etiqueta=Favoritos" type="submit"  class="btn btn-light"><i class="fas fa-crown"></i></i></a>
                 <%
-                    }
+                        }
                 %>
                 <button type="submit"  class="btn btn-light"><i class="fas fa-share"></i></button>
                 
                 <!--Ver mas tarde-->
                 <%
-                    if(Despues != null){
+                        if(Despues != null){
                 %>
                 <!--ESTA EN SU LISTA DE VER DESPUES ASI QUE SE QUITA DE LA TABLA-->
-                <button type="submit"  class="btn"><i class="fas fa-bookmark"></i></i></button>
-                 <%
-                   }else{
+                <a href="GuardadasServerlet?guardada=<%= Despues.getId_guardadas()%>" type="submit"  class="btn"><i class="fas fa-bookmark"></i></i></a>
+                <%
+                        }else{
                 %>
                 <!--NO ESTA EN SU LISTA DE VER DESPUES ASI QUE AGREGGAR A LA TRABLA-->
-                <button type="submit"  class="btn btn-light"><i class="fas fa-bookmark"></i></i></button>
+                <a href="GuardadasNewServerlet?guardada=<%= cards.getId_noticia()%>&etiqueta=Despues" type="submit"  class="btn btn-light"><i class="fas fa-bookmark"></i></i></a>
                  <%
+                        }
                     }
                 %>
                 
@@ -493,24 +515,16 @@
              <p><%= cards.getNoticia() %></p>
              <img src="<%=cards.getImg().get(2).getExtencion()%>" alt="" class = "images">
         </div>
-                
+             
+         <%if(cards.isAprovado() == false && (usuario.getRol().equals("Administrador") == true || usuario.getRol().equals("Editor") == true)){%>
         <div class="comment">
             <div class="butts">
                 <div class="cell">
                     <button type="submit" class="btn btn-primary btncom d-none" id="btnop2"> Read Comments </button>
-                    <%if(cards.isAprovado() == false && (usuario.getRol().equals("Administrador") == true || usuario.getRol().equals("Editor") == true)){%>
+                   
                         <a href = "AprobarNoticiasServerlet?id=<%= cards.getId_noticia()%>" type="button" class="btn btn-outline-success size mr-3" id="btnop3"> Approve </a>
-                    <%}%>
+                    
                     <button type="button" class="btn btn-outline-danger size " id="btnop4"> Reject </button>
-                </div>
-                <div class="float-right cell2">
-
-                    <button type="<%=usuario.getFacebook()%>" class="btn btn-light"> <i class="fab fa-facebook-f"></i></button>
-                    <button type="<%=usuario.getTwitter()%>" class="btn btn-light"> <i class="fab fa-twitter"></i></i></button>
-                    <button type="submit" class="btn btn-light"><i class="fas fa-crown"></i></button>
-                    <button type="submit" class="btn btn-light"><i class="fas fa-share"></i></button>
-                    <button type="submit" class="btn btn-link unpressed"><i class="fas fa-bookmark"></i></i></button>
-
                 </div>
 
                 <div class="d-none reject" id="reject">
@@ -528,6 +542,7 @@
                 </div>
             </div>
         </div>
+        <%}%>
     </div>
    
 
