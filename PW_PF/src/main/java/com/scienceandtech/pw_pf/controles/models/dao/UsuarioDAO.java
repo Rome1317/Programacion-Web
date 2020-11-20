@@ -129,4 +129,26 @@ public class UsuarioDAO {
              
             }
     }
+        
+    public static int editUser(Usuario user){
+        
+            try {
+            Connection con = DbConection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL prc_editusuario(?,?,?,?,?,?);");         
+            
+            statement.setString(1,user.getEmail());
+            statement.setString(2,user.getUsername());
+            statement.setString(3,user.getPass());
+            statement.setString(4,user.getFacebook());
+            statement.setString(5,user.getTwitter());
+            statement.setString(6,user.getImagen());
+            
+            return statement.executeUpdate();           
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            return 0;
+        }
+    }
+        
 }

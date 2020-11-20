@@ -458,8 +458,18 @@
 
         <div class="writer">
             <!--PERFIL IMAGENES -->
+<<<<<<< Updated upstream
             <img src="<%= escritor.getImagen()%>" alt="" class="perfil">
             <h2>Por <%= escritor.getUsername()%></h2>
+=======
+            <img src="<%= usuario.getImagen()%>" alt="" class="perfil">
+            <h2>Por <%= usuario.getUsername()%></h2>
+            
+            <%if(usuario.getRol().equals("Administrador") == true || usuario.getRol().equals("Editor") ) {%>
+                 <a type="button" class="btn btn-outline-dark edit" id="" href="NewsEditServlet?id=<%=cards.getId_noticia()%>"><i class="far fa-edit"></i></a>
+            <% } %>  
+           
+>>>>>>> Stashed changes
 
             <h6><%=cards.getFecha()%></h6>
 
@@ -520,23 +530,33 @@
         <div class="comment">
             <div class="butts">
                 <div class="cell">
+<<<<<<< Updated upstream
                     <button type="submit" class="btn btn-primary btncom d-none" id="btnop2"> Read Comments </button>
                    
                         <a href = "AprobarNoticiasServerlet?id=<%= cards.getId_noticia()%>" type="button" class="btn btn-outline-success size mr-3" id="btnop3"> Approve </a>
                     
                     <button type="button" class="btn btn-outline-danger size " id="btnop4"> Reject </button>
+=======
+                    <%if(cards.isAprovado() == true) {%>
+                         <button type="submit" class="btn btn-primary btncom" id="btnop2"> Read Comments </button>
+                    <%}%> 
+                    <%if(cards.isAprovado() == false && (usuario.getRol().equals("Administrador") == true || usuario.getRol().equals("Editor") == true)){%>
+                        <a href = "AprobarNoticiasServerlet?id=<%= cards.getId_noticia()%>" type="button" class="btn btn-outline-success size mr-3" id="btnop3"> Approve </a>
+                        <button type="button" class="btn btn-outline-danger size " id="btnop4"> Reject </button>
+                    <%}%>
+>>>>>>> Stashed changes
                 </div>
 
-                <div class="d-none reject" id="reject">
-                    <form>
+                <div class="reject d-none" id="reject">
+                    <form action="NewsDenyServlet?id=<%=cards.getId_noticia()%>"  method="post">
                         <div class="form-group mt-4">
                           <h6>Report your reasons to the writer</h6>
-                          <textarea class="form-control" id="reasons" rows="3" placeholder="Share your thoughts about this article"></textarea>
+                          <textarea class="form-control" id="reasons" name="reasons" rows="3" placeholder="Share your thoughts about this article"></textarea>
                         </div>
 
                         <div class="options" id="opt">
                             <button type="button" class="btn btn-outline-dark" id="cancel"> Cancel </button>
-                            <button type="submit" class="btn btn-primary btnpost" id="send"> Send </button>
+                            <button type="submit" class="btn btn-primary btnpost" id="send" href=""> Send </button>
                         </div>
                       </form>
                 </div>

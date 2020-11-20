@@ -5,6 +5,8 @@
  */
 package com.scienceandtech.pw_pf.controles.models;
 
+import java.util.List;
+
 /**
  *
  * @author edgar

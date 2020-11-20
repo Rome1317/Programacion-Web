@@ -48,6 +48,34 @@ public class CategoriaDAO {
 
     }
      
+      public static List<Noticia_Categoria> getCats(Noticia news){
+        List<Noticia_Categoria> categorias = new ArrayList<>();
+           
+        try{
+                Connection con = DbConection.getConnection();
+                      
+                CallableStatement statement = con.prepareCall("{call prc_cats(?)}");
+                statement.setInt(1, news.getId_noticia());
+                  
+                ResultSet resultSet = statement.executeQuery(); 
+                
+                while(resultSet.next()){
+                    int id_not_cat = resultSet.getInt(1);
+                    int fk_noticia = resultSet.getInt(2);
+                    int fk_categoria = resultSet.getInt(3);
+                    
+
+                    categorias.add(new Noticia_Categoria(fk_noticia,fk_categoria));
+                }   
+                con.close();
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            
+            return categorias;
+        }
+    }
+     
     
     
 }

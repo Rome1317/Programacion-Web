@@ -11,18 +11,28 @@
     </session-config>
     
     <welcome-file-list>
+<<<<<<< Updated upstream
       <welcome-file>MainServerlet</welcome-file>  
 <!--        <welcome-file>index.jsp</welcome-file>-->
+=======
+      <!--<welcome-file>perfil.jsp</welcome-file>-->  
+<!--        <welcome-file>index.jsp</welcome-file> -->
+>>>>>>> Stashed changes
 
          <!--<welcome-file>LoginServlet</welcome-file>--> 
-<!--       <welcome-file>login.jsp</welcome-file> -->
+<!--      <welcome-file>login.jsp</welcome-file> -->
              
 <!--            <welcome-file>NewsFormServlet</welcome-file>    -->
 <!--           <welcome-file>SearchServerlet</welcome-file>  -->
+<<<<<<< Updated upstream
 <!--     <welcome-file>login.jsp</welcome-file> -->
+=======
+            <welcome-file>login.jsp</welcome-file> 
+>>>>>>> Stashed changes
             
             
             
-<!--          <welcome-file>news.jsp</welcome-file> -->
+<!--         <welcome-file>news.jsp</welcome-file> -->
+<!--            <welcome-file>Editnews.jsp</welcome-file> -->
     </welcome-file-list>
 </web-app>

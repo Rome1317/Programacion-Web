@@ -42,6 +42,15 @@ public class Usuario {
         this.baneado = baneado;
     }
     
+    public Usuario(String email, String username, String pass, String facebook, String twitter, String imagen) {
+        this.email = email;
+        this.username = username;
+        this.pass = pass;
+        this.facebook = facebook;
+        this.twitter = twitter;
+        this.imagen = imagen;
+    }
+    
         /*CONSTRUCTOR*/
     public Usuario(String email, String username, String pass) {
         this.email = email;

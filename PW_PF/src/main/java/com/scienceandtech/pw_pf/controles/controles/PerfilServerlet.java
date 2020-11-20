@@ -10,21 +10,27 @@ import com.scienceandtech.pw_pf.controles.models.Noticia;
 import com.scienceandtech.pw_pf.controles.models.Usuario;
 import com.scienceandtech.pw_pf.controles.models.dao.ImagenDAO;
 import com.scienceandtech.pw_pf.controles.models.dao.NoticiasDAO;
+import com.scienceandtech.pw_pf.controles.models.dao.UsuarioDAO;
+
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 /**
  *
  * @author edgar
  */
 @WebServlet(name = "PerfilServerlet", urlPatterns = {"/PerfilServerlet"})
+@MultipartConfig(maxFileSize = 1000 * 1000 * 5, maxRequestSize = 1000 * 1000 * 25, fileSizeThreshold = 1000 * 1000)
 public class PerfilServerlet extends HttpServlet {
 
     /**
@@ -113,7 +119,49 @@ public class PerfilServerlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        HttpSession session = request.getSession();
+        Usuario usuario = (Usuario)session.getAttribute("USER"); //trae datos del controller login con la sesion activa
 
+        //Usuario
+        String user = request.getParameter("user");
+        
+        //Password
+        String pass = request.getParameter("pass");
+        
+        //Facebook
+        String fb = request.getParameter("fb");
+        
+        //Twitter
+        String tw = request.getParameter("tw");
+        
+        
+         //Ubicacion
+        String path = request.getServletContext().getRealPath("");
+        
+        File fileSaveDir = new File(path + FileUtils.RUTE_USER_IMAGE);
+        
+        if(!fileSaveDir.exists()){
+            fileSaveDir.mkdir();
+        }
+
+        //Imagen 1
+        Part file = request.getPart("image1");
+        String contentType = file.getContentType();
+        
+        String nameImage = file.getName() + System.currentTimeMillis() + FileUtils.GetExtension(contentType);
+        String fullPath = path + FileUtils.RUTE_USER_IMAGE + "/" + nameImage;
+    
+        file.write(fullPath);
+        
+        
+        Usuario user2 = new Usuario(usuario.getEmail(),user, pass,fb,tw,FileUtils.RUTE_USER_IMAGE + "/" + nameImage);
+        
+        
+        UsuarioDAO.editUser(user2);
+              
+
+       
     }
 
     /**
@@ -125,5 +173,7 @@ public class PerfilServerlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+ 
 
 }

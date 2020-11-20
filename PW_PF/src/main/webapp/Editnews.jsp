@@ -1,77 +1,78 @@
 <%-- 
-    Document   : perfil
-    Created on : Nov 11, 2020, 11:47:37 PM
-    Author     : edgar
+    Document   : Editnews.jsp
+    Created on : 19/11/2020, 01:04:21 PM
+    Author     : Gonzalez
 --%>
 
-<%@page import="java.util.List"%>
-<%@page import="com.scienceandtech.pw_pf.controles.models.Noticia"%>
-<%@page import="com.scienceandtech.pw_pf.controles.models.Usuario"%>
+<%@page import="com.scienceandtech.pw_pf.controles.models.Noticia_Categoria"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="com.scienceandtech.pw_pf.controles.models.Noticia"%>
 <% 
-    Usuario usuario = (Usuario)request.getAttribute("usuario");
-    List<Noticia> noticiasCreadas = (List<Noticia>)request.getAttribute("noticiasCreadas");
-    List<Noticia> noticiasNoArobadas = (List<Noticia>)request.getAttribute("noticiasNoArobadas");
-    List<Noticia> noticiasDespues = (List<Noticia>)request.getAttribute("noticiasDespues");
-    List<Noticia> noticiasFavoritas = (List<Noticia>)request.getAttribute("noticiasFavoritas");
-    
+   Noticia cards = (Noticia)request.getAttribute("cards");
 %>
 <!DOCTYPE html>
-<html>
-    <head>
+<html lang="en">
+<head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
+    <title>News Form | Science & Tech</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <!--Font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
-     crossorigin="anonymous" />
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
 
-    <!--Font oswald-->
+    <!-- Logo Icon -->
+    <link
+    rel="shortcut icon"
+    type="image/x-icon"
+    href="assets/Recursos/Logo/favicon2.ico"
+    sizes="50x50"
+    />
+
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/ab5a1a4d66.js" crossorigin="anonymous"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;600;800&display=swap" 
+    rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
 
     <!--Custom css-->
     <link rel="stylesheet" href="assets/CSS/styles.css">
+    <link rel="stylesheet" href="assets/CSS/form.css">
 
-    <link rel="stylesheet" href="assets/CSS/profile_page.css">
-    </head>
-    
-    <body>
-         <!-- Header/Menu  -->
-     <nav class="menu" id= "menu">
+</head>
+<body>
+ <!--Menu-->
+        <nav class="menu" id= "menu">
             <div class="contenedor-pw contenedor-botones-menu">
                 <button id="btn-pw-menu-barras" class = "btn-pw-menu-barras"><i class="fas fa-bars"></i></button>
-                <a href="MainServerlet"><img src="assets/Recursos/Logo/logo.gif" alt=""></a>
+                <a href="pagina_principal.html"><img src="assets/Recursos/Logo/logo.gif" alt=""></a>
                 <div class="contenedor-pw contenedor-enlaces-nav">
                     <div class="enlaces">
-                       <div class="search-box" id="search-box"> 
-                                <form action="./SearchServerlet" method="GET" class="">
+                       
+                            <div class="search-box" id="search-box"> 
+                                <form action="" method="" class="">
                                     <button type="submit" id="search" class = "search"><i class="fas fa-search"></i></button>
-                                <div class="search-text visible" id="search-text">                                   
-                                    <input type="text" class="form-control look " name="buscar" id="buscar" placeholder="What are you looking for?">                             
+                                <div class="search-text visible" id="search-text">
+                                    
+                                    <input type="text" class="form-control look " value="" id="look" placeholder="What are you looking for?">
+                             
                                 </div>
                                 </form>
+
                             </div>
                         
-                        <img src="<%=usuario.getImagen()%>" class="photo hide" >
-                        <%
-                            if(usuario != null){
-                        %>
-                        <a href="/HTML/profile.html"><%=usuario.getUsername()%></a>
-                        <% 
-                            }else{ 
-                        %>
+                        <img src="assets/Recursos/Images/Messi.jpg" class="photo hide" >
                         <a href="/HTML/profile.html">Mi Cuenta</a>
-                        <%
-                            }
-                        %>
-                        <a href="#">Populares</a>
-                        <a href="#">Ayuda</a>
+                        <button type="button" class="btn btn-outline-info info">Write News</button>
                     </div>
                 </div>
 
@@ -83,21 +84,21 @@
                     <div class="categorias">
                        <button class ="btn-pw-regresar"><i class="fas fa-arrow-left"></i> Regresar</button>
                        <h3 class="subtitulo">Categorias</h3>
-                       <a href="SearchServerlet?buscar=Clima y ambiente" data-categoria="climate-enviroment">Clima & ambiente <i class="fas fa-arrow-right"></i></a>
-                       <a href="SearchServerlet?buscar=Ciencia" data-categoria="science">Ciencia <i class="fas fa-arrow-right"></i></a>
-                       <a href="SearchServerlet?buscar=Multimedia" data-categoria="media">Multimedia <i class="fas fa-arrow-right"></i></a>
-                       <a href="SearchServerlet?buscar=Tips Tecnologicos" data-categoria="tech-tips">Tips Tecnologicos <i class="fas fa-arrow-right"></i></a>
-                       <a href="SearchServerlet?buscar=Videojuegos" data-categoria="videogames">Videojuegos <i class="fas fa-arrow-right"></i></a>
-                       <a href="SearchServerlet?buscar=Autos" data-categoria="cars">Autos <i class="fas fa-arrow-right"></i></a>
-                       <a href="SearchServerlet?buscar=Ciberseguridad" data-categoria="Cybersecurity">Ciberseguridad <i class="fas fa-arrow-right"></i></a>
-                       <a href="SearchServerlet?buscar=Realidad Virtual" data-categoria="virtual-reality">Realida Virtual <i class="fas fa-arrow-right"></i></a>
-                       <a href="SearchServerlet?buscar=Inteligencia Artificial" data-categoria="artificial-intelligence">Inteligencia Artificial <i class="fas fa-arrow-right"></i></a>
+                       <a href="#" data-categoria="climate-enviroment">Clima & ambiente <i class="fas fa-arrow-right"></i></a>
+                       <a href="#" data-categoria="science">Ciencia <i class="fas fa-arrow-right"></i></a>
+                       <a href="#" data-categoria="media">Multimedia <i class="fas fa-arrow-right"></i></a>
+                       <a href="#" data-categoria="tech-tips">Tips Tecnologicos <i class="fas fa-arrow-right"></i></a>
+                       <a href="#" data-categoria="videogames">Videojuegos <i class="fas fa-arrow-right"></i></a>
+                       <a href="#" data-categoria="cars">Autos <i class="fas fa-arrow-right"></i></a>
+                       <a href="#" data-categoria="Cybersecurity">Ciberseguridad <i class="fas fa-arrow-right"></i></a>
+                       <a href="#" data-categoria="virtual-reality">Realida Virtual <i class="fas fa-arrow-right"></i></a>
+                       <a href="#" data-categoria="artificial-intelligence">Inteligencia Artificial <i class="fas fa-arrow-right"></i></a>
                     </div>
 
                     <div class="contenedor-subcategorias">
                         <div class="subcategoria activo" data-categoria="climate-enviroment">
                             <div class="banner-subcategoria">
-                                <a href="SearchServerlet?busqueda=Clima">
+                                <a href="#">
                                     <img src="assets/Recursos/Images/clima5.jpg" alt="">
                                 </a>
                             </div>  
@@ -297,234 +298,232 @@
             </div>
         </nav>
 
-    <!-- Container -->
-    <div class="contenedor-pw" id="contenedor-pw">
-        <!-- CSS GRID -->
-        <div class="profile" id="profile">
-
-            <header class="header-pw">
-                <!-- <img src="/Recursos/Images/rv1.jpg" alt="" class="portada-pw"> -->
-                <img src="<%= usuario.getImagen()%>" alt="" class = "avatar-pw">
-                <h2 class="user-name"><%= usuario.getUsername()%></h2>
-<!--                <h2 class="user-name"><%= usuario.getRol()%></h2>-->
-                <!-- <h2>EDGAR DONATO CALVILLO LUMBRERAS</h2> -->
-            </header>
-
-            <aside class="sidebar-pw">
-                <button data-opciones="informacion"> <i class="fas fa-id-card"></i></i>   Informacion</a>
-                <%if(usuario.getRol().equals("Administrador") == true || usuario.getRol().equals("Creador Contenido" ) == true ){ %>
-                <button data-opciones="mis-noticias"> <i class="fas fa-book-open"></i>   Mis Noticias</button>
-                <% } %>  
-                <%if(usuario.getRol().equals("Administrador") == true || usuario.getRol().equals("Editor") ) {%>
-                <button data-opciones="gestion"> <i class="fas fa-tasks"></i>   Gestionar Noticias</button> 
-                <% } %>  
-                <%if(usuario.getRol().equals("Moderador") == false) {%>
-                <button data-opciones="mas-tarde"> <i class="fas fa-clock"></i>   Ver mas tarde</button>
-                <% } %>  
-                <%if(usuario.getRol().equals("Moderador") == false) {%>
-                <button data-opciones="favoritos"> <i class="fas fa-crown"></i>   Favoritos</button>  
-                <% } %> 
-                <button data-opciones="logout"> <i class="fas fa-door-open"></i> Log out</button>
-            </aside>
-
-            <div class="panel-pw">
-                <div class="contenedor-opciones">
-                    <div class="opcion" id="opcion" data-opciones="informacion">
-                        <h2>INFORMACION DEL PERFIL</h2>
-                        <hr>
-                        <form action="./PerfilServerlet" method="Post" enctype="multipart/form-data">
-
-                            <div class="row mb-3">
-                                <div class="col">
-                                    <label for="validationCustom01">Email</label>
-                                    <input type="text" class="form-control" value="<%= usuario.getEmail()%>" name="email" placeholder="Email">
-                                </div>
-
-                                <div class="col">
-                                    <label for="validationCustom02">User</label>
-                                    <input type="text" class="form-control" value="<%= usuario.getUsername()%>"  name="user" placeholder="Username">
-                                </div>
-
-                            </div>
 
 
-                            <div class="row mb-3">
-                                <div class="col">
-                                    <label for="validationCustom03">Password</label>
-                                    <input type="text" class="form-control" value="<%= usuario.getPass()%>" name="pass" placeholder="Password">
-                                </div>
-
-                                <div class="col">
-                                    <label for="exampleFormControlFile1">Image</label>
-                                    <input type="file" class="form-control-file" value="<%= usuario.getImagen()%>" name="image1" id="exampleFormControlFile1">
-                                </div>
-
-                            </div>
-                            
-                            <div class="row mb-3">
-                                <div class="col">
-                                    <label for="validationCustom04">Facebook</label>
-                                    <input type="text" class="form-control" value="<%= usuario.getFacebook()%>" name="fb" placeholder="Facebook">
-                                </div>
-
-                                <div class="col">
-                                    <label for="validationCustom05">Twitter</label>
-                                    <input type="text" class="form-control" value="<%= usuario.getTwitter()%>" name="tw" placeholder="Twitter">
-                                </div>
-
-                            </div>
-
-                            <div class="row float-right mt-2">
-                                <div class="col">
-                                    <button type="submit" class="btn btn-outline-info">Save Changes</button>
-                                </div>
-
-                            </div>
-
-                        </form>
-                    </div>
-                    
-                    <div class="opcion" id="opcion" data-opciones="mis-noticias">
-                        <h2>MIS NOTICIAS</h2>
-                        <hr>
-                        <%
-                        if(noticiasCreadas != null){
-                        %>
-                    <div class="news-cards">
-                        <%                            
-                            for (Noticia card : noticiasCreadas){                           
-                        %>
-                        
-                        <div class="new">
-                            <img src="<%= card.getMainImg()%>" alt="Noticia 1">              
-                            <h3><%= card.getTitulo()%></h3>
-                            <p><%= card.getDescripcion()%></p>
-                            <a href="#">Aprender Mas <i class="fas fa-angle-double-right"></i></a>
-                        </div>                         
-                         <% } %>
-                     </div>
-                        <% 
-                        }else{
-                        %>
-                        <h3>No cuenta con noticias creadas</h3>
-                        <%
-                        }
-                        %>
-                    </div>          
-                      
-                   
-                   
-                    <div class="opcion" id="opcion" data-opciones="gestion">
-                        <h2>GESTIONAR NOTICIAS</h2>
-                        <hr>
-                         <%
-                        if(noticiasCreadas != null){
-                        %>
-                    <div class="news-cards">
-                        <%                            
-                            for (Noticia card : noticiasNoArobadas){                           
-                        %>
-                        
-                        <div class="new">
-                            <img src="<%= card.getMainImg()%>" alt="Noticia 1">              
-                            <h3><%= card.getTitulo()%></h3>
-                            <p><%= card.getDescripcion()%></p>
-                            <a href="#">Aprender Mas <i class="fas fa-angle-double-right"></i></a>
-                        </div>                         
-                         <% } %>
-                    </div>
-                        <% 
-                        }else{
-                        %>
-                        <h3>No cuenta con noticias por aprobar</h3>
-                        <%
-                        }
-                        %>
-                    </div>
-                 
-                    
-                    
-                    <div class="opcion" id="opcion" data-opciones="mas-tarde">
-                        <h2>VER MAS TARDE</h2>
-                        <hr>
-                        <%
-                        if(noticiasCreadas != null){
-                        %>
-                    <div class="news-cards">
-                        <%                            
-                            for (Noticia card : noticiasDespues){                           
-                        %>
-                        
-                        <div class="new">
-                            <img src="<%= card.getMainImg()%>" alt="Noticia 1">              
-                            <h3><%= card.getTitulo()%></h3>
-                            <p><%= card.getDescripcion()%></p>
-                            <a href="#">Aprender Mas <i class="fas fa-angle-double-right"></i></a>
-                        </div>                         
-                         <% } %>
-                    </div>
-                        <% 
-                        }else{
-                        %>
-                        <h3>No cuenta con noticias por aprobar</h3>
-                        <%
-                        }
-                        %>
-                    </div>  
-                    
-                    
-                    <div class="opcion" id="opcion" data-opciones="favoritos">
-                        <h2>FAVORITOS</h2>
-                        <hr>
-                         <%
-                        if(noticiasCreadas != null){
-                        %>
-                    <div class="news-cards">
-                        <%                            
-                            for (Noticia card : noticiasFavoritas){                           
-                        %>
-                        
-                        <div class="new">
-                            <img src="<%= card.getMainImg()%>" alt="Noticia 1">              
-                            <h3><%= card.getTitulo()%></h3>
-                            <p><%= card.getDescripcion()%></p>
-                            <a href="#">Aprender Mas <i class="fas fa-angle-double-right"></i></a>
-                        </div>                         
-                         <% } %>
-                    </div>
-                        <% 
-                        }else{
-                        %>
-                        <h3>No cuenta con noticias por aprobar</h3>
-                        <%
-                        }
-                        %>
-                    </div>  
-
+    <div class="container">
+        <div class=" col-xl-10 d-flex flex-column m-auto">
+            
+            <form action="NewsEditServlet?id=<%=cards.getId_noticia()%>"  method="POST" enctype="multipart/form-data"  >
+                <div class="form-group">
+                  <label for="title">Title</label>
+                  <input type="text" class="form-control" name="title" id="title" value="<%= cards.getTitulo()%>" placeholder="Enter your news title">
                 </div>
-               
-            </div>
 
+                <div class="butts">
+                    <label>Categories</label>
+                    <br>
+
+                    <div class="btn-group-toggle text-xl-center text-lg-center text-md-center" data-toggle="buttons">
+                       
+
+                            
+                            
+                            <% 
+
+                            for(Noticia_Categoria cat : cards.getCats()){
+    
+                                if(cat.getFk_categoria() == 1){%>
+                                    <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn9">
+                                    <input type="checkbox" name="categories[]" value="1" checked> Clima & Ambiente
+                                    </label>
+                            <%
+                                }else{
+                            %>
+                                 <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn9">
+                                 <input type="checkbox" name="categories[]" value="1"> Clima & Ambiente
+                                 </label>
+                            <%
+                                }
+                            %>
+                            <%
+                                if(cat.getFk_categoria() == 2){%>
+                                     <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn8">
+                                     <input type="checkbox" name="categories[]" value="2" checked=""> Ciencia
+                                     </label>
+
+                            <%
+                                }else{
+                            %>
+                                 <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn8">
+                                 <input type="checkbox" name="categories[]" value="2"> Ciencia
+                                 </label>
+                            <%
+                                }
+                            %>
+                                 
+                            <%
+                                if(cat.getFk_categoria() == 3){%>
+                                     <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn7">
+                                     <input type="checkbox" name="categories[]" value="3" checked> Multimedia
+                                     </label>
+
+                            <%
+                                }else{
+                            %>
+                                 <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn7">
+                                 <input type="checkbox" name="categories[]" value="3"> Multimedia
+                                 </label>
+                            <%
+                                }
+                            %>
+                            
+                            <%
+                                if(cat.getFk_categoria() == 4){%>
+                                     <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn6">
+                                     <input type="checkbox" name="categories[]" value="4" checked> Tips Tecnologicos
+                                     </label>
+
+                            <%
+                                }else{
+                            %>
+                                 <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn6">
+                                 <input type="checkbox" name="categories[]" value="4"> Tips Tecnologicos
+                                 </label>
+                            <%
+                                }
+                            %> 
+                             
+                            <%
+                                if(cat.getFk_categoria() == 5){%>
+                                     <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn5">
+                                     <input type="checkbox" name="categories[]" value="5" checked> Videojuegos
+                                     </label>
+
+                            <%
+                                }else{
+                            %>
+                                 <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn5">
+                                 <input type="checkbox" name="categories[]" value="5"> Videojuegos
+                                 </label>
+                            <%
+                                }
+                            %> 
+                            
+                            <%
+                                if(cat.getFk_categoria() == 6){%>
+                                     <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn4">
+                                     <input type="checkbox" name="categories[]" value="6" checked> Autos
+                                     </label>
+
+                            <%
+                                }else{
+                            %>
+                                 <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn4">
+                                 <input type="checkbox" name="categories[]" value="6"> Autos
+                                 </label>
+                            <%
+                                }
+                            %> 
+                            
+                            <%
+                                if(cat.getFk_categoria() == 7){%>
+                                     <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn3">
+                                     <input type="checkbox" name="categories[]" value="7" checked> Ciberseguridad
+                                     </label>
+
+                            <%
+                                }else{
+                            %>
+                                 <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn3">
+                                 <input type="checkbox" name="categories[]" value="7"> Ciberseguridad
+                                 </label>
+                            <%
+                                }
+                            %> 
+                            
+                            <%
+                                if(cat.getFk_categoria() == 8){%>
+                                     <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn2">
+                                     <input type="checkbox" name="categories[]" value="8" checked> Realidad Virtual
+                                     </label>
+
+                            <%
+                                }else{
+                            %>
+                                 <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn2">
+                                 <input type="checkbox" name="categories[]" value="8"> Realidad Virtual
+                                 </label>
+                            <%
+                                }
+                            %> 
+                            
+                            <%
+                                if(cat.getFk_categoria() == 9){%>
+                                     <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn">
+                                     <input type="checkbox" name="categories[]" value="9" checked> Inteligencia Artificial
+                                     </label>
+
+                            <%
+                                }else{
+                            %>
+                                 <label class="btn btn-outline-dark mr-2 mb-2 check" id="btn">
+                                 <input type="checkbox" name="categories[]" value="9"> Inteligencia Artificial
+                                 </label>
+                            <%
+                                }
+                            %> 
+                            
+                            <%
+                                }
+                            %>
+                                   
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="summary">Summary</label>
+                  <textarea class="form-control" name="summary" id="summary" rows="3" placeholder="Enter a summary of your story"><%= cards.getResumen()%></textarea>
+                </div>
+
+                <!--
+                <div class="form-group">
+                    <label for="caption">Image caption</label>
+                    <input type="text" class="form-control" name="caption" id="caption" placeholder="Enter image caption">
+                </div>
+                -->
+
+                <div class="form-group">
+                    <label for="sub1">Subtitle</label>
+                    <input type="text" class="form-control" name="subtitle" value="<%=cards.getDescripcion()%>" id="sub1" placeholder="Enter subtitle">
+                </div>
+                
+                <div class="form-group">
+                    <label for="text1">Content</label>
+                    <textarea class="form-control" name="content" id="text1" rows="3" placeholder="Enter description"><%=cards.getNoticia()%></textarea>
+                </div>
+
+                <div class="d-none" id="second">
+
+                    <div class="form-group">
+                        <label for="sub2">Subtitle 2</label>
+                        <input type="text" class="form-control" id="sub2" placeholder="Enter subtitle">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="text2">Content</label>
+                        <textarea class="form-control" id="text2" rows="3" placeholder="Enter description"></textarea>
+                    </div>
+                </div>
+
+                <div class="d-none" id="third">
+                    <div class="form-group">
+                        <label for="sub3">Subtitle 3</label>
+                        <input type="text" class="form-control" id="sub3" placeholder="Enter subtitle">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="text3">Content</label>
+                        <textarea class="form-control" id="text3" rows="3" placeholder="Enter description"></textarea>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-outline-link font-weight-bold mb-4" id="plus"> <i class="fas fa-plus"></i> Add Subtitle</button>
+                <button type="submit" class="btn btn-primary font-weight-bold px-4 float-right">Save Changes</button>
+                
+            </form>
         </div>
-   
-        <!--Social-->
-        <section class="social">
-            <p>Siguenos Science & Tech</p>
-            <div class="links">
-                <a href="https://www.facebook.com/Romeesponja" class="btn btn-link ">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" class="btn btn-link">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" class="btn btn-link">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </div>
-
-        </section>
-
     </div>
+
 
      <!--footer-->
      <div class="footer-links">
@@ -644,23 +643,27 @@
         <h6>&#169 2020 Science & Tech. Todos los derechos reservados. </h6>
     </footer>
 
-    <!-- SCRIPS -->
+    <!--SCRIPTS-->
+
+    <!--scroll reveal-->
+    <script src="https://unpkg.com/scrollreveal"></script>
 
     <!--custom js-->
-    <script src="assets/JS/profile.js"></script>
     <script src="assets/JS/header.js"></script>
 
+    <script src="assets/JS/news_form.js"></script>
 
     <!-- Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"></script>
-
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"></script>
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-      crossorigin="anonymous"></script>
-    </body>
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
 </html>
+

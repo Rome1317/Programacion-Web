@@ -267,4 +267,26 @@ public class NoticiasDAO {
             return id;
         }
     }
+        
+        public static int editNews(Noticia article, int id){
+        
+            try {
+            Connection con = DbConection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL prc_editnoticia(?,?,?,?,?);");         
+            
+            statement.setInt(1,id);
+            statement.setString(2,article.getTitulo());
+            statement.setString(3,article.getDescripcion());
+            statement.setString(4,article.getNoticia());
+            statement.setString(5,article.getResumen());
+   
+           
+            statement.executeUpdate();  
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            return 0;
+        }
+    }
 }

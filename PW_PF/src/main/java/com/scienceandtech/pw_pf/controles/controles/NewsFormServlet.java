@@ -129,7 +129,7 @@ public class NewsFormServlet extends HttpServlet {
         if(checked != null && title.equals("") != true  && summary.equals("") != true  && subtitle.equals("") != true  && content.equals("") != true){
             
         
-            Noticia article = new Noticia(title,summary,subtitle,content, /*usuario.getEmail()*/ "rome@hotmail.com");
+            Noticia article = new Noticia(title,summary,subtitle,content, usuario.getEmail());
         
         
             NoticiasDAO.insertNews(article);

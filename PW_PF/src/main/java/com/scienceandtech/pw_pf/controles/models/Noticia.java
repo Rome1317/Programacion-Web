@@ -25,6 +25,7 @@ public class Noticia {
     private String fk_usuario;
     private int likes;
     private List<Imagen> Img;
+    private List<Noticia_Categoria> Cat;
     private Date fecha;
 
    
@@ -66,7 +67,7 @@ public class Noticia {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.fk_usuario = fk_usuario;
-        this.Img = Img;
+ 
     }
     
 
@@ -82,6 +83,13 @@ public class Noticia {
         this.titulo = titulo;
         this.descripcion = descripcion;
     }
+
+    public Noticia(String titulo, String resumen, String descripcion, String noticia) {
+        this.titulo = titulo;
+        this.resumen= resumen;
+        this.descripcion = descripcion;
+        this.noticia = noticia;
+    }
     
     /*GETTERS*/
     public String getMainImg() {
@@ -94,6 +102,10 @@ public class Noticia {
 
     public List<Imagen> getImg() {
         return Img;
+    }
+    
+    public List<Noticia_Categoria> getCats() {
+        return Cat;
     }
     
     public String getFecha() {        
@@ -162,6 +174,10 @@ public class Noticia {
     
         public void setImg(List<Imagen> Img) {
         this.Img = Img;
+    }
+        
+   public void setCats(List<Noticia_Categoria> Cat) {
+        this.Cat = Cat;
     }
 
 }
