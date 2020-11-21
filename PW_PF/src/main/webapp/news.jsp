@@ -134,11 +134,11 @@
                             %>
                         </div>
                         <%if(usuario.isBaneado() == false){%>
-                        <div class="d-none" id="respond">
+                        <div class="" id="respond">
                             <textarea rows="1" class="form-control mb-3 texta " id="text2" placeholder="Reply to this comment." name ="comentario"></textarea>                          
                             <div class="options"> 
                                 <button type="button" class="btn btn-outline-dark" id="btnc2"> Cancel </button>
-                                <button type="submit" class="btn btn-primary btnpost" id="btnp2"> Post </button>
+                                <button type="submit" class="btn btn-primary btnpost" id="btnp2"> Reply </button>
                             </div>
                         </div> 
                         <%}%>
@@ -263,7 +263,7 @@
              <img src="<%=cards.getImg().get(2).getExtencion()%>" alt="" class = "images">
         </div>
              
-         <%if(cards.isAprovado() == false && (usuario.getRol().equals("Administrador") == true || usuario.getRol().equals("Editor") == true)){%>
+         <%if(true){%>
         <div class="comment">
             <div class="butts">
                 <div class="cell">
