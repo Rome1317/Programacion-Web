@@ -43,6 +43,8 @@ insert into Tbl_Usuario (email,username,pass,facebook,rol)
 values ("dani@outlook.com", "ElDani", "123" , "https://www.facebook.com/Romeesponja", "Creador Contenido");
 insert into Tbl_Usuario (email,username,pass,facebook,rol)
 values ("Jerson@outlook.com", "Jersongas", "123" , "https://www.facebook.com/Romeesponja", "Editor");
+insert into Tbl_Usuario (email,username,pass,facebook,rol)
+values ("Anonimo", "Anonimo", "123" , "", "Registrada");
 select * from Tbl_Usuario order by email;
 /*----------------*/
 

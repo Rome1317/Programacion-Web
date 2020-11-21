@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -52,8 +53,36 @@ public class LoginServlet extends HttpServlet {
         
         HttpSession session = request.getSession();
         session.setAttribute("USER", temp);    
-        
+       
+        String prueba;
+        String prueba2;
         if(temp != null){
+            //Cookie
+            Cookie[] lasCookies = request.getCookies();
+            if(lasCookies == null){
+                Cookie cookie_usuario = new Cookie("login.user",user);
+                Cookie cookie_password = new Cookie("login.password",password);
+
+                //Tiempo de vida de la cookie
+                cookie_usuario.setMaxAge(365*24*60*60); //1 a;o
+                cookie_password.setMaxAge(365*24*60*60); 
+
+                response.addCookie(cookie_usuario);
+                response.addCookie(cookie_password);
+            }
+//            }else{
+//                 for (Cookie galleta : lasCookies){
+//                    if("login.user".equals(galleta.getName())){
+//                       galleta.setValue(user); 
+//                    }
+//
+//                    if("login.password".equals(galleta.getName())){
+//                        galleta.setValue(password);         
+//                    }
+//                }
+//            }
+            
+           
             request.getRequestDispatcher("MainServerlet").forward(request, response);
         }else{
             request.getRequestDispatcher("login.jsp").forward(request, response);
