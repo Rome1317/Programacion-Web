@@ -24,17 +24,18 @@
                         </div>
                                                
                         <%
-                            if(usuario != null && (usuario.getEmail().equals("Anonimo")== false)){
+                            if(usuario == null || (usuario.getEmail().equals("Anonimo")== true)){
                         %>
-                        <img src="<%= usuario.getImagen()%>" class="photo hide" >
-                        <a href="PerfilServerlet"><%=usuario.getUsername()%></a>
-                        <a href = "newsform.jsp" type="button" class="btn btn-outline-info info">Write News</a>
-                        <a href="LogOutServerlet">Log out</a>
+                                      
+                        <a href="login.jsp">Mi Cuenta</a>
+                        <a href = "#" type="button" class="btn btn-outline-info info">Write News</a>
                         <% 
                             }else{ 
                         %>
-                        <a href="login.jsp">Mi Cuenta</a>
-                        <a href = "#" type="button" class="btn btn-outline-info info">Write News</a>
+                        <img src="<%= usuario.getImagen()%>" class="photo hide" >
+                        <a href="PerfilServerlet"><%=usuario.getUsername()%></a>
+                        <a href = "NewFormServletDos" type="button" class="btn btn-outline-info info">Write News</a>
+                        <a href="LogOutServerlet">Log out</a>
                         <%
                             }
                         %>

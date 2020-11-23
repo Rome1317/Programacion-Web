@@ -54,40 +54,51 @@ public class LoginServlet extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("USER", temp);    
        
-        String prueba;
-        String prueba2;
-        if(temp != null){
-            //Cookie
-            Cookie[] lasCookies = request.getCookies();
-            if(lasCookies == null){
-                Cookie cookie_usuario = new Cookie("login.user",user);
-                Cookie cookie_password = new Cookie("login.password",password);
-
-                //Tiempo de vida de la cookie
-                cookie_usuario.setMaxAge(365*24*60*60); //1 a;o
-                cookie_password.setMaxAge(365*24*60*60); 
-
-                response.addCookie(cookie_usuario);
-                response.addCookie(cookie_password);
-            }
-//            }else{
+//        String prueba = "";
+//        String prueba2 = "";
+       if(temp != null){
+//            //Cookie
+//            Cookie[] lasCookies = request.getCookies();
+//             for (Cookie galleta : lasCookies){
+//                 if("login.user".equals(galleta.getName())){
+//                    prueba  = galleta.getValue();
+//                 }
+//                 
+//                 if("login.password".equals(galleta.getName())){
+//                     prueba2 = galleta.getValue();
+//                 }                               
+//             }
+//            
+//            if(prueba.equals("") == true && prueba2.equals("") == true){
+//                Cookie cookie_usuario = new Cookie("login.user",user);
+//                Cookie cookie_password = new Cookie("login.password",password);
+//
+//                //Tiempo de vida de la cookie
+//                cookie_usuario.setMaxAge(365*24*60*60); //1 a;o
+//                cookie_password.setMaxAge(365*24*60*60); 
+//
+//                response.addCookie(cookie_usuario);
+//                response.addCookie(cookie_password);
+//            
+  //         }else{
 //                 for (Cookie galleta : lasCookies){
 //                    if("login.user".equals(galleta.getName())){
 //                       galleta.setValue(user); 
+//                       response.addCookie(galleta);
 //                    }
 //
 //                    if("login.password".equals(galleta.getName())){
-//                        galleta.setValue(password);         
+//                        galleta.setValue(password);    
+//                        response.addCookie(galleta);
 //                    }
-//                }
+//                }               
 //            }
-            
-           
-            request.getRequestDispatcher("MainServerlet").forward(request, response);
-        }else{
+                
+           request.getRequestDispatcher("MainServerlet").forward(request, response);
+       }else{
             request.getRequestDispatcher("login.jsp").forward(request, response);
-        }             
-    }
+       }             
+ }
 
     @Override
     public String getServletInfo() {

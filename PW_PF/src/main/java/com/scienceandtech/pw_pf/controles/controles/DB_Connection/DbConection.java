@@ -28,16 +28,16 @@ public class DbConection {
         // lo demas son parametros para que no tengan problemas con zonas horarias
         
         //DONAS
-        //dataSource.setUrl("jdbc:mysql://localhost:3306/ct_db?useUnicode=true&useJDBCCompliantTimeZoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
-        //dataSource.setUsername("root");       
-        //dataSource.setPassword("Reycena99");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/ct_db?useUnicode=true&useJDBCCompliantTimeZoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+        dataSource.setUsername("root");       
+        dataSource.setPassword("Reycena99");
         // dataSource.setMaxIdle(0);
         // dataSource.setMaxActive(100);
         
         //ROMINA
-        dataSource.setUrl("jdbc:mysql://localhost:3306/ct_db2?useUnicode=true&useJDBCCompliantTimeZoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
-        dataSource.setUsername("root");       
-        dataSource.setPassword("itsjohncena17");
+//        dataSource.setUrl("jdbc:mysql://localhost:3306/ct_db2?useUnicode=true&useJDBCCompliantTimeZoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+//        dataSource.setUsername("root");       
+//        dataSource.setPassword("itsjohncena17");
         // dataSource.setMaxIdle(0);
         // dataSource.setMaxActive(100);
        

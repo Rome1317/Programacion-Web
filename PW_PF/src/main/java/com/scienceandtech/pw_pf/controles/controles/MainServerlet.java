@@ -50,20 +50,26 @@ public class MainServerlet extends HttpServlet {
          Usuario temp = null;
          Cookie[] lasCookies = request.getCookies();
          
-         if(lasCookies != null){
-             for (Cookie galleta : lasCookies){
-                 if("login.user".equals(galleta.getName())){
-                    user  = galleta.getValue();
-                 }
-                 
-                 if("login.password".equals(galleta.getName())){
-                     password = galleta.getValue();
-                 }
-                 
-                 temp = UsuarioDAO.loginUser(user, password);
-                 usuario = temp;
-             }
-         }
+   
+//             for (Cookie galleta : lasCookies){
+//                 if("login.user".equals(galleta.getName())){
+//                    user  = galleta.getValue();
+//                 }
+//                 
+//                 if("login.password".equals(galleta.getName())){
+//                     password = galleta.getValue();
+//                 }                               
+//             }
+//             
+//             if(user.equals("") == false && password.equals("") == false){
+//                   temp = UsuarioDAO.loginUser(user, password);
+//                   usuario = temp;
+//                   request.setAttribute("usuario", temp);
+//             }else{
+//                  request.setAttribute("usuario", usuario);
+//             }
+//           
+//         
                             
          request.setAttribute("cards", cards);
          request.setAttribute("usuario", usuario);

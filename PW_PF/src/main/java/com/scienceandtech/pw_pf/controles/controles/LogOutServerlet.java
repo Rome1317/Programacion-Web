@@ -45,18 +45,29 @@ public class LogOutServerlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
                     
-        Cookie[] lasCookies = request.getCookies();
-        if(lasCookies != null){
-            for (Cookie galleta : lasCookies){
-                 if("login.user".equals(galleta.getName())){
-                    galleta.setMaxAge(0);
-                 }
-                 
-                 if("login.password".equals(galleta.getName())){
-                     galleta.setMaxAge(0);            
-                 }
-            }
-        }
+//        Cookie[] lasCookies = request.getCookies();
+//        if(lasCookies != null){
+////            for (Cookie galleta : lasCookies){
+////                 if("login.user".equals(galleta.getName())){
+////                    galleta.setMaxAge(0);
+////                 }
+////                 
+////                 if("login.password".equals(galleta.getName())){
+////                     galleta.setMaxAge(0);            
+////                 }
+////            }
+//        }
+//        Cookie cookie = new Cookie("login.user", "");
+//        cookie.setMaxAge(0);
+//        Cookie cookie2 = new Cookie("login.password", "");
+//        cookie2.setMaxAge(0);
+//        Cookie cookie3 = new Cookie("JSESSIONID", "");
+//        cookie3.setMaxAge(0);
+        //11B3E6D6A934986D75FD9FE49949D0D3
+//         response.addCookie(cookie);
+//         response.addCookie(cookie2);
+//        // response.addCookie(cookie3);
+          
         HttpSession session = request.getSession();
         Usuario usuario = null;
         session.setAttribute("USER", usuario);

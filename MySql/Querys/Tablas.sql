@@ -69,3 +69,13 @@ create table if not exists Tbl_Guardadas(
     foreign key (fk_usuario) references Tbl_Usuario(email),
     foreign key (fk_noticia) references Tbl_Noticia(id_noticia)
 );
+
+create table if not exists Tbl_NoticiaDenegada(
+	fk_noticia 		int 			primary key not null,
+	comentario 		varchar(1000) 	not null,
+	fk_usuario		varchar(50)		not null,
+    
+    foreign key (fk_usuario) references Tbl_Usuario(email),
+    foreign key (fk_noticia) references Tbl_Noticia(id_noticia)
+
+);

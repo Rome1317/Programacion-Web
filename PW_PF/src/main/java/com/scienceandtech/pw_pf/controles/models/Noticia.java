@@ -27,6 +27,15 @@ public class Noticia {
     private List<Imagen> Img;
     private List<Noticia_Categoria> Cat;
     private Date fecha;
+    private String comentario;
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
 
    
 

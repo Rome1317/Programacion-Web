@@ -146,9 +146,20 @@
                         <div class="new">
                             <img src="<%= card.getMainImg()%>" alt="Noticia 1">              
                             <h3><%= card.getTitulo()%></h3>
-                            <p><%= card.getDescripcion()%></p>                               
-                                
-                                <i class="fas fa-angle-double-right"></i></a>
+                            <p><%= card.getDescripcion()%></p>
+                            <%
+                                if(card.isAprovado() == true){
+                                %>
+                            <h4>Estatus: Aprobado</h4>   
+                            <%}else{%>
+                              
+                                <%if(card.getComentario().equals("") == false){%>
+                                <h4>Estatus: Rechazado</h4> 
+                                <h3><%=card.getComentario()%></h3>
+                                <%}else{%>
+                                <h4>Estatus: En espera</h4> 
+                                <%}%>
+                            <%}%>                               
                         </div>                         
                          <% } %>
                      </div>

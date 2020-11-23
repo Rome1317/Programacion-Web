@@ -7,6 +7,7 @@ select * from Tbl_Categoria;
 select * from Tbl_Not_Cat;
 select * from Tbl_Guardadas;
 select * from Tbl_Comentario;
+
     
 truncate table Tbl_Guardadas;
 

@@ -9,6 +9,7 @@ import com.scienceandtech.pw_pf.controles.models.Imagen;
 import com.scienceandtech.pw_pf.controles.models.Noticia;
 import com.scienceandtech.pw_pf.controles.models.Usuario;
 import com.scienceandtech.pw_pf.controles.models.dao.ImagenDAO;
+import com.scienceandtech.pw_pf.controles.models.dao.NoticiaRechazadaDAO;
 import com.scienceandtech.pw_pf.controles.models.dao.NoticiasDAO;
 import com.scienceandtech.pw_pf.controles.models.dao.UsuarioDAO;
 
@@ -65,9 +66,14 @@ public class PerfilServerlet extends HttpServlet {
          List<Noticia> noticiasCreadas = NoticiasDAO.getUserNews(usuario.getEmail());
          List<Imagen> imagenes;
          for(Noticia card : noticiasCreadas){
-             imagenes = ImagenDAO.getHomeImg(card);
+             //Carga las imagenes
+             imagenes = ImagenDAO.getHomeImg(card);           
              card.setImg(imagenes);
+             //Carga de comentarios 
+             String comentario = NoticiaRechazadaDAO.getComentarioRechazado(card.getId_noticia());
+             card.setComentario(comentario);
          }
+       
          
          /*Noticias no aprobadas*/
              List<Noticia> noticiasNoArobadas = NoticiasDAO.getNotApproved();

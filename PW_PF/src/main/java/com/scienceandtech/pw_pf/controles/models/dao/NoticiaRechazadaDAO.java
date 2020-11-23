@@ -9,6 +9,7 @@ import com.scienceandtech.pw_pf.controles.controles.DB_Connection.DbConection;
 import com.scienceandtech.pw_pf.controles.models.Noticia_Denegada;
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -33,6 +34,25 @@ public class NoticiaRechazadaDAO {
             System.out.println(ex.getMessage());
         } finally {
             return 0;
+        }
+    }
+    
+    public static String getComentarioRechazado(int id_noticia){
+        String comentario = "";
+         try {
+            Connection con = DbConection.getConnection();
+            CallableStatement statement = con.prepareCall("CALL prc_comentarioRechazado(?);");         
+            
+            statement.setInt(1,id_noticia);        
+             ResultSet resultSet = statement.executeQuery();  
+             while(resultSet.next()){
+                 comentario = resultSet.getString(1);
+             }          
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            return comentario;
         }
     }
 }
